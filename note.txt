@@ -1,0 +1,9 @@
+Khách sạn chi tiết:
+
+Gallery ảnh 
+Tên Khách sạn
+Số sao
+Địa chỉ
+Giá (thấp nhất theo tất cả các phòng)
+Mô tả 
+điểm nổi bật (features)

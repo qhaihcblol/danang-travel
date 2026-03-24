@@ -1,0 +1,88 @@
+import type { Ticket } from "@/types/ticket";
+
+export const ticketsMockData: Ticket[] = [
+  {
+    id: "ticket-1",
+    name: "Vé Tham Quan Bà Nà Hills",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+    location: "Hòa Vang",
+    rating: 4.7,
+    reviews: 456,
+    price: 350000,
+    type: "ticket",
+    validity: "Một ngày",
+    benefits: ["Cáp treo khứ hồi", "Lâu đài", "Vườn hoa"],
+    description: "Vé vào cửa Bà Nà Hills với cáp treo và tất cả khu vui chơi",
+  },
+  {
+    id: "ticket-2",
+    name: "Vé Ngắm Cầu Rồng Phun Nước",
+    image:
+      "https://images.unsplash.com/photo-1541709227545-e6835cdcd4c4?w=600&h=400&fit=crop",
+    location: "Cầu Rồng",
+    rating: 4.6,
+    reviews: 389,
+    price: 0,
+    type: "ticket",
+    validity: "Miễn phí",
+    benefits: ["Ngắm toàn cảnh", "Chụp ảnh", "Mở cửa 24/7"],
+    description: "Truy cập miễn phí để ngắm cầu rồng phun nước buổi tối",
+  },
+  {
+    id: "ticket-3",
+    name: "Vé Chùa Linh Ứng",
+    image:
+      "https://images.unsplash.com/photo-1461856733160-6f3ee02fda15?w=600&h=400&fit=crop",
+    location: "Sơn Trà",
+    rating: 4.5,
+    reviews: 267,
+    price: 50000,
+    type: "ticket",
+    validity: "Một ngày",
+    benefits: ["Tượng Phật Quan Âm", "View đẹp", "Lễ tự do"],
+    description: "Vé thăm Chùa Linh Ứng với tượng Phật Quan Âm cao 67m",
+  },
+  {
+    id: "ticket-4",
+    name: "Vé Bảo tàng Văn hóa Sa Huỳnh",
+    image:
+      "https://images.unsplash.com/photo-1515779339790-5021ae4a3149?w=600&h=400&fit=crop",
+    location: "Hải Châu",
+    rating: 4.4,
+    reviews: 145,
+    price: 80000,
+    type: "ticket",
+    validity: "Một ngày",
+    benefits: ["Các triển lãm", "Hướng dẫn viên", "Phòng kỹ thuật số"],
+    description: "Vé vào Bảo tàng Sa Huỳnh với những di vật từ quá khứ",
+  },
+  {
+    id: "ticket-5",
+    name: "Vé Đảo Cù Lao Chàm",
+    image:
+      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&h=400&fit=crop",
+    location: "Cửa Đại",
+    rating: 4.8,
+    reviews: 312,
+    price: 100000,
+    type: "ticket",
+    validity: "Một ngày",
+    benefits: ["Khu bảo tồn", "Lặn ngắm san hô", "Tham quan sinh vật"],
+    description: "Vé vào Khu bảo tồn Biển Cù Lao Chàm",
+  },
+  {
+    id: "ticket-6",
+    name: "Combo: Hội An + Bà Nà Hills",
+    image:
+      "https://images.unsplash.com/photo-1488888651953-f4de2d36b030?w=600&h=400&fit=crop",
+    location: "Hội An & Hòa Vang",
+    rating: 4.7,
+    reviews: 234,
+    price: 650000,
+    type: "ticket",
+    validity: "2 ngày",
+    benefits: ["Phố cổ Hội An", "Bà Nà Hills", "Xe đưa đón"],
+    description: "Gói combo 2 ngày tham quan Hội An và Bà Nà Hills",
+  },
+];
