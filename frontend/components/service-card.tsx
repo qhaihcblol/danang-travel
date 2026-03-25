@@ -14,8 +14,10 @@ interface ServiceCardProps {
   reviews?: number;
   bookingCount?: number;
   price?: number;
+  priceNote?: string;
   amenities?: string[];
-  type?: 'hotel' | 'tour' | 'ticket' | 'attraction';
+  tags?: string[];
+  type?: 'hotel' | 'resort' | 'villa' | 'hostel' | 'apartment' | 'tour' | 'ticket' | 'attraction';
   variant?: 'grid' | 'hotel-list';
 }
 
@@ -30,21 +32,37 @@ export function ServiceCard({
   reviews = 0,
   bookingCount,
   price,
+  priceNote,
   amenities,
+  tags,
   type = 'hotel',
   variant = 'grid',
 }: ServiceCardProps) {
   const [isFavorited, setIsFavorited] = useState(false);
   const totalReviews = reviewCount ?? reviews;
   const visibleAmenities = (amenities ?? []).slice(0, 3);
+  const visibleTags = (tags ?? []).slice(0, 2);
   const displayStars = Math.max(0, Math.min(5, stars ?? Math.round(rating)));
+  const isAccommodation = ['hotel', 'resort', 'villa', 'hostel', 'apartment'].includes(type);
+
+  const typeLabelMap: Record<NonNullable<ServiceCardProps['type']>, string> = {
+    hotel: 'Khách sạn',
+    resort: 'Resort',
+    villa: 'Villa',
+    hostel: 'Hostel',
+    apartment: 'Căn hộ',
+    tour: 'Tour',
+    ticket: 'Vé',
+    attraction: 'Điểm đến',
+  };
+  const displayType = typeLabelMap[type] ?? type;
 
   const formatPrice = (value: number) => {
     if (value === 0) return 'Miễn phí';
     return value.toLocaleString('vi-VN') + 'đ';
   };
 
-  if (variant === 'hotel-list' && type === 'hotel') {
+  if (variant === 'hotel-list' && isAccommodation) {
     return (
       <Card className="group overflow-hidden border border-orange-400/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
         <div className="flex flex-col md:flex-row">
@@ -86,7 +104,7 @@ export function ServiceCard({
 
             <div className="mb-2 flex items-center gap-2 text-sm">
               <span className="rounded bg-indigo-600 px-2 py-0.5 font-semibold text-white">
-                {rating.toFixed(1)}
+                {rating.toFixed(1)} / 5
               </span>
               <span className="font-medium text-indigo-700">Rất tốt</span>
               <span className="text-muted-foreground">{totalReviews.toLocaleString('vi-VN')} bình luận</span>
@@ -123,7 +141,9 @@ export function ServiceCard({
                 <p className="text-4xl font-extrabold leading-none tracking-tight text-foreground md:text-3xl">
                   {formatPrice(price)}
                 </p>
-                <p className="mt-2 text-xs text-muted-foreground">Giá cho một đêm, chưa gồm thuế phí</p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  {priceNote ?? 'Giá cho một đêm, chưa gồm thuế phí'}
+                </p>
               </div>
             )}
             <button className="rounded-xl bg-orange-500 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600">
@@ -164,7 +184,7 @@ export function ServiceCard({
 
         {/* Type Badge */}
         <div className="absolute bottom-3 left-3 rounded-full bg-black/45 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-white backdrop-blur-sm">
-          {type}
+          {displayType}
         </div>
         
         {/* Favorite Button */}
@@ -216,6 +236,19 @@ export function ServiceCard({
           </div>
         )}
 
+        {visibleTags.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-1.5">
+            {visibleTags.map((tag) => (
+              <span
+                key={`${id}-tag-${tag}`}
+                className="rounded-full border border-primary/25 bg-primary/8 px-2.5 py-1 text-[11px] font-medium text-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
         {visibleAmenities.length > 0 && (
           <div className="mb-3">
             <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -237,22 +270,9 @@ export function ServiceCard({
         {/* Rating */}
         {totalReviews > 0 && (
           <div className="mt-auto flex items-center gap-2 border-t border-border/30 pt-2 text-sm">
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`h-4 w-4 ${
-                    i < Math.floor(rating)
-                      ? 'fill-accent text-accent'
-                      : i < Math.ceil(rating)
-                      ? 'fill-accent/50 text-accent'
-                      : 'text-muted-foreground/30'
-                  }`}
-                />
-              ))}
-            </div>
+            <Star className="h-4 w-4 fill-accent text-accent" />
             <div className="flex items-center gap-1">
-              <span className="font-medium text-foreground">{rating.toFixed(1)}</span>
+              <span className="font-medium text-foreground">{rating.toFixed(1)} / 5</span>
               <span className="text-muted-foreground">({totalReviews})</span>
             </div>
           </div>

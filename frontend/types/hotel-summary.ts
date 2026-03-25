@@ -1,16 +1,45 @@
+export type StarRating = 1 | 2 | 3 | 4 | 5;
+
+export interface GeoLocation {
+  lat: number;
+  lng: number;
+}
+
+export interface RatingBreakdown {
+  cleanliness: number;
+  comfort: number;
+  location: number;
+  facilities: number;
+  staff: number;
+  valueForMoney: number;
+}
+
 export interface HotelSummary {
   id: string;
   name: string;
+  slug?: string;
+  type: "hotel" | "resort" | "villa" | "hostel" | "apartment";
+
   image: string;
+  images?: string[];
+
   location: string;
-  stars: number;
+  coordinates?: GeoLocation;
+
+  stars: StarRating;
   rating: number;
+  ratingBreakdown?: RatingBreakdown;
   reviewCount: number;
+
   bookingCount: number;
+
   price: number;
-  type: "hotel";
+  currency?: string;
+  priceNote?: string;
+
   amenities: string[];
   description?: string;
+  tags?: string[];
 }
 
 export type Hotel = HotelSummary;

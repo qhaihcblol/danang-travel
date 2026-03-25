@@ -1,9 +1,5 @@
-Khách sạn chi tiết:
-
-Gallery ảnh 
-Tên Khách sạn
-Số sao
-Địa chỉ
-Giá (thấp nhất theo tất cả các phòng)
-Mô tả 
-điểm nổi bật (features)
+Hãy tạo trang thông tin khách sạn khi tôi nhấn vào 1 hotel.
+Đầu tiên là sẽ hiển thị vùng danh sách ảnh khách sạn, tối đa 5 hình, nếu nhiều ở có thể nhấn vào 1 icon nhỏ ở góc dưới phải trong vùng ảnh,
+Tiếp đến là Tên khách sạn
+Dưới là Số sao và địa chỉ khách sạn - bên phải sẽ hiển thị giá phòng 
+tạm thời là vậy đã

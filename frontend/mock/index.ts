@@ -7,7 +7,7 @@ export { hotelsDetailMockData, getHotelDetailMockById } from "./hotel-detail";
 export type {
   HotelDetail,
   HotelDetailRoom,
-  HotelPolicy,
+  HotelPolicies,
   HotelContact,
 } from "@/types/hotel-detail";
 export { toursMockData } from "./tour";
