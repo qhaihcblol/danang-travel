@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Star, MapPin, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface ServiceCardProps {
   id: string;
@@ -38,6 +39,7 @@ export function ServiceCard({
   type = 'hotel',
   variant = 'grid',
 }: ServiceCardProps) {
+  const router = useRouter();
   const [isFavorited, setIsFavorited] = useState(false);
   const totalReviews = reviewCount ?? reviews;
   const visibleAmenities = (amenities ?? []).slice(0, 3);
@@ -56,6 +58,7 @@ export function ServiceCard({
     attraction: 'Điểm đến',
   };
   const displayType = typeLabelMap[type] ?? type;
+  const hotelHref = isAccommodation ? `/hotels/${id}` : undefined;
 
   const formatPrice = (value: number) => {
     if (value === 0) return 'Miễn phí';
@@ -64,7 +67,10 @@ export function ServiceCard({
 
   if (variant === 'hotel-list' && isAccommodation) {
     return (
-      <Card className="group overflow-hidden border border-orange-400/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+      <Card
+        className="group overflow-hidden border border-orange-400/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+        onClick={() => hotelHref && router.push(hotelHref)}
+      >
         <div className="flex flex-col md:flex-row">
           <div className="relative h-56 w-full overflow-hidden md:h-auto md:w-56 lg:w-60">
             <Image
@@ -76,7 +82,10 @@ export function ServiceCard({
               priority={false}
             />
             <button
-              onClick={() => setIsFavorited(!isFavorited)}
+              onClick={(event) => {
+                event.stopPropagation();
+                setIsFavorited(!isFavorited);
+              }}
               className={`absolute right-3 top-3 rounded-full p-2 transition-all duration-300 ${
                 isFavorited
                   ? 'bg-accent text-white shadow-lg'
@@ -146,7 +155,13 @@ export function ServiceCard({
                 </p>
               </div>
             )}
-            <button className="rounded-xl bg-orange-500 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600">
+            <button
+              onClick={(event) => {
+                event.stopPropagation();
+                if (hotelHref) router.push(hotelHref);
+              }}
+              className="rounded-xl bg-orange-500 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600"
+            >
               Xem chi tiết
             </button>
           </div>
@@ -156,7 +171,10 @@ export function ServiceCard({
   }
 
   return (
-    <Card className="overflow-hidden group h-full cursor-pointer border border-border/40 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform">
+    <Card
+      className="overflow-hidden group h-full cursor-pointer border border-border/40 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform"
+      onClick={() => hotelHref && router.push(hotelHref)}
+    >
       {/* Image Container */}
       <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: '16/10' }}>
         <Image
@@ -189,7 +207,10 @@ export function ServiceCard({
         
         {/* Favorite Button */}
         <button
-          onClick={() => setIsFavorited(!isFavorited)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setIsFavorited(!isFavorited);
+          }}
           className={`absolute top-3 left-3 p-2 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 ${
             isFavorited
               ? 'bg-accent text-white shadow-lg scale-110'

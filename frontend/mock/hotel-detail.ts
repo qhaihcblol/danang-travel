@@ -12,12 +12,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
     type: "resort",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
-    ],
     location: "Bãi biển Mỹ Khê, Ngũ Hành Sơn, Đà Nẵng",
     coordinates: { lat: 16.0544, lng: 108.2478 },
     stars: 5,
@@ -559,12 +553,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
     slug: "sea-harmony-hotel-da-nang",
     type: "hotel",
     image:
-      "https://images.unsplash.com/photo-1578899387351-623a0ba99864?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1578899387351-623a0ba99864?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
-    ],
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
     location: "Đường Bạch Đằng, Hải Châu, Đà Nẵng",
     coordinates: { lat: 16.0678, lng: 108.2208 },
     stars: 4,
@@ -595,7 +584,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
 
     // ── HotelDetail fields ───────────────────────────────────────
     gallery: [
-      "https://images.unsplash.com/photo-1578899387351-623a0ba99864?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&h=800&fit=crop",
@@ -885,12 +874,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
     type: "resort",
     image:
       "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop",
-    ],
     location: "Non Nước, Ngũ Hành Sơn, Đà Nẵng",
     coordinates: { lat: 16.1154, lng: 108.3187 },
     stars: 5,
@@ -1255,11 +1238,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
     type: "hotel",
     image:
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1596436889106-be35e843f974?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&h=400&fit=crop",
-    ],
     location: "Đường Võ Nguyên Giáp, Mỹ Khê, Sơn Trà, Đà Nẵng",
     coordinates: { lat: 16.0609, lng: 108.2441 },
     stars: 4,
@@ -1293,6 +1271,8 @@ export const hotelsDetailMockData: HotelDetail[] = [
       "https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&h=800&fit=crop",
     ],
 
     overview:
@@ -1512,12 +1492,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
     slug: "coastal-boutique-hotel",
     type: "hotel",
     image:
-      "https://images.unsplash.com/photo-1561599810-d3fee221d187?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1561599810-d3fee221d187?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop",
-    ],
+      "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=600&h=400&fit=crop",
     location: "Đường Hoàng Sa, Sơn Trà, Đà Nẵng",
     coordinates: { lat: 16.1093, lng: 108.2727 },
     stars: 4,
@@ -1547,10 +1522,12 @@ export const hotelsDetailMockData: HotelDetail[] = [
     tags: ["Boutique", "New"],
 
     gallery: [
-      "https://images.unsplash.com/photo-1561599810-d3fee221d187?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&h=800&fit=crop",
     ],
 
     overview:
@@ -1818,12 +1795,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
     slug: "grand-plaza-hotel-da-nang",
     type: "hotel",
     image:
-      "https://images.unsplash.com/photo-1585132340905-fe94a2c1ff89?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1585132340905-fe94a2c1ff89?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=600&h=400&fit=crop",
-    ],
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
     location: "Đường Phan Chu Trinh, Hải Châu, Đà Nẵng",
     coordinates: { lat: 16.0586, lng: 108.2215 },
     stars: 4,
@@ -1854,10 +1826,12 @@ export const hotelsDetailMockData: HotelDetail[] = [
     tags: ["Business"],
 
     gallery: [
-      "https://images.unsplash.com/photo-1585132340905-fe94a2c1ff89?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&h=800&fit=crop",
     ],
 
     overview:
@@ -2162,11 +2136,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
     type: "hotel",
     image:
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&h=400&fit=crop",
-    ],
     location: "Đường Trần Phú, Hải Châu, Đà Nẵng",
     coordinates: { lat: 16.0631, lng: 108.2198 },
     stars: 4,
@@ -2199,7 +2168,9 @@ export const hotelsDetailMockData: HotelDetail[] = [
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1578899387351-623a0ba99864?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&h=800&fit=crop",
     ],
 
     overview:
@@ -2444,11 +2415,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
     type: "resort",
     image:
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&h=400&fit=crop",
-    ],
     location: "Khu du lịch Bà Nà Hills, Hòa Vang, Đà Nẵng",
     coordinates: { lat: 15.9973, lng: 107.9897 },
     stars: 4,
@@ -2831,3 +2797,9 @@ export const hotelsDetailMockData: HotelDetail[] = [
     lastUpdated: "2026-01-11T08:00:00Z",
   },
 ];
+
+export const getHotelDetailMockById = (idOrSlug: string) => {
+  return hotelsDetailMockData.find(
+    (hotel) => hotel.id === idOrSlug || hotel.slug === idOrSlug,
+  );
+};

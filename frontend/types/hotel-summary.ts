@@ -21,7 +21,6 @@ export interface HotelSummary {
   type: "hotel" | "resort" | "villa" | "hostel" | "apartment";
 
   image: string;
-  images?: string[];
 
   location: string;
   coordinates?: GeoLocation;
