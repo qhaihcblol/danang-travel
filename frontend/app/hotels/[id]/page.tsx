@@ -3,6 +3,7 @@ import { MapPin, Star } from 'lucide-react';
 import { getHotelDetailMockById } from '@/mock';
 import { HotelGallery } from '@/components/hotel-gallery';
 import { HotelHighlights } from '@/components/hotel-highlights';
+import { HotelRoomsSection } from '@/components/hotel-rooms-section';
 import { Badge } from '@/components/ui/badge';
 import { HotelOverview } from '../../../components/hotel-overview';
 
@@ -34,7 +35,7 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+      <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <HotelGallery images={images} hotelName={hotel.name} />
 
         <div className="mt-6">
@@ -114,6 +115,8 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               <HotelOverview overview={hotel.overview ?? hotel.description ?? ''} />
             </aside>
           </div>
+
+          <HotelRoomsSection rooms={hotel.rooms} />
         </div>
       </section>
     </main>

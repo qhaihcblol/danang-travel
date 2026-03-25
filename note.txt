@@ -1,8 +1,0 @@
-Hãy bổ sung tiếp tục trang hotel detail:
-Bên trái (2/3 trang)
-- Tiếp theo tag, ở dưới tag là mô tả(description)
-- Dưới mô tả là nổi bật (hightlight), highlight hiện thị kiểu icon, khi hover vào thì hiển thị description của highlight
-- Tiếp đến ở dưới là tiện ích nổi bật của hotel, hiển thị tầm 6 cái
-Bên phải (1/3 trang)
-- Đánh giá n/5 - Số lượt bình luận
-- Dưới là Overview: tầm 3 4 dòng , cho cân đối với bên trái. Dài quá thì ... và có chữ xem chi tiết

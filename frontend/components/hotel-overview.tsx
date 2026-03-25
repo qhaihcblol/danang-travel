@@ -15,7 +15,7 @@ export function HotelOverview({ overview }: HotelOverviewProps) {
 
   return (
     <section className="rounded-xl border border-border/70 bg-background px-4 py-3">
-      <h2 className="text-sm font-semibold text-muted-foreground">Overview</h2>
+      <h2 className="text-sm font-semibold text-muted-foreground">Tổng quan</h2>
       <p
         className="mt-2 text-sm leading-7 text-foreground/90"
         style={

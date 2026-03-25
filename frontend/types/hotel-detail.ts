@@ -45,8 +45,6 @@ export interface HotelDetailRoom {
 
   // Area
   sizeM2?: number; // diện tích m²
-  floor?: string; // "Tầng 3–5"
-  view?: string; // "Hướng biển" | "Hướng thành phố"
 
   // Pricing
   price: number; // giá / đêm

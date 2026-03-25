@@ -147,8 +147,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 350000,
         sizeM2: 42,
-        floor: "Tầng 1–3",
-        view: "Hướng vườn nhiệt đới",
+
         price: 2500000,
         originalPrice: 3200000,
         currency: "VND",
@@ -185,8 +184,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 350000,
         sizeM2: 42,
-        floor: "Tầng 2–5",
-        view: "Hướng biển trực diện",
+
         price: 3200000,
         originalPrice: 4000000,
         currency: "VND",
@@ -227,8 +225,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 500000,
         sizeM2: 85,
-        floor: "Tầng 4–5",
-        view: "Hướng biển toàn cảnh",
+
         price: 5500000,
         originalPrice: 7000000,
         currency: "VND",
@@ -276,8 +273,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 4,
         extraBedAllowed: false,
         sizeM2: 180,
-        floor: "Tầng 1 (Villa riêng biệt)",
-        view: "Hướng vườn & hồ bơi riêng",
+
         price: 12000000,
         originalPrice: 15000000,
         currency: "VND",
@@ -664,8 +660,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 250000,
         sizeM2: 28,
-        floor: "Tầng 3–8",
-        view: "Hướng thành phố",
+
         price: 1200000,
         originalPrice: 1500000,
         currency: "VND",
@@ -694,8 +689,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 250000,
         sizeM2: 35,
-        floor: "Tầng 9–15",
-        view: "Hướng sông Hàn",
+
         price: 1800000,
         originalPrice: 2300000,
         currency: "VND",
@@ -731,8 +725,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 2,
         extraBedAllowed: false,
         sizeM2: 28,
-        floor: "Tầng 3–8",
-        view: "Hướng thành phố",
+
         price: 1300000,
         currency: "VND",
         priceIncludes: ["Bữa sáng cho 2 khách", "WiFi miễn phí"],
@@ -985,8 +978,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 400000,
         sizeM2: 40,
-        floor: "Tầng 1–2",
-        view: "Hướng vườn & hồ bơi",
+
         price: 3200000,
         originalPrice: 4000000,
         currency: "VND",
@@ -1015,8 +1007,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 450000,
         sizeM2: 52,
-        floor: "Tầng 3–5",
-        view: "Hướng biển",
+
         price: 4500000,
         originalPrice: 5800000,
         currency: "VND",
@@ -1053,8 +1044,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 500000,
         sizeM2: 95,
-        floor: "Tầng 2–4",
-        view: "Hướng biển & hồ bơi",
+
         price: 7500000,
         originalPrice: 9000000,
         currency: "VND",
@@ -1340,8 +1330,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 200000,
         sizeM2: 25,
-        floor: "Tầng 3–9",
-        view: "Hướng thành phố",
+
         price: 1200000,
         currency: "VND",
         priceIncludes: ["WiFi miễn phí"],
@@ -1362,8 +1351,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 200000,
         sizeM2: 32,
-        floor: "Tầng 10–16",
-        view: "Hướng biển trực diện",
+
         price: 1800000,
         originalPrice: 2200000,
         currency: "VND",
@@ -1601,8 +1589,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 2,
         extraBedAllowed: false,
         sizeM2: 22,
-        floor: "Tầng 1",
-        view: "Hướng sân vườn trong",
+
         price: 950000,
         currency: "VND",
         priceIncludes: [
@@ -1636,8 +1623,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 2,
         extraBedAllowed: false,
         sizeM2: 30,
-        floor: "Tầng 3–4",
-        view: "Thoáng hướng biển",
+
         price: 1400000,
         originalPrice: 1700000,
         currency: "VND",
@@ -1907,8 +1893,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 150000,
         sizeM2: 24,
-        floor: "Tầng 3–10",
-        view: "Hướng thành phố",
+
         price: 850000,
         currency: "VND",
         priceIncludes: ["WiFi miễn phí"],
@@ -1937,8 +1922,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 200000,
         sizeM2: 32,
-        floor: "Tầng 11–16",
-        view: "Hướng thành phố",
+
         price: 1200000,
         originalPrice: 1500000,
         currency: "VND",
@@ -1972,8 +1956,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 2,
         extraBedAllowed: false,
         sizeM2: 26,
-        floor: "Tầng 3–10",
-        view: "Hướng thành phố",
+
         price: 950000,
         currency: "VND",
         priceIncludes: ["WiFi miễn phí"],
@@ -2246,8 +2229,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 200000,
         sizeM2: 26,
-        floor: "Tầng 3–8",
-        view: "Hướng thành phố",
+
         price: 1050000,
         currency: "VND",
         priceIncludes: ["Bữa sáng buffet cho 2", "WiFi"],
@@ -2268,8 +2250,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 250000,
         sizeM2: 34,
-        floor: "Tầng 9–15",
-        view: "Hướng sông Hàn & cầu Rồng",
         price: 1600000,
         originalPrice: 2000000,
         currency: "VND",
@@ -2532,8 +2512,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 400000,
         sizeM2: 28,
-        floor: "Tầng 1–2",
-        view: "Hướng làng Pháp",
+
         price: 2100000,
         originalPrice: 2800000,
         currency: "VND",
@@ -2565,8 +2544,7 @@ export const hotelsDetailMockData: HotelDetail[] = [
         extraBedAllowed: true,
         extraBedCharge: 450000,
         sizeM2: 35,
-        floor: "Tầng 2–3",
-        view: "Hướng vườn hoa & núi",
+
         price: 2800000,
         originalPrice: 3500000,
         currency: "VND",
@@ -2605,8 +2583,6 @@ export const hotelsDetailMockData: HotelDetail[] = [
         capacity: 2,
         extraBedAllowed: false,
         sizeM2: 65,
-        floor: "Tầng 4 (Penthouse)",
-        view: "360° — núi rừng, mây và làng Pháp",
         price: 6500000,
         originalPrice: 8000000,
         currency: "VND",
