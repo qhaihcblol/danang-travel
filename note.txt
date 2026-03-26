@@ -1,1 +1,3 @@
-tôi không thấy chữ xem chi tiết/ thu gọn được hiển thị trên web của tổng quan. thôi viết lại xóa đi hotel-overview cũng được. thay vào đó làm cơ chế ! cho tổng quan tương tự như Đánh giá tổng quan và Khám phá 
+Hãy thay đổi màu hiển thị cho hover vô ! của các Đánh giá tổng quan, Khám phá, Tổng quan màu khác hài hòa hơn, chứ nền đen, chữ trắng trông xấu, và làm chữ hiển thị to hơn tí.
+Thiết kế lại Vùng Danh sách phòng to rõ hơn, Phân biệt giữa Phòng và Giá rõ ràng
+Có thể chia Cân đối 2/2 cho RoomVariant : bên trái gồm người và ,số phòng còn lại. Bên phải là bữa sáng và miễn phí hủy. Thiết kế ô to hơn không viết nhập nhằng như hiện tại. 

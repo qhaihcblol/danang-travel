@@ -80,13 +80,13 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
   }, [rooms]);
 
   return (
-    <section className="mt-10 rounded-2xl border border-border/80 bg-card/55 p-4 sm:p-6 lg:p-7">
+    <section className="mt-10 rounded-2xl border border-border/80 bg-card/55 p-5 sm:p-7 lg:p-8">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-xl font-bold text-foreground sm:text-2xl">Danh sách phòng</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Thiết kế rõ ràng theo từng loại phòng và tùy chọn đặt.</p>
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Danh sách phòng</h2>
+          <p className="mt-1 text-base text-muted-foreground">Thiết kế rõ ràng theo từng loại phòng và mức giá cho mỗi lựa chọn.</p>
         </div>
-        <Badge variant="secondary" className="w-fit rounded-full px-3 py-1 text-sm">
+        <Badge variant="secondary" className="w-fit rounded-full px-3 py-1.5 text-sm">
           {visibleRooms.length} loại phòng
         </Badge>
       </div>
@@ -119,8 +119,8 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                 </div>
               </header>
 
-              <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-3 md:gap-5 md:p-5">
-                <div className="space-y-3 md:col-span-1">
+              <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-12 md:gap-5 md:p-5">
+                <div className="space-y-3 md:col-span-4">
                   <div className="overflow-hidden rounded-lg border border-border/70 bg-muted/50">
                     {mainImage ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -164,13 +164,13 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                                 Xem thêm tiện nghi (+{extraAmenities.length})
                               </button>
                             </HoverCardTrigger>
-                            <HoverCardContent className="w-80">
-                              <p className="mb-2 text-sm font-semibold text-foreground">Tất cả tiện nghi</p>
+                            <HoverCardContent className="w-96 max-w-[90vw] p-4">
+                              <p className="mb-3 text-base font-semibold text-foreground">Tất cả tiện nghi</p>
                               <div className="flex max-h-56 flex-wrap gap-2 overflow-y-auto pr-1">
                                 {(room.amenities ?? []).map((amenity) => (
                                   <span
                                     key={`${room.id}-all-${amenity}`}
-                                    className="rounded-full border border-border/70 bg-muted/25 px-2.5 py-1 text-xs text-foreground"
+                                    className="rounded-full border border-border/70 bg-muted/25 px-3 py-1.5 text-sm text-foreground"
                                   >
                                     {amenity}
                                   </span>
@@ -184,46 +184,62 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                   </div>
                 </div>
 
-                <div className="space-y-2.5 md:col-span-2">
-                  {sortedVariants.length > 0 &&
-                    sortedVariants.map((variant) => (
-                      <div
-                        key={variant.id}
-                        className="grid grid-cols-1 gap-3 rounded-lg border border-border/70 bg-card/35 p-3 md:grid-cols-3 md:items-center"
-                      >
-                        <div className="space-y-1 md:col-span-2">
-                          <p className="text-sm font-semibold text-foreground">{toBedLabel(variant.beds)}</p>
-                          <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                            <span className="inline-flex items-center gap-1">
-                              <Users className="h-3.5 w-3.5" />
-                              {toCapacityLabel(variant.capacity)}
-                            </span>
-                            <span className="inline-flex items-center gap-1">
-                              {variant.breakfast ? (
-                                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                              ) : (
-                                <XCircle className="h-3.5 w-3.5 text-muted-foreground" />
-                              )}
-                              {variant.breakfast ? 'Có bữa sáng' : 'Không gồm bữa sáng'}
-                            </span>
-                            {variant.availableCount !== undefined && <span>Còn {variant.availableCount} phòng</span>}
-                          </div>
-                          {variant.cancellationPolicy && (
-                            <p className="text-xs font-medium text-primary">{variant.cancellationPolicy}</p>
-                          )}
-                        </div>
-
-                        <div className="flex flex-col gap-2 md:col-span-1 md:items-end">
-                          <div className="text-left md:text-right">
-                            <p className="text-[11px] text-muted-foreground">Giá / đêm</p>
-                            <p className="text-lg font-bold text-foreground">{formatPrice(variant.price, currency)}</p>
-                          </div>
-                          <Button size="sm" className="w-full md:w-auto">
-                            Đặt
-                          </Button>
-                        </div>
+                <div className="space-y-3 md:col-span-8">
+                  {sortedVariants.length > 0 && (
+                    <div className="overflow-hidden rounded-xl border border-border/80 bg-card/45">
+                      <div className="hidden border-b border-border/80 bg-muted/35 px-4 py-3 text-sm font-semibold text-foreground md:grid md:grid-cols-[minmax(0,2fr)_minmax(220px,1fr)]">
+                        <p>Đề xuất cho bạn</p>
+                        <p className="border-l border-border/80 pl-4">Giá</p>
                       </div>
-                    ))}
+
+                      {sortedVariants.map((variant) => (
+                        <div
+                          key={variant.id}
+                          className="grid grid-cols-1 border-b border-border/70 bg-background/95 last:border-b-0 md:grid-cols-[minmax(0,2fr)_minmax(220px,1fr)]"
+                        >
+                          <div className="space-y-3 px-4 py-4 md:py-5">
+                            <p className="text-lg font-semibold text-foreground">{toBedLabel(variant.beds)}</p>
+
+                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-6">
+                              <div className="space-y-2">
+                                <p className="inline-flex min-h-6 items-center gap-1.5 text-sm text-muted-foreground">
+                                  <Users className="h-4 w-4" />
+                                  {toCapacityLabel(variant.capacity)}
+                                </p>
+                                <p className="inline-flex min-h-6 items-center text-sm text-muted-foreground">
+                                  {variant.availableCount !== undefined ? `Còn ${variant.availableCount} phòng` : 'Liên hệ để kiểm tra phòng'}
+                                </p>
+                              </div>
+                              <div className="space-y-2">
+                                <p className="inline-flex min-h-6 items-center gap-1.5 text-sm text-teal-700 dark:text-teal-300">
+                                  {variant.breakfast ? (
+                                    <CheckCircle2 className="h-4 w-4" />
+                                  ) : (
+                                    <XCircle className="h-4 w-4 text-muted-foreground" />
+                                  )}
+                                  {variant.breakfast ? 'Bao gồm bữa sáng' : 'Không gồm bữa sáng'}
+                                </p>
+                                <p className="inline-flex min-h-6 items-center text-sm text-muted-foreground">
+                                  {variant.cancellationPolicy ?? 'Không hoàn tiền'}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col justify-center gap-3 border-t border-border/70 bg-muted/15 px-4 py-4 md:border-t-0 md:border-l md:border-border/80 md:py-5">
+                            <div className="md:text-right">
+                              <p className="text-2xl font-bold leading-tight text-foreground">
+                                {formatPrice(variant.price, currency)}
+                              </p>
+                            </div>
+                            <Button size="sm" className="h-9 w-full text-sm font-semibold md:ml-auto md:w-24">
+                              Đặt
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   {sortedVariants.length === 0 && (
                     <div className="rounded-lg border border-dashed border-border bg-muted/20 p-4 text-sm text-muted-foreground">

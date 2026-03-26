@@ -122,26 +122,30 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
             </div>
 
             <aside className="space-y-4 rounded-2xl border border-border/80 bg-card/70 p-4 shadow-sm lg:sticky lg:top-24 lg:h-fit lg:p-5">
-              <div className="rounded-xl border border-border/70 bg-background px-4 py-3">
+              <div className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-muted-foreground">Đánh giá tổng quan</p>
+                  <p className="text-base font-semibold text-slate-700">Đánh giá tổng quan</p>
                   {!!hotel.ratingBreakdown && (
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button
                           type="button"
-                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
                           aria-label="Xem chi tiết đánh giá"
                         >
                           <Info className="h-3.5 w-3.5" />
                         </button>
                       </TooltipTrigger>
-                      <TooltipContent side="top" align="end" className="max-w-xs p-3 text-xs">
+                      <TooltipContent
+                        side="top"
+                        align="end"
+                        className="max-w-xs border border-sky-100 bg-sky-50/95 p-3 text-xs text-slate-700 shadow-md"
+                      >
                         <div className="space-y-2">
                           {Object.entries(hotel.ratingBreakdown).map(([key, value]) => (
                             <div key={`${hotel.id}-rating-${key}`} className="grid grid-cols-[1fr_auto] items-center gap-3">
-                              <span className="text-background/90">{ratingLabels[key as keyof typeof ratingLabels]}</span>
-                              <span className="font-semibold">{value.toFixed(1)}</span>
+                              <span>{ratingLabels[key as keyof typeof ratingLabels]}</span>
+                              <span className="font-semibold text-slate-900">{value.toFixed(1)}</span>
                             </div>
                           ))}
                         </div>
@@ -163,26 +167,30 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               </div>
 
               {!!hotel.nearbyPlaces?.length && (
-                <section className="rounded-xl border border-border/70 bg-background px-4 py-3">
+                <section className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-sm font-semibold text-muted-foreground">Khám phá (2 địa điểm gần nhất)</h2>
+                    <h2 className="text-base font-semibold text-slate-700">Khám phá (2 địa điểm gần nhất)</h2>
                     {hotel.nearbyPlaces.length > nearbyPreview.length && (
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button
                             type="button"
-                            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
                             aria-label="Xem tất cả địa điểm lân cận"
                           >
                             <Info className="h-3.5 w-3.5" />
                           </button>
                         </TooltipTrigger>
-                        <TooltipContent side="left" align="start" className="max-w-sm p-3 text-xs">
+                        <TooltipContent
+                          side="left"
+                          align="start"
+                          className="max-w-sm border border-sky-100 bg-sky-50/95 p-3 text-xs text-slate-700 shadow-md"
+                        >
                           <div className="space-y-2">
                             {hotel.nearbyPlaces.map((place) => (
                               <div key={`${hotel.id}-nearby-tooltip-${place.name}`} className="space-y-1">
-                                <p className="font-semibold text-background">{place.name}</p>
-                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-background/85">
+                                <p className="font-semibold text-slate-900">{place.name}</p>
+                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-600">
                                   {!!place.category && <span>{place.category}</span>}
                                   {typeof place.distanceKm === 'number' && <span>{place.distanceKm.toLocaleString('vi-VN')} km</span>}
                                   {typeof place.travelTimeMin === 'number' && <span>{place.travelTimeMin} phút</span>}
@@ -223,21 +231,25 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               )}
 
               {!!overviewContent && (
-                <section className="rounded-xl border border-border/70 bg-background px-4 py-3">
+                <section className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-sm font-semibold text-muted-foreground">Tổng quan</h2>
+                    <h2 className="text-base font-semibold text-slate-700">Tổng quan</h2>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button
                           type="button"
-                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
                           aria-label="Xem toàn bộ nội dung tổng quan"
                         >
                           <Info className="h-3.5 w-3.5" />
                         </button>
                       </TooltipTrigger>
-                      <TooltipContent side="left" align="start" className="max-w-sm p-3 text-xs">
-                        <p className="leading-6 text-background/95">{overviewContent}</p>
+                      <TooltipContent
+                        side="left"
+                        align="start"
+                        className="max-w-sm border border-sky-100 bg-sky-50/95 p-3 text-xs text-slate-700 shadow-md"
+                      >
+                        <p className="leading-6">{overviewContent}</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
