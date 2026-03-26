@@ -10,7 +10,7 @@ import { ServiceCard } from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { carouselImagesMockData, hotelsMockData } from '@/mock';
+import { carouselImagesMockData, hotelsSummaryMock } from '@/mock';
 
 const carouselImages = carouselImagesMockData.map((item) => item.url);
 
@@ -287,7 +287,7 @@ export default function HotelsPage() {
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Khách sạn nổi bật</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {hotelsMockData.map((hotel) => (
+            {hotelsSummaryMock.map((hotel) => (
               <ServiceCard key={hotel.id} {...hotel} />
             ))}
           </div>

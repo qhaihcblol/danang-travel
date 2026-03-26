@@ -113,7 +113,7 @@ export function ServiceCard({
 
             <div className="mb-2 flex items-center gap-2 text-sm">
               <span className="rounded bg-indigo-600 px-2 py-0.5 font-semibold text-white">
-                {rating.toFixed(1)} / 5
+                {rating.toFixed(1)} /10
               </span>
               <span className="font-medium text-indigo-700">Rất tốt</span>
               <span className="text-muted-foreground">{totalReviews.toLocaleString('vi-VN')} bình luận</span>
@@ -293,7 +293,7 @@ export function ServiceCard({
           <div className="mt-auto flex items-center gap-2 border-t border-border/30 pt-2 text-sm">
             <Star className="h-4 w-4 fill-accent text-accent" />
             <div className="flex items-center gap-1">
-              <span className="font-medium text-foreground">{rating.toFixed(1)} / 5</span>
+              <span className="font-medium text-foreground">{rating.toFixed(1)} / 10</span>
               <span className="text-muted-foreground">({totalReviews})</span>
             </div>
           </div>

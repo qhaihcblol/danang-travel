@@ -1,0 +1,1 @@
+tôi không thấy chữ xem chi tiết/ thu gọn được hiển thị trên web của tổng quan. thôi viết lại xóa đi hotel-overview cũng được. thay vào đó làm cơ chế ! cho tổng quan tương tự như Đánh giá tổng quan và Khám phá 

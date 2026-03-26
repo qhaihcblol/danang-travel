@@ -30,47 +30,31 @@ export interface RoomBed {
   count: number;
 }
 
-export type RoomStatus = "available" | "limited" | "sold_out";
-
-export interface HotelDetailRoom {
+export interface RoomCapacity { 
+  adults: number; 
+  children?: number;
+}
+export interface RoomVariant {
+  id: string;
+  beds: RoomBed[];
+  capacity: RoomCapacity;
+  price: number;
+  cancellationPolicy?: string;
+  breakfast: boolean;
+  availableCount?: number;
+}
+export interface RoomType {
   id: string;
   name: string;
-  type?: string; // "Deluxe" | "Suite" | "Standard" ...
-
-  // Bed & capacity
-  beds: RoomBed[];
-  capacity: number; // số khách tối đa
-  extraBedAllowed?: boolean;
-  extraBedCharge?: number;
-
+  type?: string;
+  roomVariants: RoomVariant[];
   // Area
-  sizeM2?: number; // diện tích m²
-
-  // Pricing
-  price: number; // giá / đêm
-  originalPrice?: number; // giá gốc (để show % giảm)
-  currency?: string;
-  priceIncludes?: string[]; // "Bữa sáng" | "Thuế VAT"
-
-  // Availability
-  quantity: number; // tổng số phòng loại này
-  status?: RoomStatus;
-  availableCount?: number; // số phòng còn trống
+  sizeM2?: number; 
+  view?: string; 
 
   // Media & amenities
   gallery?: string[];
   amenities?: string[];
-  highlights?: string[]; // "Bồn tắm riêng" | "Ban công"
-
-  // Policy
-  cancellationPolicy?: string;
-  mealPlan?:
-    | "room_only"
-    | "breakfast"
-    | "half_board"
-    | "full_board"
-    | "all_inclusive";
-  paymentPolicy?: "pay_now" | "pay_later" | "pay_at_hotel";
 }
 
 // ============================================================
@@ -110,20 +94,12 @@ export interface CheckInPolicy {
 
 export interface CheckOutPolicy {
   until: string; // "12:00"
-  from?: string;
   note?: string;
-}
-
-export interface CancellationPolicy {
-  type: "free" | "partial" | "non_refundable";
-  description: string;
-  deadline?: string; // "trước 24h"
 }
 
 export interface HotelPolicies {
   checkIn?: CheckInPolicy;
   checkOut?: CheckOutPolicy;
-  cancellation?: CancellationPolicy;
 
   childrenPolicy?: {
     allowed: boolean;
@@ -205,7 +181,7 @@ export interface HotelDetail extends HotelSummary {
   nearbyPlaces?: NearbyPlace[]; // typed thay vì string[]
 
   // Core data
-  rooms: HotelDetailRoom[];
+  rooms: RoomType[];
   servicesAndFacilities?: HotelServicesAndFacilities;
   policies?: HotelPolicies;
   contact?: HotelContact;
@@ -218,10 +194,6 @@ export interface HotelDetail extends HotelSummary {
   meta?: HotelMeta;
   lastUpdated?: string; // ISO date string
 }
-
-// ============================================================
-// REVIEW  (bonus — thường cần trong detail page)
-// ============================================================
 
 export interface HotelReview {
   id: string;

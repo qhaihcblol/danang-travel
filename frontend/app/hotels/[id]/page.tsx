@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation';
-import { MapPin, Star } from 'lucide-react';
-import { getHotelDetailMockById } from '@/mock';
+import { Clock3, Info, MapPin, Star } from 'lucide-react';
+import { hotelsDetailMock } from '@/mock';
 import { HotelGallery } from '@/components/hotel-gallery';
 import { HotelHighlights } from '@/components/hotel-highlights';
 import { HotelRoomsSection } from '@/components/hotel-rooms-section';
 import { Badge } from '@/components/ui/badge';
-import { HotelOverview } from '../../../components/hotel-overview';
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 type HotelDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -25,23 +26,37 @@ const formatPrice = (value: number, currency = 'VND') => {
 
 export default async function HotelDetailPage({ params }: HotelDetailPageProps) {
   const { id } = await params;
-  const hotel = getHotelDetailMockById(id);
+  const hotel = hotelsDetailMock.find((item) => item.id === id);
 
   if (!hotel) {
     notFound();
   }
 
   const images = hotel.gallery?.length ? hotel.gallery : [hotel.image];
+  const featuredAmenities =
+    hotel.servicesAndFacilities?.featured?.length
+      ? hotel.servicesAndFacilities.featured.slice(0, 6)
+      : hotel.amenities.slice(0, 6);
+  const nearbyPreview = hotel.nearbyPlaces?.slice(0, 2) ?? [];
+  const ratingLabels = {
+    cleanliness: 'Độ sạch sẽ',
+    comfort: 'Sự thoải mái',
+    location: 'Vị trí',
+    facilities: 'Tiện nghi',
+    staff: 'Nhân viên',
+    valueForMoney: 'Đáng giá tiền',
+  } as const;
+  const overviewContent = (hotel.overview ?? hotel.description ?? '').trim();
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-linear-to-b from-background via-background to-muted/20">
       <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <HotelGallery images={images} hotelName={hotel.name} />
 
-        <div className="mt-6">
-          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">{hotel.name}</h1>
+        <div className="mt-7">
+          <h1 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl lg:text-4xl">{hotel.name}</h1>
 
-          <div className="mt-3 flex flex-col gap-4 border-t border-border/60 pt-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="mt-4 flex flex-col gap-4 border-t border-border/60 pt-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="space-y-2">
               <div className="flex items-center gap-1 text-amber-500">
                 {Array.from({ length: hotel.stars }).map((_, index) => (
@@ -59,12 +74,15 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               <p className="text-2xl font-extrabold leading-tight text-foreground sm:text-3xl">
                 {formatPrice(hotel.price, hotel.currency)}
               </p>
-              <p className="text-xs text-muted-foreground">/ đêm</p>
+              <p className="text-xs text-muted-foreground">{hotel.priceNote ?? '/ đêm'}</p>
+              <Button asChild size="lg" className="mt-3 h-11 w-full rounded-lg text-sm font-bold sm:min-w-45">
+                <a href="#hotel-rooms">Đặt ngay</a>
+              </Button>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
-            <div className="space-y-6 lg:col-span-2">
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)] lg:gap-8">
+            <div className="space-y-5 lg:space-y-6">
               {!!hotel.tags?.length && (
                 <div className="flex flex-wrap gap-2">
                   {hotel.tags.map((tag) => (
@@ -91,7 +109,7 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
                   Tiện ích nổi bật
                 </h2>
                 <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                  {(hotel.servicesAndFacilities?.featured?.slice(0, 6) ?? hotel.amenities.slice(0, 6)).map((amenity) => (
+                  {featuredAmenities.map((amenity) => (
                     <div
                       key={`${hotel.id}-amenity-${amenity}`}
                       className="rounded-lg border border-border/80 bg-background/80 px-3 py-2 text-sm text-foreground"
@@ -103,20 +121,135 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               </section>
             </div>
 
-            <aside className="space-y-4 rounded-2xl border border-border/80 bg-card/70 p-4 lg:sticky lg:top-24 lg:h-fit">
+            <aside className="space-y-4 rounded-2xl border border-border/80 bg-card/70 p-4 shadow-sm lg:sticky lg:top-24 lg:h-fit lg:p-5">
               <div className="rounded-xl border border-border/70 bg-background px-4 py-3">
-                <p className="text-sm font-medium text-muted-foreground">Đánh giá</p>
-                <p className="mt-1 text-xl font-bold text-foreground">
-                  {hotel.rating.toFixed(1)}/5{' '}
-                  <span className="text-sm font-medium text-muted-foreground">- {hotel.reviewCount} bình luận</span>
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-medium text-muted-foreground">Đánh giá tổng quan</p>
+                  {!!hotel.ratingBreakdown && (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button
+                          type="button"
+                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                          aria-label="Xem chi tiết đánh giá"
+                        >
+                          <Info className="h-3.5 w-3.5" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" align="end" className="max-w-xs p-3 text-xs">
+                        <div className="space-y-2">
+                          {Object.entries(hotel.ratingBreakdown).map(([key, value]) => (
+                            <div key={`${hotel.id}-rating-${key}`} className="grid grid-cols-[1fr_auto] items-center gap-3">
+                              <span className="text-background/90">{ratingLabels[key as keyof typeof ratingLabels]}</span>
+                              <span className="font-semibold">{value.toFixed(1)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </TooltipContent>
+                    </Tooltip>
+                  )}
+                </div>
+                <div className="mt-2 flex items-end justify-between gap-3">
+                  <p className="text-2xl font-extrabold leading-none text-foreground">{hotel.rating.toFixed(1)} / 10</p>
+                  <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                    {hotel.reviewCount.toLocaleString('vi-VN')} bình luận
+                  </span>
+                </div>
               </div>
 
-              <HotelOverview overview={hotel.overview ?? hotel.description ?? ''} />
+              <div className="rounded-xl border border-border/70 bg-background px-4 py-3">
+                <p className="text-sm font-medium text-muted-foreground">Đã đặt</p>
+                <p className="mt-1 text-lg font-bold text-foreground">{hotel.bookingCount.toLocaleString('vi-VN')}+ lượt</p>
+              </div>
+
+              {!!hotel.nearbyPlaces?.length && (
+                <section className="rounded-xl border border-border/70 bg-background px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-sm font-semibold text-muted-foreground">Khám phá (2 địa điểm gần nhất)</h2>
+                    {hotel.nearbyPlaces.length > nearbyPreview.length && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <button
+                            type="button"
+                            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                            aria-label="Xem tất cả địa điểm lân cận"
+                          >
+                            <Info className="h-3.5 w-3.5" />
+                          </button>
+                        </TooltipTrigger>
+                        <TooltipContent side="left" align="start" className="max-w-sm p-3 text-xs">
+                          <div className="space-y-2">
+                            {hotel.nearbyPlaces.map((place) => (
+                              <div key={`${hotel.id}-nearby-tooltip-${place.name}`} className="space-y-1">
+                                <p className="font-semibold text-background">{place.name}</p>
+                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-background/85">
+                                  {!!place.category && <span>{place.category}</span>}
+                                  {typeof place.distanceKm === 'number' && <span>{place.distanceKm.toLocaleString('vi-VN')} km</span>}
+                                  {typeof place.travelTimeMin === 'number' && <span>{place.travelTimeMin} phút</span>}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
+                  </div>
+                  <div className="mt-3 space-y-2.5">
+                    {nearbyPreview.map((place) => (
+                      <div
+                        key={`${hotel.id}-nearby-${place.name}`}
+                        className="rounded-lg border border-border/60 bg-card/40 px-3 py-2"
+                      >
+                        <p className="text-sm font-medium leading-tight text-foreground">{place.name}</p>
+                        <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                          {!!place.category && <span>{place.category}</span>}
+                          {typeof place.distanceKm === 'number' && (
+                            <span className="inline-flex items-center gap-1">
+                              <MapPin className="h-3.5 w-3.5" />
+                              {place.distanceKm.toLocaleString('vi-VN')} km
+                            </span>
+                          )}
+                          {typeof place.travelTimeMin === 'number' && (
+                            <span className="inline-flex items-center gap-1">
+                              <Clock3 className="h-3.5 w-3.5" />
+                              {place.travelTimeMin} phút
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {!!overviewContent && (
+                <section className="rounded-xl border border-border/70 bg-background px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-sm font-semibold text-muted-foreground">Tổng quan</h2>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button
+                          type="button"
+                          className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                          aria-label="Xem toàn bộ nội dung tổng quan"
+                        >
+                          <Info className="h-3.5 w-3.5" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent side="left" align="start" className="max-w-sm p-3 text-xs">
+                        <p className="leading-6 text-background/95">{overviewContent}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  <p className="mt-2 line-clamp-4 text-sm leading-7 text-foreground/90">{overviewContent}</p>
+                </section>
+              )}
             </aside>
           </div>
 
-          <HotelRoomsSection rooms={hotel.rooms} />
+          <div id="hotel-rooms" className="scroll-mt-24">
+            <HotelRoomsSection rooms={hotel.rooms} currency={hotel.currency} />
+          </div>
         </div>
       </section>
     </main>

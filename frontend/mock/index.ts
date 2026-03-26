@@ -1,12 +1,11 @@
 // Central export file for all mock data
 // Organize mock data by feature for easy maintenance and scalability
 
-export { hotelsMockData } from "./hotel-summary";
+export { hotelsSummaryMock } from "./hotel-summary";
 export type { HotelSummary, Hotel } from "@/types/hotel-summary";
-export { hotelsDetailMockData, getHotelDetailMockById } from "./hotel-detail";
+export { hotelsDetailMock } from "./hotel-detail";
 export type {
   HotelDetail,
-  HotelDetailRoom,
   HotelPolicies,
   HotelContact,
 } from "@/types/hotel-detail";

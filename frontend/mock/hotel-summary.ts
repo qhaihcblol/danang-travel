@@ -1,406 +1,199 @@
 import type { HotelSummary } from "@/types/hotel-summary";
 
-export const hotelsMockData: HotelSummary[] = [
-  // ─────────────────────────────────────────────────────────────
-  // 1. Furama Resort Đà Nẵng
-  // ─────────────────────────────────────────────────────────────
+export const hotelsSummaryMock: HotelSummary[] = [
+  // ================================================================
+  // 1. THE SHIN HOTEL & SPA ★★★★★
+  // ================================================================
   {
-    id: "hotel-1",
-    name: "Furama Resort Đà Nẵng",
-    slug: "furama-resort-da-nang",
-    type: "resort",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
-    // Location
-    location: "Bãi biển Mỹ Khê, Ngũ Hành Sơn, Đà Nẵng",
+    id: "hotel-001",
+    name: "The Shin Hotel & Spa",
+    slug: "the-shin-hotel-spa-da-nang",
+    type: "hotel",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+    location: "Võ Nguyên Giáp, Mỹ Khê, Đà Nẵng",
     coordinates: { lat: 16.0544, lng: 108.2478 },
-
-    // Stars & Rating
     stars: 5,
-    rating: 4.6,
+    rating: 9.2,
     ratingBreakdown: {
-      cleanliness: 4.7,
-      comfort: 4.6,
-      location: 4.7,
-      facilities: 4.6,
-      staff: 4.8,
-      valueForMoney: 4.4,
+      cleanliness: 9.4,
+      comfort: 9.3,
+      location: 9.8,
+      facilities: 9.1,
+      staff: 9.5,
+      valueForMoney: 8.9,
     },
-    reviewCount: 245,
-
-    // Stats
-    bookingCount: 1380,
-
-    // Pricing
-    price: 2500000,
+    reviewCount: 1284,
+    bookingCount: 4350,
+    price: 2_850_000,
     currency: "VND",
-    priceNote: "Giá chưa gồm thuế và phí dịch vụ",
+    priceNote: "Giá mỗi đêm, đã bao gồm thuế",
+    amenities: [
+      "Hồ bơi vô cực",
+      "Spa",
+      "Bãi biển riêng",
+      "Nhà hàng",
+      "Bar",
+      "Gym",
+      "WiFi miễn phí",
+    ],
+    description:
+      "Tọa lạc ngay sát biển Mỹ Khê – một trong những bãi biển đẹp nhất hành tinh – The Shin Hotel & Spa mang đến trải nghiệm nghỉ dưỡng đẳng cấp 5 sao với hồ bơi vô cực hướng biển và dịch vụ spa được đánh giá cao nhất Đà Nẵng.",
+    tags: ["Hướng biển", "Hồ bơi vô cực", "Spa", "Bãi biển riêng"],
+  },
 
-    // Highlight
+  // ================================================================
+  // 2. AZURA BOUTIQUE RESORT ★★★★
+  // ================================================================
+  {
+    id: "hotel-002",
+    name: "Azura Boutique Resort",
+    slug: "azura-boutique-resort-da-nang",
+    type: "resort",
+    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
+    location: "Trường Sa, Ngũ Hành Sơn, Đà Nẵng",
+    coordinates: { lat: 15.9897, lng: 108.2608 },
+    stars: 4,
+    rating: 8.8,
+    ratingBreakdown: {
+      cleanliness: 9.0,
+      comfort: 8.9,
+      location: 8.7,
+      facilities: 8.5,
+      staff: 9.2,
+      valueForMoney: 9.0,
+    },
+    reviewCount: 743,
+    bookingCount: 2110,
+    price: 1_650_000,
+    currency: "VND",
+    priceNote: "Giá mỗi đêm, chưa bao gồm thuế",
     amenities: [
       "Hồ bơi ngoài trời",
-      "Spa & Wellness",
       "Nhà hàng",
-      "Trực tiếp ra biển",
+      "Bar bãi biển",
+      "Yoga",
       "WiFi miễn phí",
-      "Bãi đỗ xe",
+      "Xe đạp miễn phí",
     ],
     description:
-      "Khu nghỉ dưỡng 5 sao sang trọng bậc nhất Đà Nẵng với view biển tuyệt đẹp, hồ bơi vô cực và không gian thiên nhiên xanh mát trải dài.",
-    tags: ["Best seller", "Luxury"],
+      "Azura Boutique Resort mang phong cách Mediterranean ấm áp, nằm sát biển Non Nước yên tĩnh. Lý tưởng cho những cặp đôi và du khách tìm kiếm sự bình yên, xa rời ồn ào.",
+    tags: ["Boutique", "Yên tĩnh", "Mediterranean", "Non Nước"],
   },
 
-  // ─────────────────────────────────────────────────────────────
-  // 2. Sea Harmony Hotel Đà Nẵng
-  // ─────────────────────────────────────────────────────────────
+  // ================================================================
+  // 3. DA NANG CENTRAL HOSTEL ★★★
+  // ================================================================
   {
-    id: "hotel-2",
-    name: "Sea Harmony Hotel Đà Nẵng",
-    slug: "sea-harmony-hotel-da-nang",
-    type: "hotel",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
-    // Location
-    location: "Đường Bạch Đằng, Hải Châu, Đà Nẵng",
+    id: "hotel-003",
+    name: "Da Nang Central Hostel",
+    slug: "da-nang-central-hostel",
+    type: "hostel",
+    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800",
+    location: "Trần Phú, Hải Châu, Đà Nẵng",
     coordinates: { lat: 16.0678, lng: 108.2208 },
-
-    // Stars & Rating
-    stars: 4,
-    rating: 4.4,
+    stars: 3,
+    rating: 8.4,
     ratingBreakdown: {
-      cleanliness: 4.4,
-      comfort: 4.3,
-      location: 4.5,
-      facilities: 4.3,
-      staff: 4.6,
-      valueForMoney: 4.5,
+      cleanliness: 8.6,
+      comfort: 8.0,
+      location: 9.5,
+      facilities: 8.3,
+      staff: 9.0,
+      valueForMoney: 9.6,
     },
-    reviewCount: 156,
-
-    // Stats
-    bookingCount: 910,
-
-    // Pricing
-    price: 1800000,
+    reviewCount: 2891,
+    bookingCount: 8760,
+    price: 220_000,
     currency: "VND",
-    priceNote: "Đã bao gồm bữa sáng cho 2 khách",
-
-    // Highlight
+    priceNote: "Giá mỗi giường/đêm, đã bao gồm thuế",
     amenities: [
-      "WiFi miễn phí",
-      "Nhà hàng",
-      "Phòng gym",
-      "Bar trên sân thượng",
-      "Dịch vụ đưa đón sân bay",
-    ],
-    description:
-      "Khách sạn 4 sao trung tâm thành phố với phòng hướng biển và sông Hàn, dịch vụ chu đáo và vị trí thuận tiện di chuyển khắp Đà Nẵng.",
-    tags: ["Popular"],
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // 3. Vinpearl Resort & Spa Đà Nẵng
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "hotel-3",
-    name: "Vinpearl Resort & Spa Đà Nẵng",
-    slug: "vinpearl-resort-spa-da-nang",
-    type: "resort",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=400&fit=crop",
-    // Location
-    location: "Non Nước, Ngũ Hành Sơn, Đà Nẵng",
-    coordinates: { lat: 16.1154, lng: 108.3187 },
-
-    // Stars & Rating
-    stars: 5,
-    rating: 4.7,
-    ratingBreakdown: {
-      cleanliness: 4.8,
-      comfort: 4.7,
-      location: 4.6,
-      facilities: 4.8,
-      staff: 4.7,
-      valueForMoney: 4.5,
-    },
-    reviewCount: 312,
-
-    // Stats
-    bookingCount: 1725,
-
-    // Pricing
-    price: 3200000,
-    currency: "VND",
-    priceNote: "Bao gồm bữa sáng & sử dụng hồ bơi không giới hạn",
-
-    // Highlight
-    amenities: [
-      "Spa 5 sao",
-      "Thể thao dưới nước",
-      "3 Nhà hàng",
-      "Kids Club",
-      "Hồ bơi vô cực",
-      "Private Beach",
-    ],
-    description:
-      "Resort cao cấp ven biển với không gian rộng lớn, nhiều hồ bơi, khu spa đẳng cấp và đa dạng hoạt động vui chơi giải trí cho cả gia đình.",
-    tags: ["Luxury", "Family"],
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // 4. Mỹ Khê Sunrise Hotel
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "hotel-4",
-    name: "Mỹ Khê Sunrise Hotel",
-    slug: "my-khe-sunrise-hotel",
-    type: "hotel",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
-    // Location
-    location: "Đường Võ Nguyên Giáp, Mỹ Khê, Sơn Trà, Đà Nẵng",
-    coordinates: { lat: 16.0609, lng: 108.2441 },
-
-    // Stars & Rating
-    stars: 4,
-    rating: 4.3,
-    ratingBreakdown: {
-      cleanliness: 4.3,
-      comfort: 4.3,
-      location: 4.5,
-      facilities: 4.2,
-      staff: 4.4,
-      valueForMoney: 4.4,
-    },
-    reviewCount: 189,
-
-    // Stats
-    bookingCount: 1048,
-
-    // Pricing
-    price: 1200000,
-    currency: "VND",
-    priceNote: "Giá chưa gồm thuế 10%",
-
-    // Highlight
-    amenities: [
-      "Rooftop Bar",
-      "Nhà hàng hải sản",
-      "View thành phố & biển",
-      "Hồ bơi",
-      "WiFi miễn phí",
-    ],
-    description:
-      "Khách sạn 4 sao ngay bãi Mỹ Khê với tầm nhìn toàn cảnh thành phố và đại dương, bar sân thượng lý tưởng cho buổi tối thư giãn.",
-    tags: ["City View"],
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // 5. Coastal Boutique Hotel
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "hotel-5",
-    name: "Coastal Boutique Hotel",
-    slug: "coastal-boutique-hotel",
-    type: "hotel",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1562790351-d273a961e0e9?w=600&h=400&fit=crop",
-    // Location
-    location: "Đường Hoàng Sa, Sơn Trà, Đà Nẵng",
-    coordinates: { lat: 16.1093, lng: 108.2727 },
-
-    // Stars & Rating
-    stars: 4,
-    rating: 4.5,
-    ratingBreakdown: {
-      cleanliness: 4.5,
-      comfort: 4.4,
-      location: 4.4,
-      facilities: 4.3,
-      staff: 4.6,
-      valueForMoney: 4.5,
-    },
-    reviewCount: 167,
-
-    // Stats
-    bookingCount: 860,
-
-    // Pricing
-    price: 950000,
-    currency: "VND",
-    priceNote: "Đã bao gồm bữa sáng",
-
-    // Highlight
-    amenities: [
-      "Thiết kế boutique độc đáo",
-      "Nhà hàng farm-to-table",
+      "Phòng ký túc xá",
+      "Bếp chung",
+      "Khu vực co-working",
       "WiFi tốc độ cao",
-      "Cho thuê xe đạp",
-      "Yoga buổi sáng",
+      "Tủ khóa miễn phí",
+      "Tour miễn phí hàng ngày",
     ],
     description:
-      "Khách sạn boutique nhỏ xinh phong cách Indochine hiện đại, gần bán đảo Sơn Trà yên tĩnh, lý tưởng cho các cặp đôi và du khách thích sự riêng tư.",
-    tags: ["Boutique", "New"],
+      "Hostel sôi động nhất trung tâm Đà Nẵng, chỉ 5 phút đi bộ đến Cầu Rồng. Điểm gặp gỡ lý tưởng cho du khách ba lô muốn khám phá thành phố và kết bạn mới.",
+    tags: ["Trung tâm", "Ba lô", "Co-working", "Gần Cầu Rồng"],
   },
 
-  // ─────────────────────────────────────────────────────────────
-  // 6. Grand Plaza Hotel Đà Nẵng
-  // ─────────────────────────────────────────────────────────────
+  // ================================================================
+  // 4. SOLEIL APARTMENT HOTEL ★★★★
+  // ================================================================
   {
-    id: "hotel-6",
-    name: "Grand Plaza Hotel Đà Nẵng",
-    slug: "grand-plaza-hotel-da-nang",
-    type: "hotel",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
-    // Location
-    location: "Đường Phan Chu Trinh, Hải Châu, Đà Nẵng",
-    coordinates: { lat: 16.0586, lng: 108.2215 },
-
-    // Stars & Rating
+    id: "hotel-004",
+    name: "Soleil Apartment Hotel",
+    slug: "soleil-apartment-hotel-da-nang",
+    type: "apartment",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+    location: "Phạm Văn Đồng, Sơn Trà, Đà Nẵng",
+    coordinates: { lat: 16.0731, lng: 108.2412 },
     stars: 4,
-    rating: 4.2,
+    rating: 8.9,
     ratingBreakdown: {
-      cleanliness: 4.2,
-      comfort: 4.1,
-      location: 4.4,
-      facilities: 4.1,
-      staff: 4.3,
-      valueForMoney: 4.2,
+      cleanliness: 9.1,
+      comfort: 9.0,
+      location: 8.8,
+      facilities: 9.2,
+      staff: 8.9,
+      valueForMoney: 9.3,
     },
-    reviewCount: 234,
-
-    // Stats
-    bookingCount: 1196,
-
-    // Pricing
-    price: 850000,
+    reviewCount: 512,
+    bookingCount: 1430,
+    price: 1_200_000,
     currency: "VND",
-    priceNote: "Giá tốt nhất — miễn phí hủy trước 24h",
-
-    // Highlight
+    priceNote: "Giá/đêm, phù hợp lưu trú dài ngày",
     amenities: [
-      "Trung tâm hội nghị",
-      "Nhà hàng quốc tế",
-      "Phòng họp",
-      "Business Center",
-      "Dịch vụ giặt là",
-      "WiFi miễn phí",
+      "Bếp đầy đủ tiện nghi",
+      "Máy giặt riêng",
+      "Hồ bơi",
+      "Bãi đỗ xe",
+      "WiFi tốc độ cao",
+      "Smart TV Netflix",
     ],
     description:
-      "Khách sạn tiện ích bậc nhất giữa trung tâm Đà Nẵng, phù hợp cho khách công tác với đầy đủ cơ sở vật chất hội nghị và vị trí đắc địa.",
-    tags: ["Business"],
+      "Căn hộ khách sạn cao cấp nằm trên đại lộ Phạm Văn Đồng, lý tưởng cho gia đình và khách lưu trú dài ngày. Mỗi căn hộ có bếp đầy đủ tiện nghi, phòng giặt và ban công riêng.",
+    tags: ["Căn hộ", "Gia đình", "Lưu trú dài ngày", "Có bếp"],
   },
 
-  // ─────────────────────────────────────────────────────────────
-  // 7. Brilliant Hotel Đà Nẵng
-  // ─────────────────────────────────────────────────────────────
+  // ================================================================
+  // 5. VELA GRAND RESORT ★★★★★
+  // ================================================================
   {
-    id: "hotel-7",
-    name: "Brilliant Hotel Đà Nẵng",
-    slug: "brilliant-hotel-da-nang",
-    type: "hotel",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop",
-    // Location
-    location: "Đường Trần Phú, Hải Châu, Đà Nẵng",
-    coordinates: { lat: 16.0631, lng: 108.2198 },
-
-    // Stars & Rating
-    stars: 4,
-    rating: 4.3,
-    ratingBreakdown: {
-      cleanliness: 4.4,
-      comfort: 4.2,
-      location: 4.5,
-      facilities: 4.1,
-      staff: 4.3,
-      valueForMoney: 4.3,
-    },
-    reviewCount: 201,
-
-    // Stats
-    bookingCount: 974,
-
-    // Pricing
-    price: 1050000,
-    currency: "VND",
-    priceNote: "Đã bao gồm bữa sáng buffet",
-
-    // Highlight
-    amenities: [
-      "Hồ bơi trên sân thượng",
-      "View sông Hàn",
-      "Spa",
-      "Nhà hàng buffet",
-      "WiFi miễn phí",
-    ],
-    description:
-      "Khách sạn 4 sao view sông Hàn lãng mạn, hồ bơi sân thượng với tầm nhìn toàn cảnh cầu Rồng, lý tưởng cho kỳ nghỉ cặp đôi và gia đình.",
-    tags: ["Popular", "City View"],
-  },
-
-  // ─────────────────────────────────────────────────────────────
-  // 8. Mercure Đà Nẵng French Village Bana Hills
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "hotel-8",
-    name: "Mercure Bà Nà Hills",
-    slug: "mercure-da-nang-ba-na-hills",
+    id: "hotel-005",
+    name: "Vela Grand Resort",
+    slug: "vela-grand-resort-da-nang",
     type: "resort",
-
-    // Media
-    image:
-      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop",
-    // Location
-    location: "Khu du lịch Bà Nà Hills, Hòa Vang, Đà Nẵng",
-    coordinates: { lat: 15.9973, lng: 107.9897 },
-
-    // Stars & Rating
-    stars: 4,
-    rating: 4.4,
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+    location: "Hoàng Sa, Mỹ Khê, Đà Nẵng",
+    coordinates: { lat: 16.062, lng: 108.25 },
+    stars: 5,
+    rating: 9.5,
     ratingBreakdown: {
-      cleanliness: 4.4,
-      comfort: 4.3,
-      location: 4.3,
-      facilities: 4.4,
-      staff: 4.5,
-      valueForMoney: 4.2,
+      cleanliness: 9.7,
+      comfort: 9.6,
+      location: 9.8,
+      facilities: 9.5,
+      staff: 9.6,
+      valueForMoney: 9.0,
     },
-    reviewCount: 143,
-
-    // Stats
-    bookingCount: 687,
-
-    // Pricing
-    price: 2100000,
+    reviewCount: 3102,
+    bookingCount: 9840,
+    price: 4_500_000,
     currency: "VND",
-    priceNote: "Bao gồm vé cáp treo Bà Nà Hills",
-
-    // Highlight
+    priceNote: "Giá mỗi đêm, đã bao gồm bữa sáng",
     amenities: [
-      "Phong cách Pháp cổ điển",
-      "Vị trí trên núi 1.487m",
-      "Nhà hàng Âu",
-      "Gần Golden Bridge",
-      "Sưởi ấm phòng",
+      "3 hồ bơi",
+      "Bãi biển riêng 200m",
+      "Khu spa rộng 2000m²",
+      "5 nhà hàng",
+      "Casino",
+      "Trẻ em miễn phí",
     ],
     description:
-      "Resort phong cách làng Pháp độc đáo trên đỉnh Bà Nà Hills ở độ cao 1.487m, mang lại trải nghiệm nghỉ dưỡng trên mây hoàn toàn khác biệt.",
-    tags: ["Unique", "Mountain"],
+      "Vela Grand Resort là biểu tượng nghỉ dưỡng sang trọng bậc nhất Đà Nẵng với khuôn viên 8 hecta trải dài theo bờ biển Mỹ Khê. Điểm đến lý tưởng cho hội nghị, đám cưới và kỳ nghỉ gia đình đẳng cấp.",
+    tags: ["5 sao", "Mega resort", "MICE", "Đám cưới", "Gia đình"],
   },
 ];
