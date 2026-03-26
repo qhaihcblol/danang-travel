@@ -7,6 +7,7 @@ import { Mail, Lock, User, Phone, Eye, EyeOff, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { register as registerUser } from '@/services/auth';
+import { useAppLocale } from '@/hooks/use-app-locale';
 
 const GoogleIcon = () => (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -31,6 +32,8 @@ const LineIcon = () => (
 
 export default function RegisterPage() {
   const router = useRouter();
+  const locale = useAppLocale();
+  const isJa = locale === 'ja';
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -47,17 +50,17 @@ export default function RegisterPage() {
     setError('');
 
     if (!fullName || !email || !password || !confirmPassword) {
-      setError('Vui lòng điền tất cả các trường bắt buộc');
+      setError(isJa ? '必須項目をすべて入力してください' : 'Vui lòng điền tất cả các trường bắt buộc');
       return;
     }
 
     if (password !== confirmPassword) {
-      setError('Mật khẩu không khớp');
+      setError(isJa ? 'パスワードが一致しません' : 'Mật khẩu không khớp');
       return;
     }
 
     if (!acceptTerms) {
-      setError('Vui lòng chấp nhận điều khoản dịch vụ');
+      setError(isJa ? '利用規約への同意が必要です' : 'Vui lòng chấp nhận điều khoản dịch vụ');
       return;
     }
 
@@ -69,9 +72,9 @@ export default function RegisterPage() {
         return;
       }
 
-      setError(response.error || 'Đăng ký thất bại');
+      setError(response.error || (isJa ? '登録に失敗しました' : 'Đăng ký thất bại'));
     } catch {
-      setError('Đã có lỗi xảy ra. Vui lòng thử lại.');
+      setError(isJa ? 'エラーが発生しました。もう一度お試しください。' : 'Đã có lỗi xảy ra. Vui lòng thử lại.');
     } finally {
       setIsLoading(false);
     }
@@ -89,8 +92,8 @@ export default function RegisterPage() {
                 <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
             </Link>
-            <h1 className="text-3xl font-bold text-foreground mb-2">Đăng ký</h1>
-            <p className="text-muted-foreground">Tạo tài khoản để khám phá Đà Nẵng</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">{isJa ? '会員登録' : 'Đăng ký'}</h1>
+            <p className="text-muted-foreground">{isJa ? 'アカウントを作成してダナンを探そう' : 'Tạo tài khoản để khám phá Đà Nẵng'}</p>
           </div>
 
           {/* Register Form Card */}
@@ -106,12 +109,12 @@ export default function RegisterPage() {
             <form onSubmit={handleRegister} className="space-y-4">
               {/* Full Name Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Họ và tên</label>
+                <label className="text-sm font-semibold text-foreground">{isJa ? '氏名' : 'Họ và tên'}</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
                     type="text"
-                    placeholder="Nguyễn Văn A"
+                    placeholder={isJa ? '山田 太郎' : 'Nguyễn Văn A'}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="pl-12 h-12 rounded-lg border-border/50 bg-muted/30 focus:bg-white focus:border-primary transition-all"
@@ -138,7 +141,7 @@ export default function RegisterPage() {
 
               {/* Phone Input (Optional) */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Số điện thoại <span className="text-muted-foreground text-xs">(tuỳ chọn)</span></label>
+                <label className="text-sm font-semibold text-foreground">{isJa ? '電話番号 ' : 'Số điện thoại '}<span className="text-muted-foreground text-xs">{isJa ? '(任意)' : '(tuỳ chọn)'}</span></label>
                 <div className="relative">
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -153,7 +156,7 @@ export default function RegisterPage() {
 
               {/* Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Mật khẩu</label>
+                <label className="text-sm font-semibold text-foreground">{isJa ? 'パスワード' : 'Mật khẩu'}</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -180,7 +183,7 @@ export default function RegisterPage() {
 
               {/* Confirm Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Xác nhận mật khẩu</label>
+                <label className="text-sm font-semibold text-foreground">{isJa ? 'パスワード確認' : 'Xác nhận mật khẩu'}</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -215,13 +218,13 @@ export default function RegisterPage() {
                   className="mt-1 w-5 h-5 rounded border-primary cursor-pointer"
                 />
                 <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
-                  Tôi đồng ý với{' '}
+                  {isJa ? '私は ' : 'Tôi đồng ý với '}
                   <Link href="#" className="text-primary hover:underline font-semibold">
-                    điều khoản dịch vụ
+                    {isJa ? '利用規約' : 'điều khoản dịch vụ'}
                   </Link>
-                  {' '}và{' '}
+                  {isJa ? ' と ' : ' và '}
                   <Link href="#" className="text-primary hover:underline font-semibold">
-                    chính sách bảo mật
+                    {isJa ? 'プライバシーポリシー' : 'chính sách bảo mật'}
                   </Link>
                 </label>
               </div>
@@ -232,14 +235,14 @@ export default function RegisterPage() {
                 disabled={isLoading}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-12 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
               >
-                {isLoading ? 'Đang đăng ký...' : 'Đăng ký'}
+                {isLoading ? (isJa ? '登録中...' : 'Đang đăng ký...') : isJa ? '会員登録' : 'Đăng ký'}
               </Button>
             </form>
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
               <div className="flex-1 h-px bg-border/50"></div>
-              <span className="text-sm text-muted-foreground">Hoặc</span>
+              <span className="text-sm text-muted-foreground">{isJa ? 'または' : 'Hoặc'}</span>
               <div className="flex-1 h-px bg-border/50"></div>
             </div>
 
@@ -249,7 +252,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#4285F4]/40 bg-white hover:bg-[#4285F4]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng Google"
+                title={isJa ? 'Googleで登録' : 'Đăng ký bằng Google'}
               >
                 <GoogleIcon />
               </button>
@@ -258,7 +261,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#1877F2]/40 bg-white hover:bg-[#1877F2]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng Facebook"
+                title={isJa ? 'Facebookで登録' : 'Đăng ký bằng Facebook'}
               >
                 <FacebookIcon />
               </button>
@@ -267,7 +270,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#00B900]/40 bg-white hover:bg-[#00B900]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng LINE"
+                title={isJa ? 'LINEで登録' : 'Đăng ký bằng LINE'}
               >
                 <LineIcon />
               </button>
@@ -277,9 +280,9 @@ export default function RegisterPage() {
           {/* Sign In Link */}
           <div className="text-center mt-6">
             <p className="text-muted-foreground">
-              Đã có tài khoản?{' '}
+              {isJa ? 'すでにアカウントをお持ちですか？ ' : 'Đã có tài khoản? '}
               <Link href="/auth/login" className="text-primary font-semibold hover:underline transition-colors">
-                Đăng nhập
+                {isJa ? 'ログイン' : 'Đăng nhập'}
               </Link>
             </p>
           </div>
@@ -298,26 +301,26 @@ export default function RegisterPage() {
           <div className="w-24 h-24 bg-linear-to-br from-secondary via-secondary to-accent rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-8">
             <span className="text-white font-bold text-5xl">A</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">Tham gia cộng đồng</h2>
-          <p className="text-lg text-muted-foreground mb-8">Hàng nghìn du khách đã tín tưởng AnshinDanang cho chuyến đi hoàn hảo của họ</p>
+          <h2 className="text-4xl font-bold text-foreground mb-4">{isJa ? 'コミュニティに参加' : 'Tham gia cộng đồng'}</h2>
+          <p className="text-lg text-muted-foreground mb-8">{isJa ? '多くの旅行者がAnshinDanangで理想の旅を実現しています。' : 'Hàng nghìn du khách đã tín tưởng AnshinDanang cho chuyến đi hoàn hảo của họ'}</p>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Đặt tour giảm giá 50%</span>
+              <span>{isJa ? 'ツアー最大50%オフ' : 'Đặt tour giảm giá 50%'}</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Hỗ trợ 24/7 bằng tiếng Nhật</span>
+              <span>{isJa ? '日本語で24時間サポート' : 'Hỗ trợ 24/7 bằng tiếng Nhật'}</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Lưu yêu thích và chia sẻ</span>
+              <span>{isJa ? 'お気に入り保存とシェア' : 'Lưu yêu thích và chia sẻ'}</span>
             </div>
           </div>
         </div>

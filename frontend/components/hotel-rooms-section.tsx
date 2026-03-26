@@ -6,18 +6,20 @@ import type { RoomType, RoomVariant } from '@/types/hotel-detail';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { useAppLocale } from '@/hooks/use-app-locale';
+import { getNumberLocale } from '@/lib/i18n';
 
 type HotelRoomsSectionProps = {
   rooms: RoomType[];
   currency?: string;
 };
 
-const formatPrice = (value: number, currency = 'VND') => {
+const formatPrice = (value: number, currency = 'VND', localeTag = 'vi-VN') => {
   if (currency === 'VND') {
-    return `${value.toLocaleString('vi-VN')}đ`;
+    return `${value.toLocaleString(localeTag)}đ`;
   }
 
-  return new Intl.NumberFormat('vi-VN', {
+  return new Intl.NumberFormat(localeTag, {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,
@@ -26,10 +28,10 @@ const formatPrice = (value: number, currency = 'VND') => {
 
 const toBedLabel = (beds: RoomVariant['beds']) => beds.map((bed) => `${bed.count} ${bed.type.replace('_', ' ')}`).join(' • ');
 
-const toStatusLabel = (availableCount?: number) => {
-  if (availableCount === 0) return 'Hết phòng';
-  if (availableCount !== undefined && availableCount <= 2) return 'Sắp hết';
-  return 'Còn phòng';
+const toStatusLabel = (availableCount: number | undefined, isJa: boolean) => {
+  if (availableCount === 0) return isJa ? '満室' : 'Hết phòng';
+  if (availableCount !== undefined && availableCount <= 2) return isJa ? '残りわずか' : 'Sắp hết';
+  return isJa ? '空室あり' : 'Còn phòng';
 };
 
 const toStatusVariant = (availableCount?: number) => {
@@ -38,13 +40,20 @@ const toStatusVariant = (availableCount?: number) => {
   return 'default' as const;
 };
 
-const toCapacityLabel = (capacity: RoomVariant['capacity']) => {
-  const adultsLabel = `${capacity.adults} người lớn`;
+const toCapacityLabel = (capacity: RoomVariant['capacity'], isJa: boolean) => {
+  const adultsLabel = isJa ? `大人${capacity.adults}名` : `${capacity.adults} người lớn`;
   const childrenCount = capacity.children ?? 0;
-  return childrenCount > 0 ? `${adultsLabel}, ${childrenCount} trẻ em` : adultsLabel;
+  return childrenCount > 0
+    ? isJa
+      ? `${adultsLabel}, 子ども${childrenCount}名`
+      : `${adultsLabel}, ${childrenCount} trẻ em`
+    : adultsLabel;
 };
 
 export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSectionProps) {
+  const locale = useAppLocale();
+  const isJa = locale === 'ja';
+  const numberLocale = getNumberLocale(locale);
   const visibleRooms = useMemo(() => {
     return rooms
       .map((room) => {
@@ -83,11 +92,11 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
     <section className="mt-10 rounded-2xl border border-border/80 bg-card/55 p-5 sm:p-7 lg:p-8">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Danh sách phòng</h2>
-          <p className="mt-1 text-base text-muted-foreground">Thiết kế rõ ràng theo từng loại phòng và mức giá cho mỗi lựa chọn.</p>
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{isJa ? '客室一覧' : 'Danh sách phòng'}</h2>
+          <p className="mt-1 text-base text-muted-foreground">{isJa ? '部屋タイプごとに料金と条件を分かりやすく表示しています。' : 'Thiết kế rõ ràng theo từng loại phòng và mức giá cho mỗi lựa chọn.'}</p>
         </div>
         <Badge variant="secondary" className="w-fit rounded-full px-3 py-1.5 text-sm">
-          {visibleRooms.length} loại phòng
+          {visibleRooms.length} {isJa ? '種類' : 'loại phòng'}
         </Badge>
       </div>
 
@@ -106,15 +115,15 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">{room.name}</h3>
-                    <p className="text-sm text-muted-foreground">{room.type ?? 'Phòng tiêu chuẩn'}</p>
+                    <p className="text-sm text-muted-foreground">{room.type ?? (isJa ? 'スタンダードルーム' : 'Phòng tiêu chuẩn')}</p>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
                     {maxGuests > 0 && (
                       <span className="rounded-full border border-border/70 bg-background px-2.5 py-1 text-xs text-muted-foreground">
-                        Tối đa {maxGuests} khách
+                        {isJa ? `最大${maxGuests}名` : `Tối đa ${maxGuests} khách`}
                       </span>
                     )}
-                    <Badge variant={toStatusVariant(totalAvailable)}>{toStatusLabel(totalAvailable)}</Badge>
+                    <Badge variant={toStatusVariant(totalAvailable)}>{toStatusLabel(totalAvailable, isJa)}</Badge>
                   </div>
                 </div>
               </header>
@@ -128,21 +137,21 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                     ) : (
                       <div className="flex h-44 items-center justify-center text-muted-foreground">
                         <BedDouble className="mr-2 h-5 w-5" />
-                        Không có ảnh
+                        {isJa ? '画像なし' : 'Không có ảnh'}
                       </div>
                     )}
                   </div>
 
                   <div className="rounded-lg border border-border/70 bg-card/30 p-3">
                     <div className="space-y-1.5 text-sm text-muted-foreground">
-                      {room.sizeM2 && <p>Diện tích: {room.sizeM2}m2</p>}
-                      {room.view && <p>Hướng nhìn: {room.view}</p>}
-                      {totalAvailable !== undefined && <p>Còn lại: {totalAvailable} phòng</p>}
+                      {room.sizeM2 && <p>{isJa ? `面積: ${room.sizeM2}m2` : `Diện tích: ${room.sizeM2}m2`}</p>}
+                      {room.view && <p>{isJa ? `眺望: ${room.view}` : `Hướng nhìn: ${room.view}`}</p>}
+                      {totalAvailable !== undefined && <p>{isJa ? `残り: ${totalAvailable}室` : `Còn lại: ${totalAvailable} phòng`}</p>}
                     </div>
 
                     {visibleAmenities.length > 0 && (
                       <div className="mt-3">
-                        <p className="mb-2 text-sm font-medium text-foreground">Tiện nghi</p>
+                        <p className="mb-2 text-sm font-medium text-foreground">{isJa ? '設備' : 'Tiện nghi'}</p>
                         <div className="flex flex-wrap gap-2">
                           {visibleAmenities.map((amenity) => (
                             <span
@@ -161,11 +170,11 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                                 type="button"
                                 className="mt-2 text-xs font-semibold text-primary underline-offset-4 hover:underline"
                               >
-                                Xem thêm tiện nghi (+{extraAmenities.length})
+                                {isJa ? `設備をもっと見る (+${extraAmenities.length})` : `Xem thêm tiện nghi (+${extraAmenities.length})`}
                               </button>
                             </HoverCardTrigger>
                             <HoverCardContent className="w-96 max-w-[90vw] p-4">
-                              <p className="mb-3 text-base font-semibold text-foreground">Tất cả tiện nghi</p>
+                              <p className="mb-3 text-base font-semibold text-foreground">{isJa ? 'すべての設備' : 'Tất cả tiện nghi'}</p>
                               <div className="flex max-h-56 flex-wrap gap-2 overflow-y-auto pr-1">
                                 {(room.amenities ?? []).map((amenity) => (
                                   <span
@@ -188,8 +197,8 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                   {sortedVariants.length > 0 && (
                     <div className="overflow-hidden rounded-xl border border-border/80 bg-card/45">
                       <div className="hidden border-b border-border/80 bg-muted/35 px-4 py-3 text-sm font-semibold text-foreground md:grid md:grid-cols-[minmax(0,2fr)_minmax(220px,1fr)]">
-                        <p>Đề xuất cho bạn</p>
-                        <p className="border-l border-border/80 pl-4">Giá</p>
+                        <p>{isJa ? 'おすすめプラン' : 'Đề xuất cho bạn'}</p>
+                        <p className="border-l border-border/80 pl-4">{isJa ? '料金' : 'Giá'}</p>
                       </div>
 
                       {sortedVariants.map((variant) => (
@@ -204,10 +213,16 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                               <div className="space-y-2">
                                 <p className="inline-flex min-h-6 items-center gap-1.5 text-sm text-muted-foreground">
                                   <Users className="h-4 w-4" />
-                                  {toCapacityLabel(variant.capacity)}
+                                  {toCapacityLabel(variant.capacity, isJa)}
                                 </p>
                                 <p className="inline-flex min-h-6 items-center text-sm text-muted-foreground">
-                                  {variant.availableCount !== undefined ? `Còn ${variant.availableCount} phòng` : 'Liên hệ để kiểm tra phòng'}
+                                  {variant.availableCount !== undefined
+                                    ? isJa
+                                      ? `残り${variant.availableCount}室`
+                                      : `Còn ${variant.availableCount} phòng`
+                                    : isJa
+                                      ? '空室状況はお問い合わせください'
+                                      : 'Liên hệ để kiểm tra phòng'}
                                 </p>
                               </div>
                               <div className="space-y-2">
@@ -217,10 +232,16 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                                   ) : (
                                     <XCircle className="h-4 w-4 text-muted-foreground" />
                                   )}
-                                  {variant.breakfast ? 'Bao gồm bữa sáng' : 'Không gồm bữa sáng'}
+                                  {variant.breakfast
+                                    ? isJa
+                                      ? '朝食付き'
+                                      : 'Bao gồm bữa sáng'
+                                    : isJa
+                                      ? '朝食なし'
+                                      : 'Không gồm bữa sáng'}
                                 </p>
                                 <p className="inline-flex min-h-6 items-center text-sm text-muted-foreground">
-                                  {variant.cancellationPolicy ?? 'Không hoàn tiền'}
+                                  {variant.cancellationPolicy ?? (isJa ? '返金不可' : 'Không hoàn tiền')}
                                 </p>
                               </div>
                             </div>
@@ -229,11 +250,11 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                           <div className="flex flex-col justify-center gap-3 border-t border-border/70 bg-muted/15 px-4 py-4 md:border-t-0 md:border-l md:border-border/80 md:py-5">
                             <div className="md:text-right">
                               <p className="text-2xl font-bold leading-tight text-foreground">
-                                {formatPrice(variant.price, currency)}
+                                {formatPrice(variant.price, currency, numberLocale)}
                               </p>
                             </div>
                             <Button size="sm" className="h-9 w-full text-sm font-semibold md:ml-auto md:w-24">
-                              Đặt
+                              {isJa ? '予約' : 'Đặt'}
                             </Button>
                           </div>
                         </div>
@@ -243,13 +264,13 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
 
                   {sortedVariants.length === 0 && (
                     <div className="rounded-lg border border-dashed border-border bg-muted/20 p-4 text-sm text-muted-foreground">
-                      Chưa có lựa chọn giá cho loại phòng này.
+                      {isJa ? 'この部屋タイプの料金プランはまだありません。' : 'Chưa có lựa chọn giá cho loại phòng này.'}
                     </div>
                   )}
 
                   {firstVariant && (
                     <div className="pt-1 text-xs text-muted-foreground">
-                      Giá thấp nhất từ <span className="font-semibold text-foreground">{formatPrice(firstVariant.price, currency)}</span> mỗi đêm.
+                      {isJa ? '最安料金は' : 'Giá thấp nhất từ'} <span className="font-semibold text-foreground">{formatPrice(firstVariant.price, currency, numberLocale)}</span> {isJa ? '／泊。' : 'mỗi đêm.'}
                     </div>
                   )}
                 </div>
@@ -260,8 +281,8 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
 
         {visibleRooms.length === 0 && (
           <div className="rounded-xl border border-dashed border-border p-8 text-center">
-            <p className="text-base font-semibold text-foreground">Hiện chưa có phòng để hiển thị</p>
-            <p className="mt-1 text-sm text-muted-foreground">Vui lòng quay lại sau để xem thêm lựa chọn.</p>
+            <p className="text-base font-semibold text-foreground">{isJa ? '表示できる客室がありません' : 'Hiện chưa có phòng để hiển thị'}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{isJa ? '後でもう一度ご確認ください。' : 'Vui lòng quay lại sau để xem thêm lựa chọn.'}</p>
           </div>
         )}
       </div>

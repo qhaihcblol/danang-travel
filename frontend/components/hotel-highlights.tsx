@@ -19,6 +19,7 @@ import {
 import type { HotelFeatureHighlight } from '@/types/hotel-detail';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { useAppLocale } from '@/hooks/use-app-locale';
 
 type HotelHighlightsProps = {
   highlights: HotelFeatureHighlight[];
@@ -76,13 +77,15 @@ const getHighlightIcon = (iconKey?: string): LucideIcon => {
 };
 
 export function HotelHighlights({ highlights }: HotelHighlightsProps) {
+  const locale = useAppLocale();
+  const isJa = locale === 'ja';
   const previewItems = highlights.slice(0, PREVIEW_LIMIT);
   const hasMore = highlights.length > PREVIEW_LIMIT;
 
   return (
     <section className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5">
       <h2 className="border-b border-border/70 pb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-        Nổi bật
+        {isJa ? 'ハイライト' : 'Nổi bật'}
       </h2>
 
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -119,12 +122,12 @@ export function HotelHighlights({ highlights }: HotelHighlightsProps) {
                 type="button"
                 className="text-sm font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
               >
-                Xem chi tiết
+                {isJa ? '詳細を見る' : 'Xem chi tiết'}
               </button>
             </DialogTrigger>
             <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Nổi bật của khách sạn</DialogTitle>
+                <DialogTitle>{isJa ? 'ホテルのハイライト' : 'Nổi bật của khách sạn'}</DialogTitle>
               </DialogHeader>
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

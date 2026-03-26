@@ -7,17 +7,19 @@ import { HotelRoomsSection } from '@/components/hotel-rooms-section';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { getNumberLocale } from '@/lib/i18n';
+import { getServerLocale } from '@/lib/server-locale';
 
 type HotelDetailPageProps = {
   params: Promise<{ id: string }>;
 };
 
-const formatPrice = (value: number, currency = 'VND') => {
+const formatPrice = (value: number, currency = 'VND', localeTag = 'vi-VN') => {
   if (currency === 'VND') {
-    return `${value.toLocaleString('vi-VN')}đ`;
+    return `${value.toLocaleString(localeTag)}đ`;
   }
 
-  return new Intl.NumberFormat('vi-VN', {
+  return new Intl.NumberFormat(localeTag, {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,
@@ -25,6 +27,9 @@ const formatPrice = (value: number, currency = 'VND') => {
 };
 
 export default async function HotelDetailPage({ params }: HotelDetailPageProps) {
+  const locale = await getServerLocale();
+  const isJa = locale === 'ja';
+  const numberLocale = getNumberLocale(locale);
   const { id } = await params;
   const hotel = hotelsDetailMock.find((item) => item.id === id);
 
@@ -39,12 +44,12 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
       : hotel.amenities.slice(0, 6);
   const nearbyPreview = hotel.nearbyPlaces?.slice(0, 2) ?? [];
   const ratingLabels = {
-    cleanliness: 'Độ sạch sẽ',
-    comfort: 'Sự thoải mái',
-    location: 'Vị trí',
-    facilities: 'Tiện nghi',
-    staff: 'Nhân viên',
-    valueForMoney: 'Đáng giá tiền',
+    cleanliness: isJa ? '清潔さ' : 'Độ sạch sẽ',
+    comfort: isJa ? '快適さ' : 'Sự thoải mái',
+    location: isJa ? '立地' : 'Vị trí',
+    facilities: isJa ? '設備' : 'Tiện nghi',
+    staff: isJa ? 'スタッフ' : 'Nhân viên',
+    valueForMoney: isJa ? 'コストパフォーマンス' : 'Đáng giá tiền',
   } as const;
   const overviewContent = (hotel.overview ?? hotel.description ?? '').trim();
 
@@ -70,13 +75,13 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
             </div>
 
             <div className="text-left sm:text-right">
-              <p className="text-xs font-medium text-muted-foreground">Giá phòng từ</p>
+              <p className="text-xs font-medium text-muted-foreground">{isJa ? '料金は' : 'Giá phòng từ'}</p>
               <p className="text-2xl font-extrabold leading-tight text-foreground sm:text-3xl">
-                {formatPrice(hotel.price, hotel.currency)}
+                {formatPrice(hotel.price, hotel.currency, numberLocale)}
               </p>
-              <p className="text-xs text-muted-foreground">{hotel.priceNote ?? '/ đêm'}</p>
+              <p className="text-xs text-muted-foreground">{hotel.priceNote ?? (isJa ? '/ 泊' : '/ đêm')}</p>
               <Button asChild size="lg" className="mt-3 h-11 w-full rounded-lg text-sm font-bold sm:min-w-45">
-                <a href="#hotel-rooms">Đặt ngay</a>
+                <a href="#hotel-rooms">{isJa ? '今すぐ予約' : 'Đặt ngay'}</a>
               </Button>
             </div>
           </div>
@@ -96,7 +101,7 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               {!!hotel.description && (
                 <section className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5">
                   <h2 className="border-b border-border/70 pb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                    Mô tả
+                    {isJa ? '説明' : 'Mô tả'}
                   </h2>
                   <p className="mt-3 text-sm leading-7 text-foreground/90 sm:text-base">{hotel.description}</p>
                 </section>
@@ -106,7 +111,7 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
 
               <section className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5">
                 <h2 className="border-b border-border/70 pb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Tiện ích nổi bật
+                  {isJa ? '主な設備' : 'Tiện ích nổi bật'}
                 </h2>
                 <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {featuredAmenities.map((amenity) => (
@@ -124,14 +129,14 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
             <aside className="space-y-4 rounded-2xl border border-border/80 bg-card/70 p-4 shadow-sm lg:sticky lg:top-24 lg:h-fit lg:p-5">
               <div className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                 <div className="flex items-center gap-2">
-                  <p className="text-base font-semibold text-slate-700">Đánh giá tổng quan</p>
+                  <p className="text-base font-semibold text-slate-700">{isJa ? '総合評価' : 'Đánh giá tổng quan'}</p>
                   {!!hotel.ratingBreakdown && (
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button
                           type="button"
                           className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
-                          aria-label="Xem chi tiết đánh giá"
+                          aria-label={isJa ? '評価の詳細を見る' : 'Xem chi tiết đánh giá'}
                         >
                           <Info className="h-3.5 w-3.5" />
                         </button>
@@ -156,27 +161,27 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
                 <div className="mt-2 flex items-end justify-between gap-3">
                   <p className="text-2xl font-extrabold leading-none text-foreground">{hotel.rating.toFixed(1)} / 10</p>
                   <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-                    {hotel.reviewCount.toLocaleString('vi-VN')} bình luận
+                    {hotel.reviewCount.toLocaleString(numberLocale)} {isJa ? '件のレビュー' : 'bình luận'}
                   </span>
                 </div>
               </div>
 
               <div className="rounded-xl border border-border/70 bg-background px-4 py-3">
-                <p className="text-sm font-medium text-muted-foreground">Đã đặt</p>
-                <p className="mt-1 text-lg font-bold text-foreground">{hotel.bookingCount.toLocaleString('vi-VN')}+ lượt</p>
+                <p className="text-sm font-medium text-muted-foreground">{isJa ? '予約数' : 'Đã đặt'}</p>
+                <p className="mt-1 text-lg font-bold text-foreground">{hotel.bookingCount.toLocaleString(numberLocale)}+ {isJa ? '件' : 'lượt'}</p>
               </div>
 
               {!!hotel.nearbyPlaces?.length && (
                 <section className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-base font-semibold text-slate-700">Khám phá (2 địa điểm gần nhất)</h2>
+                    <h2 className="text-base font-semibold text-slate-700">{isJa ? '周辺スポット（最寄り2件）' : 'Khám phá (2 địa điểm gần nhất)'}</h2>
                     {hotel.nearbyPlaces.length > nearbyPreview.length && (
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button
                             type="button"
                             className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
-                            aria-label="Xem tất cả địa điểm lân cận"
+                            aria-label={isJa ? '周辺スポットをすべて表示' : 'Xem tất cả địa điểm lân cận'}
                           >
                             <Info className="h-3.5 w-3.5" />
                           </button>
@@ -192,8 +197,8 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
                                 <p className="font-semibold text-slate-900">{place.name}</p>
                                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-600">
                                   {!!place.category && <span>{place.category}</span>}
-                                  {typeof place.distanceKm === 'number' && <span>{place.distanceKm.toLocaleString('vi-VN')} km</span>}
-                                  {typeof place.travelTimeMin === 'number' && <span>{place.travelTimeMin} phút</span>}
+                                  {typeof place.distanceKm === 'number' && <span>{place.distanceKm.toLocaleString(numberLocale)} km</span>}
+                                  {typeof place.travelTimeMin === 'number' && <span>{place.travelTimeMin} {isJa ? '分' : 'phút'}</span>}
                                 </div>
                               </div>
                             ))}
@@ -214,13 +219,13 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
                           {typeof place.distanceKm === 'number' && (
                             <span className="inline-flex items-center gap-1">
                               <MapPin className="h-3.5 w-3.5" />
-                              {place.distanceKm.toLocaleString('vi-VN')} km
+                              {place.distanceKm.toLocaleString(numberLocale)} km
                             </span>
                           )}
                           {typeof place.travelTimeMin === 'number' && (
                             <span className="inline-flex items-center gap-1">
                               <Clock3 className="h-3.5 w-3.5" />
-                              {place.travelTimeMin} phút
+                              {place.travelTimeMin} {isJa ? '分' : 'phút'}
                             </span>
                           )}
                         </div>
@@ -233,13 +238,13 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               {!!overviewContent && (
                 <section className="rounded-xl border border-border/70 bg-background px-4 py-3 transition-colors hover:border-sky-200/80 hover:bg-sky-50/40">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-base font-semibold text-slate-700">Tổng quan</h2>
+                    <h2 className="text-base font-semibold text-slate-700">{isJa ? '概要' : 'Tổng quan'}</h2>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <button
                           type="button"
                           className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-sky-300 hover:bg-sky-100/70 hover:text-sky-700"
-                          aria-label="Xem toàn bộ nội dung tổng quan"
+                          aria-label={isJa ? '概要をすべて表示' : 'Xem toàn bộ nội dung tổng quan'}
                         >
                           <Info className="h-3.5 w-3.5" />
                         </button>

@@ -3,6 +3,8 @@ import { Star, MapPin, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAppLocale } from '@/hooks/use-app-locale';
+import { getNumberLocale } from '@/lib/i18n';
 
 interface ServiceCardProps {
   id: string;
@@ -40,6 +42,9 @@ export function ServiceCard({
   variant = 'grid',
 }: ServiceCardProps) {
   const router = useRouter();
+  const locale = useAppLocale();
+  const isJa = locale === 'ja';
+  const numberLocale = getNumberLocale(locale);
   const [isFavorited, setIsFavorited] = useState(false);
   const totalReviews = reviewCount ?? reviews;
   const visibleAmenities = (amenities ?? []).slice(0, 3);
@@ -48,21 +53,21 @@ export function ServiceCard({
   const isAccommodation = ['hotel', 'resort', 'villa', 'hostel', 'apartment'].includes(type);
 
   const typeLabelMap: Record<NonNullable<ServiceCardProps['type']>, string> = {
-    hotel: 'Khách sạn',
+    hotel: isJa ? 'ホテル' : 'Khách sạn',
     resort: 'Resort',
     villa: 'Villa',
     hostel: 'Hostel',
-    apartment: 'Căn hộ',
+    apartment: isJa ? 'アパートメント' : 'Căn hộ',
     tour: 'Tour',
-    ticket: 'Vé',
-    attraction: 'Điểm đến',
+    ticket: isJa ? 'チケット' : 'Vé',
+    attraction: isJa ? 'スポット' : 'Điểm đến',
   };
   const displayType = typeLabelMap[type] ?? type;
   const hotelHref = isAccommodation ? `/hotels/${id}` : undefined;
 
   const formatPrice = (value: number) => {
-    if (value === 0) return 'Miễn phí';
-    return value.toLocaleString('vi-VN') + 'đ';
+    if (value === 0) return isJa ? '無料' : 'Miễn phí';
+    return value.toLocaleString(numberLocale) + 'đ';
   };
 
   if (variant === 'hotel-list' && isAccommodation) {
@@ -91,7 +96,7 @@ export function ServiceCard({
                   ? 'bg-accent text-white shadow-lg'
                   : 'bg-white/85 text-muted-foreground hover:bg-white hover:text-accent'
               }`}
-              aria-label="Add to favorites"
+              aria-label={isJa ? 'お気に入りに追加' : 'Add to favorites'}
             >
               <Heart className={`h-4 w-4 ${isFavorited ? 'fill-current' : ''}`} />
             </button>
@@ -115,8 +120,8 @@ export function ServiceCard({
               <span className="rounded bg-indigo-600 px-2 py-0.5 font-semibold text-white">
                 {rating.toFixed(1)} /10
               </span>
-              <span className="font-medium text-indigo-700">Rất tốt</span>
-              <span className="text-muted-foreground">{totalReviews.toLocaleString('vi-VN')} bình luận</span>
+              <span className="font-medium text-indigo-700">{isJa ? 'とても良い' : 'Rất tốt'}</span>
+              <span className="text-muted-foreground">{totalReviews.toLocaleString(numberLocale)} {isJa ? '件のレビュー' : 'bình luận'}</span>
             </div>
 
             {location && (
@@ -139,7 +144,7 @@ export function ServiceCard({
 
             {typeof bookingCount === 'number' && (
               <p className="text-sm font-medium text-muted-foreground">
-                {bookingCount.toLocaleString('vi-VN')}+ khách đã đặt
+                {bookingCount.toLocaleString(numberLocale)}+ {isJa ? '件予約済み' : 'khách đã đặt'}
               </p>
             )}
           </div>
@@ -151,7 +156,7 @@ export function ServiceCard({
                   {formatPrice(price)}
                 </p>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  {priceNote ?? 'Giá cho một đêm, chưa gồm thuế phí'}
+                  {priceNote ?? (isJa ? '1泊あたりの料金（税・手数料別）' : 'Giá cho một đêm, chưa gồm thuế phí')}
                 </p>
               </div>
             )}
@@ -162,7 +167,7 @@ export function ServiceCard({
               }}
               className="rounded-xl bg-orange-500 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600"
             >
-              Xem chi tiết
+              {isJa ? '詳細を見る' : 'Xem chi tiết'}
             </button>
           </div>
         </div>
@@ -216,7 +221,7 @@ export function ServiceCard({
               ? 'bg-accent text-white shadow-lg scale-110'
               : 'bg-white/70 text-muted-foreground hover:bg-white hover:text-accent'
           }`}
-          aria-label="Add to favorites"
+          aria-label={isJa ? 'お気に入りに追加' : 'Add to favorites'}
         >
           <Heart className={`w-5 h-5 transition-all duration-300 ${isFavorited ? 'fill-current scale-125' : ''}`} />
         </button>
@@ -252,7 +257,7 @@ export function ServiceCard({
         {typeof bookingCount === 'number' && (
           <div className="mb-3 flex flex-wrap gap-2">
             <span className="rounded-md bg-primary/8 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-primary/20">
-              {bookingCount.toLocaleString('vi-VN')} lượt đặt
+              {bookingCount.toLocaleString(numberLocale)} {isJa ? '件予約' : 'lượt đặt'}
             </span>
           </div>
         )}
@@ -273,7 +278,7 @@ export function ServiceCard({
         {visibleAmenities.length > 0 && (
           <div className="mb-3">
             <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Tiện ích
+              {isJa ? '設備' : 'Tiện ích'}
             </p>
             <div className="flex flex-wrap gap-1.5">
             {visibleAmenities.map((amenity) => (

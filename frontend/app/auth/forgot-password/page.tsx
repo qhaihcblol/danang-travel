@@ -7,8 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { forgotPassword } from '@/services/auth';
+import { useAppLocale } from '@/hooks/use-app-locale';
 
 export default function ForgotPasswordPage() {
+  const locale = useAppLocale();
+  const isJa = locale === 'ja';
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -40,8 +43,8 @@ export default function ForgotPasswordPage() {
               <span className="text-primary-foreground font-bold text-xl">A</span>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Quên mật khẩu?</h1>
-          <p className="text-muted-foreground">Nhập email của bạn để nhận liên kết đặt lại</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">{isJa ? 'パスワードをお忘れですか？' : 'Quên mật khẩu?'}</h1>
+          <p className="text-muted-foreground">{isJa ? 'リセットリンクを受け取るメールアドレスを入力してください' : 'Nhập email của bạn để nhận liên kết đặt lại'}</p>
         </div>
 
         {/* Card */}
@@ -71,7 +74,7 @@ export default function ForgotPasswordPage() {
                   disabled={isLoading}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-12 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
                 >
-                  {isLoading ? 'Đang gửi...' : 'Gửi liên kết đặt lại'}
+                  {isLoading ? (isJa ? '送信中...' : 'Đang gửi...') : isJa ? 'リセットリンクを送信' : 'Gửi liên kết đặt lại'}
                 </Button>
 
                 {/* Back to Login */}
@@ -80,7 +83,7 @@ export default function ForgotPasswordPage() {
                   className="flex items-center justify-center gap-2 text-primary hover:underline transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Quay lại đăng nhập
+                  {isJa ? 'ログインに戻る' : 'Quay lại đăng nhập'}
                 </Link>
               </form>
             ) : (
@@ -88,12 +91,12 @@ export default function ForgotPasswordPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                   <Mail className="w-8 h-8 text-primary" />
                 </div>
-                <h2 className="text-xl font-bold text-foreground">Kiểm tra email của bạn</h2>
+                <h2 className="text-xl font-bold text-foreground">{isJa ? 'メールをご確認ください' : 'Kiểm tra email của bạn'}</h2>
                 <p className="text-muted-foreground">
-                  Chúng tôi đã gửi liên kết đặt lại mật khẩu đến <span className="font-semibold text-foreground">{email}</span>
+                  {isJa ? 'パスワード再設定リンクを送信しました: ' : 'Chúng tôi đã gửi liên kết đặt lại mật khẩu đến '}<span className="font-semibold text-foreground">{email}</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Vui lòng kiểm tra hộp thư của bạn (hoặc thư rác) trong vòng 24 giờ.
+                  {isJa ? '24時間以内に受信箱（迷惑メールフォルダ含む）をご確認ください。' : 'Vui lòng kiểm tra hộp thư của bạn (hoặc thư rác) trong vòng 24 giờ.'}
                 </p>
 
                 {/* Back to Login Button */}
@@ -101,7 +104,7 @@ export default function ForgotPasswordPage() {
                   asChild
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-lg font-semibold mt-6"
                 >
-                  <Link href="/auth/login">Quay lại đăng nhập</Link>
+                  <Link href="/auth/login">{isJa ? 'ログインに戻る' : 'Quay lại đăng nhập'}</Link>
                 </Button>
               </div>
             )}

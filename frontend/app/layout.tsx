@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Header } from '@/components/layout/header'
+import { getServerLocale } from '@/lib/server-locale'
 import './globals.css'
 
 const inter = Inter({ 
@@ -45,13 +46,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const locale = await getServerLocale();
+
   return (
-    <html lang="vi" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang={locale === 'ja' ? 'ja' : 'vi'} className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
         <Header />
         {children}
