@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, MapPin, Hotel, Compass, Ticket, UtensilsCrossed, ShoppingBag, Clock, ArrowRight } from 'lucide-react';
 import { ImageCarousel } from '@/components/image-carousel';
@@ -14,7 +14,6 @@ import {
   toursMockData,
   getRecentlyViewedMock,
 } from '@/mock';
-import { useAppLocale } from '@/hooks/use-app-locale';
 
 // Extract URLs from carousel mock data
 const carouselImages = carouselImagesMockData.map(img => img.url);
@@ -24,25 +23,20 @@ const recentlyViewed = getRecentlyViewedMock();
 const famousLandmarks = landmarksMockData.slice(0, 4);
 const featuredActivities = toursMockData.slice(0, 4);
 
+const categoryButtons = [
+  { id: 'landmarks', label: 'Các địa danh nổi tiếng', icon: MapPin },
+  { id: 'hotels', label: 'Khách sạn', icon: Hotel },
+  { id: 'tours', label: 'Tour & Trải nghiệm', icon: Compass },
+  { id: 'tickets', label: 'Vé tham quan', icon: Ticket },
+  { id: 'food', label: 'Ẩm thực', icon: UtensilsCrossed },
+  { id: 'shopping', label: 'Mua sắm', icon: ShoppingBag },
+];
+
 export default function Home() {
   const router = useRouter();
-  const locale = useAppLocale();
-  const isJa = locale === 'ja';
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const categoryButtons = useMemo(
-    () => [
-      { id: 'landmarks', label: isJa ? '人気スポット' : 'Các địa danh nổi tiếng', icon: MapPin },
-      { id: 'hotels', label: isJa ? 'ホテル' : 'Khách sạn', icon: Hotel },
-      { id: 'tours', label: isJa ? 'ツアー・体験' : 'Tour & Trải nghiệm', icon: Compass },
-      { id: 'tickets', label: isJa ? '観光チケット' : 'Vé tham quan', icon: Ticket },
-      { id: 'food', label: isJa ? 'グルメ' : 'Ẩm thực', icon: UtensilsCrossed },
-      { id: 'shopping', label: isJa ? 'ショッピング' : 'Mua sắm', icon: ShoppingBag },
-    ],
-    [isJa],
-  );
 
   const handleCategoryClick = (id: string) => {
     if (id === 'hotels') {
@@ -84,10 +78,10 @@ export default function Home() {
               {/* Text Content */}
               <div className="text-center max-w-2xl mb-8 sm:mb-12">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-3 leading-tight">
-                  {isJa ? 'ダナンの美しさに触れる' : 'Chạm vào vẻ đẹp Đà Nẵng'}
+                  Chạm vào vẻ đẹp Đà Nẵng
                 </h1>
                 <p className="text-base sm:text-lg text-white/95 drop-shadow-md">
-                  {isJa ? '一歩ずつ安心して、旅をもっと特別に' : 'An tâm từng bước - Nâng tầm hành trình của bạn'}
+                  An tâm từng bước - Nâng tầm hành trình của bạn
                 </p>
               </div>
 
@@ -99,14 +93,14 @@ export default function Home() {
                       <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600" />
                       <Input
                         type="text"
-                        placeholder={isJa ? 'ホテル、ツアー、スポット...' : 'Khách sạn, tour, địa điểm...'}
+                        placeholder="Khách sạn, tour, địa điểm..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="pl-12 h-10 sm:h-11 rounded-lg border border-white/45 bg-white/75 text-slate-900 placeholder:text-slate-500 focus:bg-white/90 focus:border-primary/60 focus:ring-2 focus:ring-primary/50 transition-all focus:outline-none text-sm"
                       />
                     </div>
                     <Button className="bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-10 sm:h-11 px-6 sm:px-8 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm w-full sm:w-auto">
-                      {isJa ? '探す' : 'Khám phá'}
+                      Khám phá
                     </Button>
                   </div>
                 </div>
@@ -142,11 +136,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Clock className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {isJa ? '最近見た項目' : 'Đã xem gần đây'}
+                Đã xem gần đây
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {isJa ? 'すべて見る' : 'Xem tất cả'}
+              Xem tất cả
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -163,11 +157,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <MapPin className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {isJa ? '人気スポット' : 'Các địa danh nổi tiếng'}
+                Các địa danh nổi tiếng
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {isJa ? 'すべて見る' : 'Xem tất cả'}
+              Xem tất cả
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -188,11 +182,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Compass className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {isJa ? '注目のアクティビティ' : 'Hoạt động nổi bật'}
+                Hoạt động nổi bật
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {isJa ? 'すべて見る' : 'Xem tất cả'}
+              Xem tất cả
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -208,12 +202,10 @@ export default function Home() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
             <div className="bg-linear-to-r from-primary/10 via-accent/5 to-primary/10 rounded-3xl p-8 sm:p-16 border border-primary/20 text-center backdrop-blur-sm">
               <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-                {isJa
-                  ? '会員登録して、限定オファーや新しい目的地の最新情報を受け取りましょう。'
-                  : 'Đăng ký để nhận thông báo về các ưu đãi đặc biệt và điểm đến mới.'}
+                Đăng ký để nhận thông báo về các ưu đãi đặc biệt và điểm đến mới.
               </p>
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-10 text-base font-semibold rounded-lg transition-all hover:shadow-lg">
-                {isJa ? '今すぐ登録' : 'Đăng ký ngay'}
+                Đăng ký ngay
               </Button>
             </div>
           </section>
@@ -225,33 +217,31 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
-              <h3 className="font-bold text-base mb-4">{isJa ? 'AnshinDanangについて' : 'Về AnshinDanang'}</h3>
+              <h3 className="font-bold text-base mb-4">Về AnshinDanang</h3>
               <p className="text-sm opacity-75 leading-relaxed">
-                {isJa
-                  ? 'ダナンを旅する日本人旅行者のための総合サポートプラットフォーム。'
-                  : 'Nền tảng hỗ trợ du lịch hàng đầu cho du khách Nhật Bản tại Đà Nẵng.'}
+                Nền tảng hỗ trợ du lịch hàng đầu cho du khách Nhật Bản tại Đà Nẵng.
               </p>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">{isJa ? '見つける' : 'Khám phá'}</h3>
+              <h3 className="font-bold text-base mb-4">Khám phá</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'ホテル' : 'Khách sạn'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'ツアー' : 'Tour'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? '観光チケット' : 'Vé tham quan'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'レストラン' : 'Nhà hàng'}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Khách sạn</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Tour</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Vé tham quan</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Nhà hàng</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">{isJa ? 'サポート' : 'Hỗ trợ'}</h3>
+              <h3 className="font-bold text-base mb-4">Hỗ trợ</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'ヘルプセンター' : 'Trung tâm trợ giúp'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'お問い合わせ' : 'Liên hệ'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? '利用規約' : 'Điều khoản dịch vụ'}</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">{isJa ? 'プライバシーポリシー' : 'Chính sách bảo mật'}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Trung tâm trợ giúp</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Liên hệ</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Điều khoản dịch vụ</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">Chính sách bảo mật</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">{isJa ? 'フォロー' : 'Theo dõi'}</h3>
+              <h3 className="font-bold text-base mb-4">Theo dõi</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
                 <li><a href="#" className="hover:opacity-100 transition-opacity">Facebook</a></li>
                 <li><a href="#" className="hover:opacity-100 transition-opacity">Instagram</a></li>
@@ -262,7 +252,7 @@ export default function Home() {
           </div>
           <div className="border-t border-card/20 pt-8">
             <p className="text-sm opacity-60">
-              {isJa ? '© 2024 AnshinDanang.jp. 全著作権所有。' : '© 2024 AnshinDanang.jp. Tất cả quyền được bảo lưu.'}
+              © 2024 AnshinDanang.jp. Tất cả quyền được bảo lưu.
             </p>
           </div>
         </div>

@@ -7,7 +7,6 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { login } from '@/services/auth';
-import { useAppLocale } from '@/hooks/use-app-locale';
 
 const GoogleIcon = () => (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -32,8 +31,6 @@ const LineIcon = () => (
 
 export default function LoginPage() {
   const router = useRouter();
-  const locale = useAppLocale();
-  const isJa = locale === 'ja';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +43,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     if (!email || !password) {
-      setError(isJa ? 'メールアドレスとパスワードを入力してください' : 'Vui lòng nhập email và mật khẩu');
+      setError('Vui lòng nhập email và mật khẩu');
       setIsLoading(false);
       return;
     }
@@ -58,9 +55,9 @@ export default function LoginPage() {
         return;
       }
 
-      setError(response.error || (isJa ? 'ログインに失敗しました' : 'Đăng nhập thất bại'));
+      setError(response.error || 'Đăng nhập thất bại');
     } catch {
-      setError(isJa ? 'エラーが発生しました。もう一度お試しください。' : 'Đã có lỗi xảy ra. Vui lòng thử lại.');
+      setError('Đã có lỗi xảy ra. Vui lòng thử lại.');
     } finally {
       setIsLoading(false);
     }
@@ -80,26 +77,26 @@ export default function LoginPage() {
           <div className="w-24 h-24 bg-linear-to-br from-primary via-primary to-secondary rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-8">
             <span className="text-white font-bold text-5xl">A</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">{isJa ? 'ダナンを見つけよう' : 'Khám phá Đà Nẵng'}</h2>
-          <p className="text-lg text-muted-foreground mb-8">{isJa ? '理想の旅があなたを待っています' : 'Chuyến du lịch hoàn hảo đang chờ bạn'}</p>
+          <h2 className="text-4xl font-bold text-foreground mb-4">Khám phá Đà Nẵng</h2>
+          <p className="text-lg text-muted-foreground mb-8">Chuyến du lịch hoàn hảo đang chờ bạn</p>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-primary text-lg">✓</span>
               </div>
-              <span>{isJa ? '素敵なホテル' : 'Khách sạn tuyệt vời'}</span>
+              <span>Khách sạn tuyệt vời</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-primary text-lg">✓</span>
               </div>
-              <span>{isJa ? '限定ツアー' : 'Tour độc quyền'}</span>
+              <span>Tour độc quyền</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-primary text-lg">✓</span>
               </div>
-              <span>{isJa ? '24時間サポート' : 'Hỗ trợ 24/7'}</span>
+              <span>Hỗ trợ 24/7</span>
             </div>
           </div>
         </div>
@@ -115,8 +112,8 @@ export default function LoginPage() {
                 <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
             </Link>
-            <h1 className="text-3xl font-bold text-foreground mb-2">{isJa ? 'ログイン' : 'Đăng nhập'}</h1>
-            <p className="text-muted-foreground">{isJa ? 'AnshinDanangへようこそ' : 'Chào mừng trở lại AnshinDanang'}</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Đăng nhập</h1>
+            <p className="text-muted-foreground">Chào mừng trở lại AnshinDanang</p>
           </div>
 
           {/* Login Form Card */}
@@ -148,7 +145,7 @@ export default function LoginPage() {
 
               {/* Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">{isJa ? 'パスワード' : 'Mật khẩu'}</label>
+                <label className="text-sm font-semibold text-foreground">Mật khẩu</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -179,7 +176,7 @@ export default function LoginPage() {
                   href="/auth/forgot-password"
                   className="text-sm text-primary hover:underline transition-colors"
                 >
-                  {isJa ? 'パスワードをお忘れですか？' : 'Quên mật khẩu?'}
+                  Quên mật khẩu?
                 </Link>
               </div>
 
@@ -189,14 +186,14 @@ export default function LoginPage() {
                 disabled={isLoading}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-12 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
               >
-                {isLoading ? (isJa ? 'ログイン中...' : 'Đang đăng nhập...') : isJa ? 'ログイン' : 'Đăng nhập'}
+                {isLoading ? 'Đang đăng nhập...' : 'Đăng nhập'}
               </Button>
             </form>
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
               <div className="flex-1 h-px bg-border/50"></div>
-              <span className="text-sm text-muted-foreground">{isJa ? 'または' : 'Hoặc'}</span>
+              <span className="text-sm text-muted-foreground">Hoặc</span>
               <div className="flex-1 h-px bg-border/50"></div>
             </div>
 
@@ -206,7 +203,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#4285F4]/40 bg-white hover:bg-[#4285F4]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title={isJa ? 'Googleでログイン' : 'Đăng nhập bằng Google'}
+                title="Đăng nhập bằng Google"
               >
                 <GoogleIcon />
               </button>
@@ -215,7 +212,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#1877F2]/40 bg-white hover:bg-[#1877F2]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title={isJa ? 'Facebookでログイン' : 'Đăng nhập bằng Facebook'}
+                title="Đăng nhập bằng Facebook"
               >
                 <FacebookIcon />
               </button>
@@ -224,7 +221,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#00B900]/40 bg-white hover:bg-[#00B900]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title={isJa ? 'LINEでログイン' : 'Đăng nhập bằng LINE'}
+                title="Đăng nhập bằng LINE"
               >
                 <LineIcon />
               </button>
@@ -234,9 +231,9 @@ export default function LoginPage() {
           {/* Sign Up Link */}
           <div className="text-center mt-6">
             <p className="text-muted-foreground">
-              {isJa ? 'アカウントをお持ちでないですか？ ' : 'Chưa có tài khoản? '}
+              Chưa có tài khoản?{' '}
               <Link href="/auth/register" className="text-primary font-semibold hover:underline transition-colors">
-                {isJa ? '会員登録' : 'Đăng ký ngay'}
+                Đăng ký ngay
               </Link>
             </p>
           </div>
