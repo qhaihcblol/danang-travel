@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { ChevronLeft, ChevronRight, ImagePlus } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
@@ -11,6 +12,7 @@ type HotelGalleryProps = {
 };
 
 export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
+  const t = useTranslations('hotels.gallery');
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -39,7 +41,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
           type="button"
           className="relative min-h-67.5 text-left sm:col-span-2 sm:row-span-2 sm:min-h-105"
           onClick={() => openGalleryAt(0)}
-          aria-label="Mở thư viện ảnh"
+          aria-label={t('openGallery')}
         >
           <Image src={previewImages[0]} alt={hotelName} fill className="object-cover" sizes="(max-width: 640px) 100vw, 50vw" priority />
         </button>
@@ -50,7 +52,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
             type="button"
             onClick={() => openGalleryAt(index + 1)}
             className="relative hidden min-h-50 text-left sm:block"
-            aria-label={`Mở ảnh ${index + 2}`}
+            aria-label={t('openImage', {index: index + 2})}
           >
             <Image src={image} alt={`${hotelName} - ảnh ${index + 2}`} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
           </button>
@@ -60,10 +62,10 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
           type="button"
           onClick={() => openGalleryAt(0)}
           className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/65 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm"
-          aria-label="Xem thư viện ảnh khách sạn"
+          aria-label={t('viewHotelGallery')}
         >
           <ImagePlus className="h-3.5 w-3.5" />
-          {extraImageCount > 0 ? `+${extraImageCount}` : 'Xem ảnh'}
+          {extraImageCount > 0 ? `+${extraImageCount}` : t('viewImages')}
         </button>
       </div>
 
@@ -72,7 +74,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
           showCloseButton={false}
           className="max-w-[96vw] border-none bg-black/95 p-3 sm:p-4 lg:max-w-5xl"
         >
-          <DialogTitle className="sr-only">Thư viện ảnh khách sạn</DialogTitle>
+          <DialogTitle className="sr-only">{t('dialogTitle')}</DialogTitle>
 
           <div className="relative aspect-16/10 w-full overflow-hidden rounded-lg bg-black">
             <Image
@@ -90,7 +92,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
                   type="button"
                   onClick={goToPrevious}
                   className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/45 p-2 text-white transition hover:bg-black/70"
-                  aria-label="Ảnh trước"
+                  aria-label={t('previousImage')}
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
@@ -99,7 +101,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
                   type="button"
                   onClick={goToNext}
                   className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/45 p-2 text-white transition hover:bg-black/70"
-                  aria-label="Ảnh tiếp theo"
+                  aria-label={t('nextImage')}
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
@@ -121,7 +123,7 @@ export function HotelGallery({ images, hotelName }: HotelGalleryProps) {
                   className={`relative h-14 overflow-hidden rounded-md border transition sm:h-16 ${
                     index === currentIndex ? 'border-white' : 'border-white/20 opacity-70 hover:opacity-100'
                   }`}
-                  aria-label={`Xem ảnh ${index + 1}`}
+                  aria-label={t('viewImage', {index: index + 1})}
                 >
                   <Image
                     src={image}

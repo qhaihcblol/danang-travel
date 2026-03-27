@@ -1,0 +1,26 @@
+{
+  "priceFrom": "Giá phòng từ",
+  "perNight": "/ đêm",
+  "bookNow": "Đặt ngay",
+  "description": "Mô tả",
+  "featuredAmenities": "Tiện ích nổi bật",
+  "overallRating": "Đánh giá tổng quan",
+  "viewRatingDetails": "Xem chi tiết đánh giá",
+  "reviewCount": "{count} bình luận",
+  "booked": "Đã đặt",
+  "bookingCount": "{count}+ lượt",
+  "nearbyTitle": "Khám phá (2 địa điểm gần nhất)",
+  "viewAllNearby": "Xem tất cả địa điểm lân cận",
+  "distanceKm": "{value} km",
+  "minutes": "{value} phút",
+  "overview": "Tổng quan",
+  "viewFullOverview": "Xem toàn bộ nội dung tổng quan",
+  "ratingLabels": {
+    "cleanliness": "Độ sạch sẽ",
+    "comfort": "Sự thoải mái",
+    "location": "Vị trí",
+    "facilities": "Tiện nghi",
+    "staff": "Nhân viên",
+    "valueForMoney": "Đáng giá tiền"
+  }
+}

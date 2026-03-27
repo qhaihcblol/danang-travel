@@ -1,0 +1,33 @@
+{
+  "title": "Đăng nhập",
+  "subtitle": "Chào mừng trở lại AnshinDanang",
+  "left": {
+    "title": "Khám phá Đà Nẵng",
+    "subtitle": "Chuyến du lịch hoàn hảo đang chờ bạn",
+    "feature1": "Khách sạn tuyệt vời",
+    "feature2": "Tour độc quyền",
+    "feature3": "Hỗ trợ 24/7"
+  },
+  "form": {
+    "emailLabel": "Email",
+    "passwordLabel": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "submit": "Đăng nhập",
+    "loading": "Đang đăng nhập..."
+  },
+  "or": "Hoặc",
+  "social": {
+    "google": "Đăng nhập bằng Google",
+    "facebook": "Đăng nhập bằng Facebook",
+    "line": "Đăng nhập bằng LINE"
+  },
+  "bottom": {
+    "noAccount": "Chưa có tài khoản?",
+    "registerNow": "Đăng ký ngay"
+  },
+  "errors": {
+    "requiredFields": "Vui lòng nhập email và mật khẩu",
+    "failed": "Đăng nhập thất bại",
+    "unexpected": "Đã có lỗi xảy ra. Vui lòng thử lại."
+  }
+}

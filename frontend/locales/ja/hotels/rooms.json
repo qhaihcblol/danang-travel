@@ -1,0 +1,49 @@
+{
+  "title": "客室一覧",
+  "subtitle": "部屋タイプごとに料金をわかりやすく比較できます。",
+  "roomTypesCount": "{count}タイプ",
+  "standardRoomType": "スタンダードルーム",
+  "maxGuests": "最大 {count} 名",
+  "noImage": "画像なし",
+  "roomInfo": {
+    "size": "広さ: {value}m2",
+    "view": "眺望: {value}",
+    "remaining": "残り {count} 室"
+  },
+  "amenities": {
+    "title": "設備",
+    "viewMore": "設備をもっと見る (+{count})",
+    "allAmenities": "すべての設備"
+  },
+  "table": {
+    "recommendedForYou": "おすすめプラン",
+    "price": "料金"
+  },
+  "status": {
+    "soldOut": "満室",
+    "almostSoldOut": "残りわずか",
+    "available": "空室あり"
+  },
+  "capacity": {
+    "adults": "大人 {count} 名",
+    "withChildren": "{adults}、子ども {children} 名"
+  },
+  "availability": {
+    "remaining": "残り {count} 室",
+    "contactToCheck": "空室状況はお問い合わせください"
+  },
+  "breakfast": {
+    "included": "朝食付き",
+    "notIncluded": "朝食なし"
+  },
+  "cancellation": {
+    "nonRefundable": "返金不可"
+  },
+  "bookNow": "予約",
+  "noPriceOptions": "この部屋タイプの料金プランはまだありません。",
+  "lowestPriceFrom": "最安料金は1泊 {price} から。",
+  "empty": {
+    "title": "表示できる客室がありません",
+    "subtitle": "後でもう一度ご確認ください。"
+  }
+}

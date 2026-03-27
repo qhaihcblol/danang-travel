@@ -1,0 +1,43 @@
+{
+  "title": "新規登録",
+  "subtitle": "アカウントを作成してダナンを満喫しましょう",
+  "form": {
+    "fullNameLabel": "氏名",
+    "fullNamePlaceholder": "山田 太郎",
+    "emailLabel": "メールアドレス",
+    "phoneLabel": "電話番号",
+    "optional": "任意",
+    "passwordLabel": "パスワード",
+    "confirmPasswordLabel": "パスワード確認",
+    "termsPrefix": "以下に同意します",
+    "terms": "利用規約",
+    "and": "および",
+    "privacy": "プライバシーポリシー",
+    "submit": "登録する",
+    "loading": "登録中..."
+  },
+  "or": "または",
+  "social": {
+    "google": "Google で登録",
+    "facebook": "Facebook で登録",
+    "line": "LINE で登録"
+  },
+  "bottom": {
+    "hasAccount": "すでにアカウントをお持ちですか？",
+    "login": "ログイン"
+  },
+  "right": {
+    "title": "コミュニティに参加",
+    "subtitle": "多くの旅行者が理想の旅のために AnshinDanang を選んでいます",
+    "feature1": "ツアー最大50%オフ",
+    "feature2": "日本語で24時間サポート",
+    "feature3": "お気に入り保存・共有"
+  },
+  "errors": {
+    "requiredFields": "必須項目をすべて入力してください",
+    "passwordMismatch": "パスワードが一致しません",
+    "acceptTerms": "利用規約への同意が必要です",
+    "failed": "登録に失敗しました",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  }
+}

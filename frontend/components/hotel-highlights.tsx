@@ -1,6 +1,7 @@
 'use client';
 
 import type { LucideIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import {
   Award,
   Building2,
@@ -76,13 +77,14 @@ const getHighlightIcon = (iconKey?: string): LucideIcon => {
 };
 
 export function HotelHighlights({ highlights }: HotelHighlightsProps) {
+  const t = useTranslations('hotels.highlights');
   const previewItems = highlights.slice(0, PREVIEW_LIMIT);
   const hasMore = highlights.length > PREVIEW_LIMIT;
 
   return (
     <section className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5">
       <h2 className="border-b border-border/70 pb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-        Nổi bật
+        {t('sectionTitle')}
       </h2>
 
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -119,12 +121,12 @@ export function HotelHighlights({ highlights }: HotelHighlightsProps) {
                 type="button"
                 className="text-sm font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
               >
-                Xem chi tiết
+                {t('viewDetails')}
               </button>
             </DialogTrigger>
             <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Nổi bật của khách sạn</DialogTitle>
+                <DialogTitle>{t('dialogTitle')}</DialogTitle>
               </DialogHeader>
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "title": "ホテル",
+    "subtitle": "憧れの目的地を保存して、特別な体験を見つけましょう。"
+  },
+  "search": {
+    "location": {
+      "label": "エリア",
+      "placeholder": "エリアを入力",
+      "findLabel": "エリアを検索",
+      "inputPlaceholder": "手入力でエリアを検索...",
+      "myLocationTitle": "現在地",
+      "myLocationSubtitle": "近くのスポットを探す",
+      "searchHistory": "検索履歴",
+      "popularLocations": "人気エリア"
+    },
+    "date": {
+      "label": "チェックイン / チェックアウト",
+      "empty": "日付を選択",
+      "checkoutPlaceholder": "チェックアウト日を選択",
+      "nights": "{count}泊",
+      "clear": "クリア"
+    },
+    "guests": {
+      "label": "人数・部屋数",
+      "rooms": "部屋数",
+      "adults": "大人",
+      "children": "子ども",
+      "decreaseRooms": "部屋数を減らす",
+      "increaseRooms": "部屋数を増やす",
+      "decreaseAdults": "大人人数を減らす",
+      "increaseAdults": "大人人数を増やす",
+      "decreaseChildren": "子ども人数を減らす",
+      "increaseChildren": "子ども人数を増やす",
+      "roomsCount": "{count}部屋",
+      "adultsCount": "大人{count}名",
+      "childrenCount": "子ども{count}名",
+      "done": "完了"
+    },
+    "submit": "ホテルを検索"
+  },
+  "featuredHotelsTitle": "注目のホテル"
+}

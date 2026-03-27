@@ -1,0 +1,33 @@
+{
+  "title": "ログイン",
+  "subtitle": "AnshinDanang へようこそ",
+  "left": {
+    "title": "ダナンを旅しよう",
+    "subtitle": "理想の旅行体験があなたを待っています",
+    "feature1": "厳選ホテル",
+    "feature2": "限定ツアー",
+    "feature3": "24時間サポート"
+  },
+  "form": {
+    "emailLabel": "メールアドレス",
+    "passwordLabel": "パスワード",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "submit": "ログイン",
+    "loading": "ログイン中..."
+  },
+  "or": "または",
+  "social": {
+    "google": "Google でログイン",
+    "facebook": "Facebook でログイン",
+    "line": "LINE でログイン"
+  },
+  "bottom": {
+    "noAccount": "アカウントをお持ちでないですか？",
+    "registerNow": "今すぐ登録"
+  },
+  "errors": {
+    "requiredFields": "メールアドレスとパスワードを入力してください",
+    "failed": "ログインに失敗しました",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  }
+}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Search, MapPin, Hotel, Compass, Ticket, UtensilsCrossed, ShoppingBag, Clock, ArrowRight } from 'lucide-react';
 import { ImageCarousel } from '@/components/image-carousel';
 import { ServiceCard } from '@/components/service-card';
@@ -23,20 +24,21 @@ const recentlyViewed = getRecentlyViewedMock();
 const famousLandmarks = landmarksMockData.slice(0, 4);
 const featuredActivities = toursMockData.slice(0, 4);
 
-const categoryButtons = [
-  { id: 'landmarks', label: 'Các địa danh nổi tiếng', icon: MapPin },
-  { id: 'hotels', label: 'Khách sạn', icon: Hotel },
-  { id: 'tours', label: 'Tour & Trải nghiệm', icon: Compass },
-  { id: 'tickets', label: 'Vé tham quan', icon: Ticket },
-  { id: 'food', label: 'Ẩm thực', icon: UtensilsCrossed },
-  { id: 'shopping', label: 'Mua sắm', icon: ShoppingBag },
-];
-
 export default function Home() {
+  const t = useTranslations('home');
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const categoryButtons = [
+    { id: 'landmarks', label: t('categories.landmarks'), icon: MapPin },
+    { id: 'hotels', label: t('categories.hotels'), icon: Hotel },
+    { id: 'tours', label: t('categories.tours'), icon: Compass },
+    { id: 'tickets', label: t('categories.tickets'), icon: Ticket },
+    { id: 'food', label: t('categories.food'), icon: UtensilsCrossed },
+    { id: 'shopping', label: t('categories.shopping'), icon: ShoppingBag },
+  ];
 
   const handleCategoryClick = (id: string) => {
     if (id === 'hotels') {
@@ -78,10 +80,10 @@ export default function Home() {
               {/* Text Content */}
               <div className="text-center max-w-2xl mb-8 sm:mb-12">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-3 leading-tight">
-                  Chạm vào vẻ đẹp Đà Nẵng
+                  {t('hero.title')}
                 </h1>
                 <p className="text-base sm:text-lg text-white/95 drop-shadow-md">
-                  An tâm từng bước - Nâng tầm hành trình của bạn
+                  {t('hero.subtitle')}
                 </p>
               </div>
 
@@ -93,14 +95,14 @@ export default function Home() {
                       <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600" />
                       <Input
                         type="text"
-                        placeholder="Khách sạn, tour, địa điểm..."
+                        placeholder={t('hero.searchPlaceholder')}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="pl-12 h-10 sm:h-11 rounded-lg border border-white/45 bg-white/75 text-slate-900 placeholder:text-slate-500 focus:bg-white/90 focus:border-primary/60 focus:ring-2 focus:ring-primary/50 transition-all focus:outline-none text-sm"
                       />
                     </div>
                     <Button className="bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-10 sm:h-11 px-6 sm:px-8 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm w-full sm:w-auto">
-                      Khám phá
+                      {t('hero.exploreButton')}
                     </Button>
                   </div>
                 </div>
@@ -136,11 +138,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Clock className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                Đã xem gần đây
+                {t('sections.recentlyViewed.title')}
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              Xem tất cả
+              {t('common.viewAll')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -157,11 +159,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <MapPin className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                Các địa danh nổi tiếng
+                {t('sections.landmarks.title')}
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              Xem tất cả
+              {t('common.viewAll')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -182,11 +184,11 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Compass className="w-7 h-7 text-primary" />
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                Hoạt động nổi bật
+                {t('sections.featuredActivities.title')}
               </h2>
             </div>
             <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              Xem tất cả
+              {t('common.viewAll')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -202,10 +204,10 @@ export default function Home() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
             <div className="bg-linear-to-r from-primary/10 via-accent/5 to-primary/10 rounded-3xl p-8 sm:p-16 border border-primary/20 text-center backdrop-blur-sm">
               <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-                Đăng ký để nhận thông báo về các ưu đãi đặc biệt và điểm đến mới.
+                {t('cta.description')}
               </p>
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-10 text-base font-semibold rounded-lg transition-all hover:shadow-lg">
-                Đăng ký ngay
+                {t('cta.button')}
               </Button>
             </div>
           </section>
@@ -217,31 +219,31 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
-              <h3 className="font-bold text-base mb-4">Về AnshinDanang</h3>
+              <h3 className="font-bold text-base mb-4">{t('footer.about.title')}</h3>
               <p className="text-sm opacity-75 leading-relaxed">
-                Nền tảng hỗ trợ du lịch hàng đầu cho du khách Nhật Bản tại Đà Nẵng.
+                {t('footer.about.description')}
               </p>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">Khám phá</h3>
+              <h3 className="font-bold text-base mb-4">{t('footer.explore.title')}</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Khách sạn</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Tour</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Vé tham quan</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Nhà hàng</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.explore.hotels')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.explore.tours')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.explore.tickets')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.explore.restaurants')}</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">Hỗ trợ</h3>
+              <h3 className="font-bold text-base mb-4">{t('footer.support.title')}</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Trung tâm trợ giúp</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Liên hệ</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Điều khoản dịch vụ</a></li>
-                <li><a href="#" className="hover:opacity-100 transition-opacity">Chính sách bảo mật</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.support.helpCenter')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.support.contact')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.support.terms')}</a></li>
+                <li><a href="#" className="hover:opacity-100 transition-opacity">{t('footer.support.privacy')}</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-base mb-4">Theo dõi</h3>
+              <h3 className="font-bold text-base mb-4">{t('footer.follow.title')}</h3>
               <ul className="text-sm space-y-2.5 opacity-75">
                 <li><a href="#" className="hover:opacity-100 transition-opacity">Facebook</a></li>
                 <li><a href="#" className="hover:opacity-100 transition-opacity">Instagram</a></li>
@@ -252,7 +254,7 @@ export default function Home() {
           </div>
           <div className="border-t border-card/20 pt-8">
             <p className="text-sm opacity-60">
-              © 2024 AnshinDanang.jp. Tất cả quyền được bảo lưu.
+              {t('footer.copyright')}
             </p>
           </div>
         </div>

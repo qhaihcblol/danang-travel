@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { Heart, Clock, LogOut, User as UserIcon, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -14,6 +16,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { AUTH_CHANGED_EVENT, getCurrentUser, logout } from '@/services/auth';
 import type { User } from '@/mock';
+import { localeCookieName } from '@/i18n/config';
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -22,7 +25,9 @@ interface HeaderProps {
 }
 
 export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
-  const [language, setLanguage] = useState('VI');
+  const t = useTranslations('header');
+  const locale = useLocale();
+  const router = useRouter();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -57,6 +62,12 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
     setCurrentUser(null);
   };
 
+  const handleLocaleChange = (nextLocale: 'vi' | 'ja') => {
+    if (nextLocale === locale) return;
+    document.cookie = `${localeCookieName}=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+    router.refresh();
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,9 +89,9 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
             {/* Language Selector */}
             <div className="flex items-center gap-0.5 border border-border/50 rounded-full px-1 py-0.5 bg-muted/50 hover:bg-muted/70 transition-all duration-300">
               <button
-                onClick={() => setLanguage('VI')}
+                onClick={() => handleLocaleChange('vi')}
                 className={`px-3 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 transform hover:scale-105 ${
-                  language === 'VI'
+                  locale === 'vi'
                     ? 'bg-white text-primary shadow-md'
                     : 'text-foreground/60 hover:text-foreground hover:bg-white/40'
                 }`}
@@ -88,9 +99,9 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                 VN
               </button>
               <button
-                onClick={() => setLanguage('JP')}
+                onClick={() => handleLocaleChange('ja')}
                 className={`px-3 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 transform hover:scale-105 ${
-                  language === 'JP'
+                  locale === 'ja'
                     ? 'bg-white text-primary shadow-md'
                     : 'text-foreground/60 hover:text-foreground hover:bg-white/40'
                 }`}
@@ -102,10 +113,10 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
             {/* Recently Viewed */}
             <button 
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-foreground/60 hover:text-primary hover:bg-primary/8 rounded-lg transition-all duration-300 hover:shadow-sm" 
-              title="Đã xem gần đây"
+              title={t('recentlyViewed')}
             >
               <Clock className="w-4 h-4" />
-              <span className="text-sm font-medium">Đã xem</span>
+              <span className="text-sm font-medium">{t('recentlyViewedShort')}</span>
             </button>
 
             {isUserLoggedIn ? (
@@ -113,10 +124,10 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                 {/* Favorites */}
                 <button 
                   className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-foreground/60 hover:text-accent hover:bg-accent/8 rounded-lg transition-all duration-300 hover:shadow-sm" 
-                  title="Yêu thích"
+                  title={t('favorites')}
                 >
                   <Heart className="w-4 h-4" />
-                  <span className="text-sm font-medium">Yêu thích</span>
+                  <span className="text-sm font-medium">{t('favorites')}</span>
                 </button>
 
                 {/* User Menu */}
@@ -125,7 +136,7 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                     <DropdownMenuTrigger asChild>
                       <button
                         className="rounded-full ring-2 ring-primary/20 hover:ring-primary/40 transition-all"
-                        title="Mở menu tài khoản"
+                        title={t('openAccountMenu')}
                       >
                         <Avatar className="size-9">
                           <AvatarImage src={displayAvatar} alt={displayName} />
@@ -139,13 +150,13 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                       <DropdownMenuItem asChild>
                         <Link href="/profile" className="cursor-pointer">
                           <UserIcon className="w-4 h-4" />
-                          Trang cá nhân
+                          {t('profile')}
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
                         <Link href="/orders" className="cursor-pointer">
                           <Package className="w-4 h-4" />
-                          Đơn hàng
+                          {t('orders')}
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
@@ -155,13 +166,13 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                         className="cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
-                        Đăng xuất
+                        {t('logout')}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <div className="hidden sm:block">
                     <p className="text-sm font-medium text-foreground">{displayName}</p>
-                    <p className="text-xs text-muted-foreground">Khách du lịch</p>
+                    <p className="text-xs text-muted-foreground">{t('traveler')}</p>
                   </div>
                 </div>
               </>
@@ -174,7 +185,7 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                     size="sm"
                     className="hidden sm:inline text-foreground/60 hover:text-foreground hover:bg-muted/50 rounded-lg font-medium transition-all duration-300"
                   >
-                    Đăng nhập
+                    {t('login')}
                   </Button>
                 </Link>
                 <Link href="/auth/register">
@@ -182,7 +193,7 @@ export function Header({ isLoggedIn, userName, avatarUrl }: HeaderProps) {
                     size="sm"
                     className="bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
                   >
-                    Đăng ký
+                    {t('register')}
                   </Button>
                 </Link>
               </>

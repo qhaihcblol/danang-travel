@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "title": "ダナンの美しさに触れる",
+    "subtitle": "安心の一歩で、旅の価値を高める",
+    "searchPlaceholder": "ホテル、ツアー、スポット...",
+    "exploreButton": "探す"
+  },
+  "categories": {
+    "landmarks": "人気スポット",
+    "hotels": "ホテル",
+    "tours": "ツアー・体験",
+    "tickets": "入場チケット",
+    "food": "グルメ",
+    "shopping": "ショッピング"
+  },
+  "common": {
+    "viewAll": "すべて見る"
+  },
+  "sections": {
+    "recentlyViewed": {
+      "title": "最近見た項目"
+    },
+    "landmarks": {
+      "title": "有名スポット"
+    },
+    "featuredActivities": {
+      "title": "注目アクティビティ"
+    }
+  },
+  "cta": {
+    "description": "会員登録して、特別オファーや新着スポット情報を受け取りましょう。",
+    "button": "今すぐ登録"
+  },
+  "footer": {
+    "about": {
+      "title": "AnshinDanang について",
+      "description": "ダナンを訪れる日本人旅行者向けの総合旅行サポートプラットフォームです。"
+    },
+    "explore": {
+      "title": "探索",
+      "hotels": "ホテル",
+      "tours": "ツアー",
+      "tickets": "チケット",
+      "restaurants": "レストラン"
+    },
+    "support": {
+      "title": "サポート",
+      "helpCenter": "ヘルプセンター",
+      "contact": "お問い合わせ",
+      "terms": "利用規約",
+      "privacy": "プライバシーポリシー"
+    },
+    "follow": {
+      "title": "フォロー"
+    },
+    "copyright": "© 2024 AnshinDanang.jp. All rights reserved."
+  }
+}

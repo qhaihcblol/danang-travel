@@ -1,0 +1,12 @@
+{
+  "login": "ログイン",
+  "register": "新規登録",
+  "logout": "ログアウト",
+  "recentlyViewed": "最近見た項目",
+  "recentlyViewedShort": "最近見た",
+  "favorites": "お気に入り",
+  "openAccountMenu": "アカウントメニューを開く",
+  "profile": "プロフィール",
+  "orders": "予約・注文",
+  "traveler": "旅行者"
+}

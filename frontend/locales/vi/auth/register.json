@@ -1,0 +1,43 @@
+{
+  "title": "Đăng ký",
+  "subtitle": "Tạo tài khoản để khám phá Đà Nẵng",
+  "form": {
+    "fullNameLabel": "Họ và tên",
+    "fullNamePlaceholder": "Nguyễn Văn A",
+    "emailLabel": "Email",
+    "phoneLabel": "Số điện thoại",
+    "optional": "tuỳ chọn",
+    "passwordLabel": "Mật khẩu",
+    "confirmPasswordLabel": "Xác nhận mật khẩu",
+    "termsPrefix": "Tôi đồng ý với",
+    "terms": "điều khoản dịch vụ",
+    "and": "và",
+    "privacy": "chính sách bảo mật",
+    "submit": "Đăng ký",
+    "loading": "Đang đăng ký..."
+  },
+  "or": "Hoặc",
+  "social": {
+    "google": "Đăng ký bằng Google",
+    "facebook": "Đăng ký bằng Facebook",
+    "line": "Đăng ký bằng LINE"
+  },
+  "bottom": {
+    "hasAccount": "Đã có tài khoản?",
+    "login": "Đăng nhập"
+  },
+  "right": {
+    "title": "Tham gia cộng đồng",
+    "subtitle": "Hàng nghìn du khách đã tin tưởng AnshinDanang cho chuyến đi hoàn hảo của họ",
+    "feature1": "Đặt tour giảm giá 50%",
+    "feature2": "Hỗ trợ 24/7 bằng tiếng Nhật",
+    "feature3": "Lưu yêu thích và chia sẻ"
+  },
+  "errors": {
+    "requiredFields": "Vui lòng điền tất cả các trường bắt buộc",
+    "passwordMismatch": "Mật khẩu không khớp",
+    "acceptTerms": "Vui lòng chấp nhận điều khoản dịch vụ",
+    "failed": "Đăng ký thất bại",
+    "unexpected": "Đã có lỗi xảy ra. Vui lòng thử lại."
+  }
+}

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 import { Header } from '@/components/layout/header'
 import './globals.css'
 
@@ -45,17 +47,22 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const locale = await getLocale()
+  const messages = await getMessages()
+
   return (
-    <html lang="vi" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
-        <Header />
-        {children}
-        <Analytics />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          {children}
+          <Analytics />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

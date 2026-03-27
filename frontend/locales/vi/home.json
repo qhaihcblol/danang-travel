@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "title": "Chạm vào vẻ đẹp Đà Nẵng",
+    "subtitle": "An tâm từng bước - Nâng tầm hành trình của bạn",
+    "searchPlaceholder": "Khách sạn, tour, địa điểm...",
+    "exploreButton": "Khám phá"
+  },
+  "categories": {
+    "landmarks": "Các địa danh nổi tiếng",
+    "hotels": "Khách sạn",
+    "tours": "Tour & Trải nghiệm",
+    "tickets": "Vé tham quan",
+    "food": "Ẩm thực",
+    "shopping": "Mua sắm"
+  },
+  "common": {
+    "viewAll": "Xem tất cả"
+  },
+  "sections": {
+    "recentlyViewed": {
+      "title": "Đã xem gần đây"
+    },
+    "landmarks": {
+      "title": "Các địa danh nổi tiếng"
+    },
+    "featuredActivities": {
+      "title": "Hoạt động nổi bật"
+    }
+  },
+  "cta": {
+    "description": "Đăng ký để nhận thông báo về các ưu đãi đặc biệt và điểm đến mới.",
+    "button": "Đăng ký ngay"
+  },
+  "footer": {
+    "about": {
+      "title": "Về AnshinDanang",
+      "description": "Nền tảng hỗ trợ du lịch hàng đầu cho du khách Nhật Bản tại Đà Nẵng."
+    },
+    "explore": {
+      "title": "Khám phá",
+      "hotels": "Khách sạn",
+      "tours": "Tour",
+      "tickets": "Vé tham quan",
+      "restaurants": "Nhà hàng"
+    },
+    "support": {
+      "title": "Hỗ trợ",
+      "helpCenter": "Trung tâm trợ giúp",
+      "contact": "Liên hệ",
+      "terms": "Điều khoản dịch vụ",
+      "privacy": "Chính sách bảo mật"
+    },
+    "follow": {
+      "title": "Theo dõi"
+    },
+    "copyright": "© 2024 AnshinDanang.jp. Tất cả quyền được bảo lưu."
+  }
+}

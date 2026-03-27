@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Mail, Lock, User, Phone, Eye, EyeOff, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +31,7 @@ const LineIcon = () => (
 );
 
 export default function RegisterPage() {
+  const t = useTranslations('auth.register');
   const router = useRouter();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -47,17 +49,17 @@ export default function RegisterPage() {
     setError('');
 
     if (!fullName || !email || !password || !confirmPassword) {
-      setError('Vui lòng điền tất cả các trường bắt buộc');
+      setError(t('errors.requiredFields'));
       return;
     }
 
     if (password !== confirmPassword) {
-      setError('Mật khẩu không khớp');
+      setError(t('errors.passwordMismatch'));
       return;
     }
 
     if (!acceptTerms) {
-      setError('Vui lòng chấp nhận điều khoản dịch vụ');
+      setError(t('errors.acceptTerms'));
       return;
     }
 
@@ -69,9 +71,9 @@ export default function RegisterPage() {
         return;
       }
 
-      setError(response.error || 'Đăng ký thất bại');
+      setError(response.error || t('errors.failed'));
     } catch {
-      setError('Đã có lỗi xảy ra. Vui lòng thử lại.');
+      setError(t('errors.unexpected'));
     } finally {
       setIsLoading(false);
     }
@@ -89,8 +91,8 @@ export default function RegisterPage() {
                 <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
             </Link>
-            <h1 className="text-3xl font-bold text-foreground mb-2">Đăng ký</h1>
-            <p className="text-muted-foreground">Tạo tài khoản để khám phá Đà Nẵng</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">{t('title')}</h1>
+            <p className="text-muted-foreground">{t('subtitle')}</p>
           </div>
 
           {/* Register Form Card */}
@@ -106,12 +108,12 @@ export default function RegisterPage() {
             <form onSubmit={handleRegister} className="space-y-4">
               {/* Full Name Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Họ và tên</label>
+                <label className="text-sm font-semibold text-foreground">{t('form.fullNameLabel')}</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
                     type="text"
-                    placeholder="Nguyễn Văn A"
+                    placeholder={t('form.fullNamePlaceholder')}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="pl-12 h-12 rounded-lg border-border/50 bg-muted/30 focus:bg-white focus:border-primary transition-all"
@@ -122,7 +124,7 @@ export default function RegisterPage() {
 
               {/* Email Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Email</label>
+                <label className="text-sm font-semibold text-foreground">{t('form.emailLabel')}</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -138,7 +140,7 @@ export default function RegisterPage() {
 
               {/* Phone Input (Optional) */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Số điện thoại <span className="text-muted-foreground text-xs">(tuỳ chọn)</span></label>
+                <label className="text-sm font-semibold text-foreground">{t('form.phoneLabel')} <span className="text-muted-foreground text-xs">({t('form.optional')})</span></label>
                 <div className="relative">
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -153,7 +155,7 @@ export default function RegisterPage() {
 
               {/* Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Mật khẩu</label>
+                <label className="text-sm font-semibold text-foreground">{t('form.passwordLabel')}</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -180,7 +182,7 @@ export default function RegisterPage() {
 
               {/* Confirm Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-foreground">Xác nhận mật khẩu</label>
+                <label className="text-sm font-semibold text-foreground">{t('form.confirmPasswordLabel')}</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                   <Input
@@ -215,13 +217,13 @@ export default function RegisterPage() {
                   className="mt-1 w-5 h-5 rounded border-primary cursor-pointer"
                 />
                 <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
-                  Tôi đồng ý với{' '}
+                  {t('form.termsPrefix')}{' '}
                   <Link href="#" className="text-primary hover:underline font-semibold">
-                    điều khoản dịch vụ
+                    {t('form.terms')}
                   </Link>
-                  {' '}và{' '}
+                  {' '}{t('form.and')}{' '}
                   <Link href="#" className="text-primary hover:underline font-semibold">
-                    chính sách bảo mật
+                    {t('form.privacy')}
                   </Link>
                 </label>
               </div>
@@ -232,14 +234,14 @@ export default function RegisterPage() {
                 disabled={isLoading}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-12 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
               >
-                {isLoading ? 'Đang đăng ký...' : 'Đăng ký'}
+                {isLoading ? t('form.loading') : t('form.submit')}
               </Button>
             </form>
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
               <div className="flex-1 h-px bg-border/50"></div>
-              <span className="text-sm text-muted-foreground">Hoặc</span>
+              <span className="text-sm text-muted-foreground">{t('or')}</span>
               <div className="flex-1 h-px bg-border/50"></div>
             </div>
 
@@ -249,7 +251,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#4285F4]/40 bg-white hover:bg-[#4285F4]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng Google"
+                title={t('social.google')}
               >
                 <GoogleIcon />
               </button>
@@ -258,7 +260,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#1877F2]/40 bg-white hover:bg-[#1877F2]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng Facebook"
+                title={t('social.facebook')}
               >
                 <FacebookIcon />
               </button>
@@ -267,7 +269,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="h-12 rounded-lg border border-border/40 hover:border-[#00B900]/40 bg-white hover:bg-[#00B900]/5 transition-all flex items-center justify-center gap-2 font-medium text-foreground/70 hover:text-foreground group"
-                title="Đăng ký bằng LINE"
+                title={t('social.line')}
               >
                 <LineIcon />
               </button>
@@ -277,9 +279,9 @@ export default function RegisterPage() {
           {/* Sign In Link */}
           <div className="text-center mt-6">
             <p className="text-muted-foreground">
-              Đã có tài khoản?{' '}
+              {t('bottom.hasAccount')}{' '}
               <Link href="/auth/login" className="text-primary font-semibold hover:underline transition-colors">
-                Đăng nhập
+                {t('bottom.login')}
               </Link>
             </p>
           </div>
@@ -298,26 +300,26 @@ export default function RegisterPage() {
           <div className="w-24 h-24 bg-linear-to-br from-secondary via-secondary to-accent rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-8">
             <span className="text-white font-bold text-5xl">A</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">Tham gia cộng đồng</h2>
-          <p className="text-lg text-muted-foreground mb-8">Hàng nghìn du khách đã tín tưởng AnshinDanang cho chuyến đi hoàn hảo của họ</p>
+          <h2 className="text-4xl font-bold text-foreground mb-4">{t('right.title')}</h2>
+          <p className="text-lg text-muted-foreground mb-8">{t('right.subtitle')}</p>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Đặt tour giảm giá 50%</span>
+              <span>{t('right.feature1')}</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Hỗ trợ 24/7 bằng tiếng Nhật</span>
+              <span>{t('right.feature2')}</span>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
-              <span>Lưu yêu thích và chia sẻ</span>
+              <span>{t('right.feature3')}</span>
             </div>
           </div>
         </div>

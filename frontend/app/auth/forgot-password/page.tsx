@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Mail, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { forgotPassword } from '@/services/auth';
 
 export default function ForgotPasswordPage() {
+  const t = useTranslations('auth.forgotPassword');
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -40,8 +42,8 @@ export default function ForgotPasswordPage() {
               <span className="text-primary-foreground font-bold text-xl">A</span>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Quên mật khẩu?</h1>
-          <p className="text-muted-foreground">Nhập email của bạn để nhận liên kết đặt lại</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">{t('title')}</h1>
+          <p className="text-muted-foreground">{t('subtitle')}</p>
         </div>
 
         {/* Card */}
@@ -51,7 +53,7 @@ export default function ForgotPasswordPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Email Input */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-foreground">Email</label>
+                  <label className="text-sm font-semibold text-foreground">{t('form.emailLabel')}</label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary/60" />
                     <Input
@@ -71,7 +73,7 @@ export default function ForgotPasswordPage() {
                   disabled={isLoading}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 h-12 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
                 >
-                  {isLoading ? 'Đang gửi...' : 'Gửi liên kết đặt lại'}
+                  {isLoading ? t('form.loading') : t('form.submit')}
                 </Button>
 
                 {/* Back to Login */}
@@ -80,7 +82,7 @@ export default function ForgotPasswordPage() {
                   className="flex items-center justify-center gap-2 text-primary hover:underline transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Quay lại đăng nhập
+                  {t('form.backToLogin')}
                 </Link>
               </form>
             ) : (
@@ -88,12 +90,12 @@ export default function ForgotPasswordPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                   <Mail className="w-8 h-8 text-primary" />
                 </div>
-                <h2 className="text-xl font-bold text-foreground">Kiểm tra email của bạn</h2>
+                <h2 className="text-xl font-bold text-foreground">{t('submitted.title')}</h2>
                 <p className="text-muted-foreground">
-                  Chúng tôi đã gửi liên kết đặt lại mật khẩu đến <span className="font-semibold text-foreground">{email}</span>
+                  {t('submitted.descriptionPrefix')} <span className="font-semibold text-foreground">{email}</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Vui lòng kiểm tra hộp thư của bạn (hoặc thư rác) trong vòng 24 giờ.
+                  {t('submitted.descriptionSuffix')}
                 </p>
 
                 {/* Back to Login Button */}
@@ -101,7 +103,7 @@ export default function ForgotPasswordPage() {
                   asChild
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-lg font-semibold mt-6"
                 >
-                  <Link href="/auth/login">Quay lại đăng nhập</Link>
+                  <Link href="/auth/login">{t('submitted.backButton')}</Link>
                 </Button>
               </div>
             )}

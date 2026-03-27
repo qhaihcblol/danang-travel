@@ -1,0 +1,26 @@
+{
+  "priceFrom": "料金は",
+  "perNight": "/ 泊",
+  "bookNow": "今すぐ予約",
+  "description": "説明",
+  "featuredAmenities": "主な設備",
+  "overallRating": "総合評価",
+  "viewRatingDetails": "評価の詳細を見る",
+  "reviewCount": "口コミ {count} 件",
+  "booked": "予約実績",
+  "bookingCount": "{count}+ 件",
+  "nearbyTitle": "周辺スポット（近い順2件）",
+  "viewAllNearby": "すべての周辺スポットを見る",
+  "distanceKm": "{value} km",
+  "minutes": "{value} 分",
+  "overview": "概要",
+  "viewFullOverview": "概要をすべて表示",
+  "ratingLabels": {
+    "cleanliness": "清潔さ",
+    "comfort": "快適さ",
+    "location": "立地",
+    "facilities": "設備",
+    "staff": "スタッフ",
+    "valueForMoney": "コスパ"
+  }
+}

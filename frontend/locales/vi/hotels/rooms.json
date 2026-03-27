@@ -1,0 +1,49 @@
+{
+  "title": "Danh sách phòng",
+  "subtitle": "Thiết kế rõ ràng theo từng loại phòng và mức giá cho mỗi lựa chọn.",
+  "roomTypesCount": "{count} loại phòng",
+  "standardRoomType": "Phòng tiêu chuẩn",
+  "maxGuests": "Tối đa {count} khách",
+  "noImage": "Không có ảnh",
+  "roomInfo": {
+    "size": "Diện tích: {value}m2",
+    "view": "Hướng nhìn: {value}",
+    "remaining": "Còn lại: {count} phòng"
+  },
+  "amenities": {
+    "title": "Tiện nghi",
+    "viewMore": "Xem thêm tiện nghi (+{count})",
+    "allAmenities": "Tất cả tiện nghi"
+  },
+  "table": {
+    "recommendedForYou": "Đề xuất cho bạn",
+    "price": "Giá"
+  },
+  "status": {
+    "soldOut": "Hết phòng",
+    "almostSoldOut": "Sắp hết",
+    "available": "Còn phòng"
+  },
+  "capacity": {
+    "adults": "{count} người lớn",
+    "withChildren": "{adults}, {children} trẻ em"
+  },
+  "availability": {
+    "remaining": "Còn {count} phòng",
+    "contactToCheck": "Liên hệ để kiểm tra phòng"
+  },
+  "breakfast": {
+    "included": "Bao gồm bữa sáng",
+    "notIncluded": "Không gồm bữa sáng"
+  },
+  "cancellation": {
+    "nonRefundable": "Không hoàn tiền"
+  },
+  "bookNow": "Đặt",
+  "noPriceOptions": "Chưa có lựa chọn giá cho loại phòng này.",
+  "lowestPriceFrom": "Giá thấp nhất từ {price} mỗi đêm.",
+  "empty": {
+    "title": "Hiện chưa có phòng để hiển thị",
+    "subtitle": "Vui lòng quay lại sau để xem thêm lựa chọn."
+  }
+}

@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { addDays, differenceInCalendarDays, format, startOfDay } from 'date-fns';
-import { vi } from 'date-fns/locale';
+import { ja, vi } from 'date-fns/locale';
 import { BedDouble, CalendarDays, MapPin, Minus, Plus, Search, Users } from 'lucide-react';
 import type { DateRange } from 'react-day-picker';
+import { useLocale, useTranslations } from 'next-intl';
 import { ImageCarousel } from '@/components/image-carousel';
 import { ServiceCard } from '@/components/service-card';
 import { Button } from '@/components/ui/button';
@@ -19,8 +20,6 @@ const searchHistory = ['Furama Resort Đà Nẵng', 'Novotel Danang Premier Han 
 
 const today = startOfDay(new Date());
 
-const dayLabel = (date: Date) => format(date, 'EEE, dd/MM', { locale: vi });
-
 const withTrailingEllipsis = (value: string, tailLength = 24) => {
   if (value.length <= tailLength) return value;
   return `...${value.slice(-tailLength)}`;
@@ -28,11 +27,15 @@ const withTrailingEllipsis = (value: string, tailLength = 24) => {
 
 function Counter({
   label,
+  decreaseAriaLabel,
+  increaseAriaLabel,
   value,
   min,
   onChange,
 }: {
   label: string;
+  decreaseAriaLabel: string;
+  increaseAriaLabel: string;
   value: number;
   min: number;
   onChange: (next: number) => void;
@@ -46,7 +49,7 @@ function Counter({
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
           className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
-          aria-label={`Giảm ${label}`}
+          aria-label={decreaseAriaLabel}
         >
           <Minus className="h-4 w-4" />
         </button>
@@ -55,7 +58,7 @@ function Counter({
           type="button"
           onClick={() => onChange(value + 1)}
           className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted"
-          aria-label={`Tăng ${label}`}
+          aria-label={increaseAriaLabel}
         >
           <Plus className="h-4 w-4" />
         </button>
@@ -65,6 +68,10 @@ function Counter({
 }
 
 export default function HotelsPage() {
+  const t = useTranslations('hotels.page');
+  const locale = useLocale();
+  const dateLocale = locale === 'ja' ? ja : vi;
+
   const [locationInput, setLocationInput] = useState('Đà Nẵng');
   const [isLocationOpen, setIsLocationOpen] = useState(false);
   const [isDateOpen, setIsDateOpen] = useState(false);
@@ -82,16 +89,21 @@ export default function HotelsPage() {
     return Math.max(0, differenceInCalendarDays(range.to, range.from));
   }, [range]);
 
-  const dateLabel = useMemo(() => {
-    if (!range?.from && !range?.to) return 'Chọn ngày nhận/trả phòng';
-    if (range?.from && !range?.to) return `${dayLabel(range.from)} - Chọn ngày trả phòng`;
-    if (range?.from && range?.to) {
-      return `${dayLabel(range.from)} - ${dayLabel(range.to)} • ${nights} đêm`;
-    }
-    return 'Chọn ngày nhận/trả phòng';
-  }, [range, nights]);
+  const dayLabel = useCallback(
+    (date: Date) => format(date, 'EEE, dd/MM', { locale: dateLocale }),
+    [dateLocale],
+  );
 
-  const guestLabel = `${rooms} phòng • ${adults} người lớn • ${children} trẻ em`;
+  const dateLabel = useMemo(() => {
+    if (!range?.from && !range?.to) return t('search.date.empty');
+    if (range?.from && !range?.to) return `${dayLabel(range.from)} - ${t('search.date.checkoutPlaceholder')}`;
+    if (range?.from && range?.to) {
+      return `${dayLabel(range.from)} - ${dayLabel(range.to)} • ${t('search.date.nights', {count: nights})}`;
+    }
+    return t('search.date.empty');
+  }, [dayLabel, range, nights, t]);
+
+  const guestLabel = `${t('search.guests.roomsCount', {count: rooms})} • ${t('search.guests.adultsCount', {count: adults})} • ${t('search.guests.childrenCount', {count: children})}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,9 +112,9 @@ export default function HotelsPage() {
           <div className="relative">
             <ImageCarousel images={carouselImages} />
             <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-              <h1 className="mb-3 text-3xl font-bold text-white drop-shadow-lg sm:text-4xl lg:text-5xl">Khách sạn</h1>
+              <h1 className="mb-3 text-3xl font-bold text-white drop-shadow-lg sm:text-4xl lg:text-5xl">{t('hero.title')}</h1>
               <p className="max-w-2xl text-base text-white/95 drop-shadow-md sm:text-lg">
-                Lưu lại các điểm đến trong mơ và khám phá những hoạt động độc đáo nhất.
+                {t('hero.subtitle')}
               </p>
             </div>
           </div>
@@ -120,21 +132,21 @@ export default function HotelsPage() {
                     >
                     <MapPin className="h-5 w-5 text-primary" />
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium text-muted-foreground">Địa điểm</p>
-                      <p className="truncate text-[15px] font-normal text-foreground">{locationInput ? withTrailingEllipsis(locationInput) : 'Nhập địa điểm'}</p>
+                      <p className="text-[11px] font-medium text-muted-foreground">{t('search.location.label')}</p>
+                      <p className="truncate text-[15px] font-normal text-foreground">{locationInput ? withTrailingEllipsis(locationInput) : t('search.location.placeholder')}</p>
                     </div>
                     </button>
                   </PopoverTrigger>
                   <PopoverContent align="start" className="w-[min(92vw,420px)] p-4">
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold uppercase text-muted-foreground">Tìm địa điểm</label>
+                      <label className="text-xs font-semibold uppercase text-muted-foreground">{t('search.location.findLabel')}</label>
                       <div className="relative">
                         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                         <input
                           value={locationInput}
                           onChange={(event) => setLocationInput(event.target.value)}
-                          placeholder="Nhập tay địa điểm..."
+                          placeholder={t('search.location.inputPlaceholder')}
                           className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-3 text-sm outline-none ring-offset-background transition focus:border-primary focus:ring-2 focus:ring-primary/30"
                         />
                       </div>
@@ -144,12 +156,12 @@ export default function HotelsPage() {
                       type="button"
                       className="w-full rounded-lg border border-dashed border-primary/50 bg-primary/5 px-3 py-2 text-left text-sm transition-colors hover:bg-primary/10"
                     >
-                      <p className="font-semibold text-primary">Vị trí của tôi</p>
-                      <p className="text-muted-foreground">Khám phá những điểm gần đây</p>
+                      <p className="font-semibold text-primary">{t('search.location.myLocationTitle')}</p>
+                      <p className="text-muted-foreground">{t('search.location.myLocationSubtitle')}</p>
                     </button>
 
                     <div>
-                      <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">Lịch sử tìm kiếm</p>
+                      <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">{t('search.location.searchHistory')}</p>
                       <div className="space-y-1">
                         {searchHistory.map((item) => (
                           <button
@@ -168,7 +180,7 @@ export default function HotelsPage() {
                     </div>
 
                     <div>
-                      <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">Tên địa điểm hot</p>
+                      <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">{t('search.location.popularLocations')}</p>
                       <div className="flex flex-wrap gap-2">
                         {popularLocations.map((item) => (
                           <button
@@ -199,7 +211,7 @@ export default function HotelsPage() {
                     >
                     <CalendarDays className="h-5 w-5 text-primary" />
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium text-muted-foreground">Ngày nhận / trả phòng</p>
+                      <p className="text-[11px] font-medium text-muted-foreground">{t('search.date.label')}</p>
                       <p className="truncate text-[15px] font-normal text-foreground">{dateLabel}</p>
                     </div>
                     </button>
@@ -208,15 +220,24 @@ export default function HotelsPage() {
                   <div className="px-5 pt-4 pb-3">
                   <Calendar
                     mode="range"
-                    locale={vi}
+                    locale={dateLocale}
                     numberOfMonths={2}
                     selected={range}
                     onSelect={setRange}
                     disabled={{ before: today }}
                     className="w-full rounded-xl border border-border/50 bg-white"
                     formatters={{
-                      formatCaption: (date) => `Th${date.getMonth() + 1} ${date.getFullYear()}`,
+                      formatCaption: (date) => {
+                        if (locale === 'ja') {
+                          return format(date, 'yyyy年M月', { locale: ja });
+                        }
+                        return `Th${date.getMonth() + 1} ${date.getFullYear()}`;
+                      },
                       formatWeekdayName: (date) => {
+                        if (locale === 'ja') {
+                          const labels = ['日', '月', '火', '水', '木', '金', '土'];
+                          return labels[date.getDay()];
+                        }
                         const labels = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
                         return labels[date.getDay()];
                       },
@@ -241,7 +262,7 @@ export default function HotelsPage() {
                       onClick={() => setRange(undefined)}
                       className="rounded-md bg-muted px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted/80"
                     >
-                      Xóa
+                      {t('search.date.clear')}
                     </button>
                   </div>
                   </PopoverContent>
@@ -257,17 +278,38 @@ export default function HotelsPage() {
                     >
                     <Users className="h-5 w-5 text-primary" />
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium text-muted-foreground">Số khách & phòng</p>
+                      <p className="text-[11px] font-medium text-muted-foreground">{t('search.guests.label')}</p>
                       <p className="truncate text-[15px] font-normal text-foreground">{guestLabel}</p>
                     </div>
                     </button>
                   </PopoverTrigger>
                   <PopoverContent align="end" className="w-[min(92vw,360px)] p-4">
-                  <Counter label="Số phòng" value={rooms} min={1} onChange={setRooms} />
-                  <Counter label="Người lớn" value={adults} min={1} onChange={setAdults} />
-                  <Counter label="Trẻ em" value={children} min={0} onChange={setChildren} />
+                  <Counter
+                    label={t('search.guests.rooms')}
+                    decreaseAriaLabel={t('search.guests.decreaseRooms')}
+                    increaseAriaLabel={t('search.guests.increaseRooms')}
+                    value={rooms}
+                    min={1}
+                    onChange={setRooms}
+                  />
+                  <Counter
+                    label={t('search.guests.adults')}
+                    decreaseAriaLabel={t('search.guests.decreaseAdults')}
+                    increaseAriaLabel={t('search.guests.increaseAdults')}
+                    value={adults}
+                    min={1}
+                    onChange={setAdults}
+                  />
+                  <Counter
+                    label={t('search.guests.children')}
+                    decreaseAriaLabel={t('search.guests.decreaseChildren')}
+                    increaseAriaLabel={t('search.guests.increaseChildren')}
+                    value={children}
+                    min={0}
+                    onChange={setChildren}
+                  />
                   <Button className="mt-3 w-full" onClick={() => setIsGuestOpen(false)}>
-                    Xong
+                    {t('search.guests.done')}
                   </Button>
                   </PopoverContent>
                 </Popover>
@@ -275,7 +317,7 @@ export default function HotelsPage() {
 
               <Button className="h-14 rounded-xl px-6 font-semibold">
                 <Search className="mr-2 h-4 w-4" />
-                Tìm khách sạn
+                {t('search.submit')}
               </Button>
             </div>
           </div>
@@ -284,7 +326,7 @@ export default function HotelsPage() {
         <section className="mx-auto mb-16 max-w-7xl pt-2 px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex items-center gap-3">
             <BedDouble className="h-6 w-6 text-primary" />
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Khách sạn nổi bật</h2>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{t('featuredHotelsTitle')}</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {hotelsSummaryMock.map((hotel) => (
