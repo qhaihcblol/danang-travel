@@ -11,7 +11,7 @@ import { ServiceCard } from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { carouselImagesMockData, hotelsSummaryMock } from '@/mock';
+import { carouselImagesMockData, getHotelsSummaryMock } from '@/mock';
 
 const carouselImages = carouselImagesMockData.map((item) => item.url);
 
@@ -71,6 +71,7 @@ export default function HotelsPage() {
   const t = useTranslations('hotels.page');
   const locale = useLocale();
   const dateLocale = locale === 'ja' ? ja : vi;
+  const hotelsSummary = getHotelsSummaryMock(locale);
 
   const [locationInput, setLocationInput] = useState('Đà Nẵng');
   const [isLocationOpen, setIsLocationOpen] = useState(false);
@@ -329,7 +330,7 @@ export default function HotelsPage() {
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{t('featuredHotelsTitle')}</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {hotelsSummaryMock.map((hotel) => (
+            {hotelsSummary.map((hotel) => (
               <ServiceCard key={hotel.id} {...hotel} />
             ))}
           </div>

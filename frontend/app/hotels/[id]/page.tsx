@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Clock3, Info, MapPin, Star } from 'lucide-react';
-import { hotelsDetailMock } from '@/mock';
+import { getHotelsDetailMock } from '@/mock';
 import { HotelGallery } from '@/components/hotel-gallery';
 import { HotelHighlights } from '@/components/hotel-highlights';
 import { HotelRoomsSection } from '@/components/hotel-rooms-section';
@@ -31,7 +31,7 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
   const numberLocale = locale === 'ja' ? 'ja-JP' : 'vi-VN';
 
   const { id } = await params;
-  const hotel = hotelsDetailMock.find((item) => item.id === id);
+  const hotel = getHotelsDetailMock(locale).find((item) => item.id === id);
 
   if (!hotel) {
     notFound();

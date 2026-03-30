@@ -3,7 +3,7 @@ import type { HotelSummary } from "@/types/hotel-summary";
 export const hotelsSummaryMock: HotelSummary[] = [
   // ================================================================
   // 1. THE SHIN HOTEL & SPA ★★★★★
-  // ==============================data==================================
+  // ================================================================
   {
     id: "hotel-001",
     name: "The Shin Hotel & Spa",
@@ -26,19 +26,19 @@ export const hotelsSummaryMock: HotelSummary[] = [
     bookingCount: 4350,
     price: 2_850_000,
     currency: "VND",
-    priceNote: "Giá mỗi đêm, đã bao gồm thuế",
+    priceNote: "1泊あたりの料金、税込",
     amenities: [
-      "Hồ bơi vô cực",
-      "Spa",
-      "Bãi biển riêng",
-      "Nhà hàng",
-      "Bar",
-      "Gym",
-      "WiFi miễn phí",
+      "インフィニティプール",
+      "スパ",
+      "プライベートビーチ",
+      "レストラン",
+      "バー",
+      "ジム",
+      "無料Wi-Fi",
     ],
     description:
-      "Tọa lạc ngay sát biển Mỹ Khê – một trong những bãi biển đẹp nhất hành tinh – The Shin Hotel & Spa mang đến trải nghiệm nghỉ dưỡng đẳng cấp 5 sao với hồ bơi vô cực hướng biển và dịch vụ spa được đánh giá cao nhất Đà Nẵng.",
-    tags: ["Hướng biển", "Hồ bơi vô cực", "Spa", "Bãi biển riêng"],
+      "世界最高峰のビーチのひとつ、ミーケービーチに隣接するThe Shin Hotel & Spaは、オーシャンビューのインフィニティプールとダナン随一と評されるスパを備えた、最高水準の5つ星リゾート体験をご提供します。",
+    tags: ["オーシャンビュー", "インフィニティプール", "スパ", "プライベートビーチ"],
   },
 
   // ================================================================
@@ -66,18 +66,18 @@ export const hotelsSummaryMock: HotelSummary[] = [
     bookingCount: 2110,
     price: 1_650_000,
     currency: "VND",
-    priceNote: "Giá mỗi đêm, chưa bao gồm thuế",
+    priceNote: "1泊あたりの料金、税別",
     amenities: [
-      "Hồ bơi ngoài trời",
-      "Nhà hàng",
-      "Bar bãi biển",
-      "Yoga",
-      "WiFi miễn phí",
-      "Xe đạp miễn phí",
+      "屋外プール",
+      "レストラン",
+      "ビーチバー",
+      "ヨガ",
+      "無料Wi-Fi",
+      "無料自転車レンタル",
     ],
     description:
-      "Azura Boutique Resort mang phong cách Mediterranean ấm áp, nằm sát biển Non Nước yên tĩnh. Lý tưởng cho những cặp đôi và du khách tìm kiếm sự bình yên, xa rời ồn ào.",
-    tags: ["Boutique", "Yên tĩnh", "Mediterranean", "Non Nước"],
+      "Azura Boutique Resortは地中海風の温かみあるデザインで統一され、静かなノンヌック・ビーチのほとりに位置しています。喧騒を離れて安らぎを求めるカップルや旅行者に最適な宿泊先です。",
+    tags: ["ブティック", "静寂", "地中海スタイル", "ノンヌック"],
   },
 
   // ================================================================
@@ -105,18 +105,18 @@ export const hotelsSummaryMock: HotelSummary[] = [
     bookingCount: 8760,
     price: 220_000,
     currency: "VND",
-    priceNote: "Giá mỗi giường/đêm, đã bao gồm thuế",
+    priceNote: "1ベッド/1泊あたりの料金、税込",
     amenities: [
-      "Phòng ký túc xá",
-      "Bếp chung",
-      "Khu vực co-working",
-      "WiFi tốc độ cao",
-      "Tủ khóa miễn phí",
-      "Tour miễn phí hàng ngày",
+      "ドミトリールーム",
+      "共有キッチン",
+      "コワーキングスペース",
+      "高速Wi-Fi",
+      "無料ロッカー",
+      "毎日無料ツアー",
     ],
     description:
-      "Hostel sôi động nhất trung tâm Đà Nẵng, chỉ 5 phút đi bộ đến Cầu Rồng. Điểm gặp gỡ lý tưởng cho du khách ba lô muốn khám phá thành phố và kết bạn mới.",
-    tags: ["Trung tâm", "Ba lô", "Co-working", "Gần Cầu Rồng"],
+      "ダナン市内で最も活気あふれるホステル。ドラゴンブリッジまで徒歩わずか5分。新しい友人を作りながら街を探索したいバックパッカーにとって理想的な出会いの場です。",
+    tags: ["市内中心部", "バックパッカー", "コワーキング", "ドラゴンブリッジ近く"],
   },
 
   // ================================================================
@@ -144,18 +144,18 @@ export const hotelsSummaryMock: HotelSummary[] = [
     bookingCount: 1430,
     price: 1_200_000,
     currency: "VND",
-    priceNote: "Giá/đêm, phù hợp lưu trú dài ngày",
+    priceNote: "1泊あたりの料金、長期滞在に最適",
     amenities: [
-      "Bếp đầy đủ tiện nghi",
-      "Máy giặt riêng",
-      "Hồ bơi",
-      "Bãi đỗ xe",
-      "WiFi tốc độ cao",
-      "Smart TV Netflix",
+      "フル装備キッチン",
+      "専用洗濯機",
+      "プール",
+      "駐車場",
+      "高速Wi-Fi",
+      "Smart TV（Netflix対応）",
     ],
     description:
-      "Căn hộ khách sạn cao cấp nằm trên đại lộ Phạm Văn Đồng, lý tưởng cho gia đình và khách lưu trú dài ngày. Mỗi căn hộ có bếp đầy đủ tiện nghi, phòng giặt và ban công riêng.",
-    tags: ["Căn hộ", "Gia đình", "Lưu trú dài ngày", "Có bếp"],
+      "ファム・ヴァン・ドン大通りに位置する高級サービスアパートメント。ファミリーや長期滞在者に最適。各部屋にはフル装備のキッチン、専用ランドリー、プライベートバルコニーが備わっています。",
+    tags: ["アパートメント", "ファミリー", "長期滞在", "キッチン付き"],
   },
 
   // ================================================================
@@ -183,17 +183,17 @@ export const hotelsSummaryMock: HotelSummary[] = [
     bookingCount: 9840,
     price: 4_500_000,
     currency: "VND",
-    priceNote: "Giá mỗi đêm, đã bao gồm bữa sáng",
+    priceNote: "1泊あたりの料金、朝食込み",
     amenities: [
-      "3 hồ bơi",
-      "Bãi biển riêng 200m",
-      "Khu spa rộng 2000m²",
-      "5 nhà hàng",
-      "Casino",
-      "Trẻ em miễn phí",
+      "プール3か所",
+      "200mプライベートビーチ",
+      "2000㎡スパ",
+      "レストラン5か所",
+      "カジノ",
+      "お子様無料",
     ],
     description:
-      "Vela Grand Resort là biểu tượng nghỉ dưỡng sang trọng bậc nhất Đà Nẵng với khuôn viên 8 hecta trải dài theo bờ biển Mỹ Khê. Điểm đến lý tưởng cho hội nghị, đám cưới và kỳ nghỉ gia đình đẳng cấp.",
-    tags: ["5 sao", "Mega resort", "MICE", "Đám cưới", "Gia đình"],
+      "Vela Grand Resortは、ミーケービーチに沿って広がる8ヘクタールの敷地を誇り、ダナン随一の豪華リゾートとして知られています。カンファレンス、ウェディング、そして家族での贅沢なバケーションに最適な、ダナンを代表するリゾートです。",
+    tags: ["5つ星", "メガリゾート", "MICE", "ウェディング", "ファミリー"],
   },
 ];
