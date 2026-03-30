@@ -1,17 +1,21 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { BedDouble, CheckCircle2, Users, XCircle } from 'lucide-react';
+import { BedDouble, CheckCircle2, FilterX, Images, SlidersHorizontal, Users, XCircle } from 'lucide-react';
 import type { RoomType, RoomVariant } from '@/types/hotel-detail';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 type HotelRoomsSectionProps = {
   rooms: RoomType[];
   currency?: string;
 };
+
+type RoomSortOption = 'priceAsc' | 'priceDesc' | 'flexibleFirst';
 
 const formatPrice = (value: number, currency = 'VND', locale = 'vi-VN') => {
   if (currency === 'VND') {
@@ -27,6 +31,18 @@ const formatPrice = (value: number, currency = 'VND', locale = 'vi-VN') => {
 
 const toBedLabel = (beds: RoomVariant['beds']) => beds.map((bed) => `${bed.count} ${bed.type.replace('_', ' ')}`).join(' • ');
 
+const hasFreeCancellation = (policy?: string) => {
+  if (!policy) return false;
+
+  const normalized = policy.toLowerCase();
+  const includesFree = /free|miễn phí|無料/.test(normalized);
+  const nonRefundable = /không hoàn|non[\s-]?refundable|返金不可/.test(normalized);
+
+  return includesFree && !nonRefundable;
+};
+
+const isLowAvailability = (count?: number) => typeof count === 'number' && count <= 2;
+
 const toStatusVariant = (availableCount?: number) => {
   if (availableCount === 0) return 'destructive' as const;
   if (availableCount !== undefined && availableCount <= 2) return 'secondary' as const;
@@ -37,6 +53,13 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
   const t = useTranslations('hotels.rooms');
   const locale = useLocale();
   const numberLocale = locale === 'ja' ? 'ja-JP' : 'vi-VN';
+  const [breakfastOnly, setBreakfastOnly] = useState(false);
+  const [freeCancellationOnly, setFreeCancellationOnly] = useState(false);
+  const [lowAvailabilityOnly, setLowAvailabilityOnly] = useState(false);
+  const [sortOption, setSortOption] = useState<RoomSortOption>('priceAsc');
+  const [activeGalleryRoom, setActiveGalleryRoom] = useState<RoomType | null>(null);
+
+  const hasActiveFilters = breakfastOnly || freeCancellationOnly || lowAvailabilityOnly;
 
   const toStatusLabel = (availableCount?: number) => {
     if (availableCount === 0) return t('status.soldOut');
@@ -55,7 +78,31 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
   const visibleRooms = useMemo(() => {
     return rooms
       .map((room) => {
-        const sortedVariants = [...room.roomVariants].sort((a, b) => a.price - b.price);
+        const filteredVariants = room.roomVariants.filter((variant) => {
+          if (breakfastOnly && !variant.breakfast) return false;
+          if (freeCancellationOnly && !hasFreeCancellation(variant.cancellationPolicy)) return false;
+          if (lowAvailabilityOnly && !isLowAvailability(variant.availableCount)) return false;
+
+          return true;
+        });
+
+        const sortedVariants = [...filteredVariants].sort((first, second) => {
+          if (sortOption === 'priceDesc') {
+            return second.price - first.price;
+          }
+
+          if (sortOption === 'flexibleFirst') {
+            const firstFlexible = hasFreeCancellation(first.cancellationPolicy);
+            const secondFlexible = hasFreeCancellation(second.cancellationPolicy);
+
+            if (firstFlexible !== secondFlexible) {
+              return Number(secondFlexible) - Number(firstFlexible);
+            }
+          }
+
+          return first.price - second.price;
+        });
+
         const firstVariant = sortedVariants[0];
 
         const maxGuests = sortedVariants.reduce((acc, variant) => {
@@ -79,12 +126,23 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
           totalAvailable,
         };
       })
+      .filter((item) => item.sortedVariants.length > 0)
       .sort(
         (a, b) =>
-          (a.firstVariant?.price ?? Number.MAX_SAFE_INTEGER) -
-          (b.firstVariant?.price ?? Number.MAX_SAFE_INTEGER),
+          sortOption === 'priceDesc'
+            ? (b.firstVariant?.price ?? Number.MIN_SAFE_INTEGER) -
+              (a.firstVariant?.price ?? Number.MIN_SAFE_INTEGER)
+            : (a.firstVariant?.price ?? Number.MAX_SAFE_INTEGER) -
+              (b.firstVariant?.price ?? Number.MAX_SAFE_INTEGER),
       );
-  }, [rooms]);
+  }, [breakfastOnly, freeCancellationOnly, lowAvailabilityOnly, rooms, sortOption]);
+
+  const resetFilters = () => {
+    setBreakfastOnly(false);
+    setFreeCancellationOnly(false);
+    setLowAvailabilityOnly(false);
+    setSortOption('priceAsc');
+  };
 
   return (
     <section className="mt-10 rounded-2xl border border-border/80 bg-card/55 p-5 sm:p-7 lg:p-8">
@@ -96,6 +154,64 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
         <Badge variant="secondary" className="w-fit rounded-full px-3 py-1.5 text-sm">
           {t('roomTypesCount', { count: visibleRooms.length })}
         </Badge>
+      </div>
+
+      <div className="mt-5 rounded-xl border border-border/70 bg-background/90 p-4">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <p className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+            <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
+            {t('controls.title')}
+          </p>
+
+          <div className="flex w-full flex-wrap gap-2 lg:w-auto lg:justify-end">
+            <Button
+              type="button"
+              size="sm"
+              variant={breakfastOnly ? 'default' : 'outline'}
+              onClick={() => setBreakfastOnly((prev) => !prev)}
+            >
+              {t('filters.breakfast')}
+            </Button>
+            <Button
+              type="button"
+              size="sm"
+              variant={freeCancellationOnly ? 'default' : 'outline'}
+              onClick={() => setFreeCancellationOnly((prev) => !prev)}
+            >
+              {t('filters.freeCancellation')}
+            </Button>
+            <Button
+              type="button"
+              size="sm"
+              variant={lowAvailabilityOnly ? 'default' : 'outline'}
+              onClick={() => setLowAvailabilityOnly((prev) => !prev)}
+            >
+              {t('filters.lowAvailability')}
+            </Button>
+
+            <Select value={sortOption} onValueChange={(value) => setSortOption(value as RoomSortOption)}>
+              <SelectTrigger className="h-8 min-w-48">
+                <SelectValue placeholder={t('controls.sort')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="priceAsc">{t('sortOptions.priceAsc')}</SelectItem>
+                <SelectItem value="priceDesc">{t('sortOptions.priceDesc')}</SelectItem>
+                <SelectItem value="flexibleFirst">{t('sortOptions.flexibleFirst')}</SelectItem>
+              </SelectContent>
+            </Select>
+
+            {hasActiveFilters && (
+              <Button type="button" size="sm" variant="ghost" onClick={resetFilters}>
+                <FilterX className="h-4 w-4" />
+                {t('controls.clearFilters')}
+              </Button>
+            )}
+          </div>
+        </div>
+
+        <p className="mt-3 text-sm text-muted-foreground">
+          {t('controls.resultsSummary', { visible: visibleRooms.length, total: rooms.length })}
+        </p>
       </div>
 
       <div className="mt-6 space-y-5">
@@ -122,6 +238,18 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
                       </span>
                     )}
                     <Badge variant={toStatusVariant(totalAvailable)}>{toStatusLabel(totalAvailable)}</Badge>
+                    {!!room.gallery?.length && (
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        className="h-7 px-2.5 text-xs"
+                        onClick={() => setActiveGalleryRoom(room)}
+                      >
+                        <Images className="h-3.5 w-3.5" />
+                        {t('gallery.view')}
+                      </Button>
+                    )}
                   </div>
                 </div>
               </header>
@@ -269,11 +397,36 @@ export function HotelRoomsSection({ rooms, currency = 'VND' }: HotelRoomsSection
 
         {visibleRooms.length === 0 && (
           <div className="rounded-xl border border-dashed border-border p-8 text-center">
-            <p className="text-base font-semibold text-foreground">{t('empty.title')}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{t('empty.subtitle')}</p>
+            <p className="text-base font-semibold text-foreground">
+              {hasActiveFilters ? t('empty.filteredTitle') : t('empty.title')}
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {hasActiveFilters ? t('empty.filteredSubtitle') : t('empty.subtitle')}
+            </p>
           </div>
         )}
       </div>
+
+      <Dialog open={!!activeGalleryRoom} onOpenChange={(isOpen) => !isOpen && setActiveGalleryRoom(null)}>
+        <DialogContent className="max-h-[85vh] max-w-4xl overflow-y-auto p-5 sm:p-6">
+          <DialogTitle>
+            {t('gallery.title', { room: activeGalleryRoom?.name ?? t('standardRoomType') })}
+          </DialogTitle>
+
+          {!!activeGalleryRoom?.gallery?.length ? (
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {activeGalleryRoom.gallery.map((image, index) => (
+                <div key={`${activeGalleryRoom.id}-gallery-${index}`} className="overflow-hidden rounded-lg border border-border/70 bg-muted/25">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={image} alt={`${activeGalleryRoom.name}-${index + 1}`} className="h-52 w-full object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-3 text-sm text-muted-foreground">{t('gallery.empty')}</p>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

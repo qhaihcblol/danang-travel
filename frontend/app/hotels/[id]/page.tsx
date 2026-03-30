@@ -4,6 +4,9 @@ import { Clock3, Info, MapPin, Star } from 'lucide-react';
 import { getHotelsDetailMock } from '@/mock';
 import { HotelGallery } from '@/components/hotel-gallery';
 import { HotelHighlights } from '@/components/hotel-highlights';
+import { HotelFacilitiesSection } from '@/components/hotel-facilities-section';
+import { HotelPoliciesSection } from '@/components/hotel-policies-section';
+import { HotelContactSection } from '@/components/hotel-contact-section';
 import { HotelReviewsSection } from '@/components/hotel-reviews-section';
 import { HotelRoomsSection } from '@/components/hotel-rooms-section';
 import { Badge } from '@/components/ui/badge';
@@ -277,6 +280,29 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
               reviews={hotel.topReviews}
             />
           </div>
+
+          <div id="hotel-facilities" className="scroll-mt-24">
+            <HotelFacilitiesSection
+              servicesAndFacilities={hotel.servicesAndFacilities}
+              fallbackAmenities={hotel.amenities}
+            />
+          </div>
+
+          {(hotel.policies || hotel.contact || hotel.location) && (
+            <div className={`mt-8 grid grid-cols-1 gap-5 ${hotel.policies && (hotel.contact || hotel.location) ? 'lg:grid-cols-2' : ''}`}>
+              {!!hotel.policies && (
+                <div id="hotel-policies" className="scroll-mt-24">
+                  <HotelPoliciesSection policies={hotel.policies} currency={hotel.currency} />
+                </div>
+              )}
+
+              {(hotel.contact || hotel.location) && (
+                <div id="hotel-contact" className="scroll-mt-24">
+                  <HotelContactSection contact={hotel.contact} fallbackAddress={hotel.location} />
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
     </main>

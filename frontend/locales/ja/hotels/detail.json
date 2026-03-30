@@ -21,6 +21,19 @@
     "basedOn": "{count} 件の口コミに基づく",
     "categoryScores": "項目別スコア",
     "noBreakdown": "項目別の詳細スコアはまだありません。",
+    "controls": {
+      "title": "口コミの絞り込みと並び替え",
+      "stayTypeLabel": "旅行タイプ",
+      "allStayTypes": "すべて",
+      "sortLabel": "並び替え"
+    },
+    "sortOptions": {
+      "latest": "新着順",
+      "ratingHigh": "評価が高い順",
+      "ratingLow": "評価が低い順"
+    },
+    "showingCount": "{total}件中 {visible}件を表示",
+    "loadMore": "口コミをもっと見る",
     "roomName": "客室: {room}",
     "emptyTitle": "表示できる口コミがありません",
     "emptySubtitle": "新しい口コミが追加されるまでお待ちください。",
@@ -31,6 +44,57 @@
       "solo": "一人旅",
       "group": "グループ"
     }
+  },
+  "facilities": {
+    "title": "設備とサービス",
+    "subtitle": "設備をカテゴリ別で確認でき、比較しやすくなっています。",
+    "featured": "注目の設備",
+    "fallbackLabel": "共通設備",
+    "totalGroups": "{count} グループ",
+    "groupItems": "{count} 項目",
+    "legacyLabels": {
+      "general": "共通設備",
+      "business": "ビジネス設備",
+      "housekeeping": "ハウスキーピング",
+      "reception": "フロント",
+      "fitnessAndWellness": "フィットネス・ウェルネス",
+      "foodAndDrink": "飲食",
+      "transport": "交通",
+      "accessibility": "アクセシビリティ"
+    }
+  },
+  "policies": {
+    "title": "宿泊ポリシー",
+    "subtitle": "チェックイン/アウトや予約前に確認したい重要条件です。",
+    "checkIn": "チェックイン",
+    "checkOut": "チェックアウト",
+    "from": "{time} から",
+    "until": "{time} まで",
+    "children": "子ども",
+    "pets": "ペット",
+    "smoking": "喫煙",
+    "allowed": "可",
+    "notAllowed": "不可",
+    "designatedAreas": "指定エリアのみ可",
+    "notSpecified": "情報なし",
+    "freeAge": "{age}歳未満は無料",
+    "petCharge": "追加料金 {price} / 泊",
+    "paymentMethods": "支払い方法",
+    "extraFees": "追加料金",
+    "importantNotes": "重要事項",
+    "childrenNotes": "子どもに関する注意",
+    "petNotes": "ペットに関する注意"
+  },
+  "contact": {
+    "title": "連絡先と所在地",
+    "subtitle": "出発前の確認に便利な公式連絡情報です。",
+    "phone": "電話",
+    "email": "メール",
+    "address": "住所",
+    "website": "公式サイト",
+    "openMap": "地図を開く",
+    "callNow": "電話する",
+    "sendEmail": "メールを送る"
   },
   "ratingLabels": {
     "cleanliness": "清潔さ",

@@ -1,6 +1,1 @@
-Hãy bổ sung UI cho trang hotel detail:
-    Thêm mục Đánh giá ở dưới (ngang bậc với mục Danh sách phòng)
-        Hiển thị Rating, số người binh luận
-        Điểm số theo từng loại rating (có thanh %) 
-        Danh sách các review (Dựa vào HotelReview để hiển thị)
-Thiết kế đẹp, hài hòa với hệ thống hiện tại, code tối ưu rõ ràng chuyên nghiệp
+Bây giờ hãy bổ sung mục chính sách 

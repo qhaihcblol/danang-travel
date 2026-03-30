@@ -15,6 +15,27 @@
     "viewMore": "Xem thêm tiện nghi (+{count})",
     "allAmenities": "Tất cả tiện nghi"
   },
+  "controls": {
+    "title": "Lọc và sắp xếp phòng",
+    "sort": "Sắp xếp",
+    "clearFilters": "Xóa lọc",
+    "resultsSummary": "Hiển thị {visible}/{total} loại phòng"
+  },
+  "filters": {
+    "breakfast": "Có bữa sáng",
+    "freeCancellation": "Hủy miễn phí",
+    "lowAvailability": "Sắp hết phòng"
+  },
+  "sortOptions": {
+    "priceAsc": "Giá thấp đến cao",
+    "priceDesc": "Giá cao đến thấp",
+    "flexibleFirst": "Ưu tiên hủy linh hoạt"
+  },
+  "gallery": {
+    "view": "Xem ảnh phòng",
+    "title": "Ảnh phòng: {room}",
+    "empty": "Không có ảnh để hiển thị"
+  },
   "table": {
     "recommendedForYou": "Đề xuất cho bạn",
     "price": "Giá"
@@ -44,6 +65,8 @@
   "lowestPriceFrom": "Giá thấp nhất từ {price} mỗi đêm.",
   "empty": {
     "title": "Hiện chưa có phòng để hiển thị",
-    "subtitle": "Vui lòng quay lại sau để xem thêm lựa chọn."
+    "subtitle": "Vui lòng quay lại sau để xem thêm lựa chọn.",
+    "filteredTitle": "Không có phòng phù hợp bộ lọc hiện tại",
+    "filteredSubtitle": "Hãy thử bỏ bớt điều kiện lọc để xem thêm lựa chọn."
   }
 }

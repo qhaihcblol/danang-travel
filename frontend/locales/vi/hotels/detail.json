@@ -21,6 +21,19 @@
     "basedOn": "Dựa trên {count} bình luận",
     "categoryScores": "Điểm theo hạng mục",
     "noBreakdown": "Hiện chưa có dữ liệu điểm chi tiết theo hạng mục.",
+    "controls": {
+      "title": "Lọc và sắp xếp đánh giá",
+      "stayTypeLabel": "Loại chuyến đi",
+      "allStayTypes": "Tất cả",
+      "sortLabel": "Sắp xếp"
+    },
+    "sortOptions": {
+      "latest": "Mới nhất",
+      "ratingHigh": "Điểm cao nhất",
+      "ratingLow": "Điểm thấp nhất"
+    },
+    "showingCount": "Hiển thị {visible}/{total} đánh giá",
+    "loadMore": "Xem thêm đánh giá",
     "roomName": "Phòng: {room}",
     "emptyTitle": "Chưa có đánh giá để hiển thị",
     "emptySubtitle": "Hãy quay lại sau để xem thêm nhận xét mới nhất.",
@@ -31,6 +44,57 @@
       "solo": "Một mình",
       "group": "Nhóm bạn"
     }
+  },
+  "facilities": {
+    "title": "Tiện ích và dịch vụ",
+    "subtitle": "Danh sách tiện ích đầy đủ theo từng nhóm để bạn dễ so sánh.",
+    "featured": "Tiện ích nổi bật",
+    "fallbackLabel": "Tiện ích chung",
+    "totalGroups": "{count} nhóm",
+    "groupItems": "{count} hạng mục",
+    "legacyLabels": {
+      "general": "Tiện ích chung",
+      "business": "Tiện ích công việc",
+      "housekeeping": "Dọn phòng",
+      "reception": "Lễ tân",
+      "fitnessAndWellness": "Thể dục và sức khỏe",
+      "foodAndDrink": "Ăn uống",
+      "transport": "Di chuyển",
+      "accessibility": "Hỗ trợ tiếp cận"
+    }
+  },
+  "policies": {
+    "title": "Chính sách lưu trú",
+    "subtitle": "Thông tin nhận/trả phòng và các điều kiện quan trọng trước khi đặt.",
+    "checkIn": "Nhận phòng",
+    "checkOut": "Trả phòng",
+    "from": "Từ {time}",
+    "until": "Đến {time}",
+    "children": "Trẻ em",
+    "pets": "Thú cưng",
+    "smoking": "Hút thuốc",
+    "allowed": "Được phép",
+    "notAllowed": "Không được phép",
+    "designatedAreas": "Chỉ ở khu vực quy định",
+    "notSpecified": "Chưa có thông tin",
+    "freeAge": "Miễn phí cho trẻ dưới {age} tuổi",
+    "petCharge": "Phụ phí {price} / đêm",
+    "paymentMethods": "Phương thức thanh toán",
+    "extraFees": "Phụ phí",
+    "importantNotes": "Lưu ý quan trọng",
+    "childrenNotes": "Ghi chú cho trẻ em",
+    "petNotes": "Ghi chú thú cưng"
+  },
+  "contact": {
+    "title": "Liên hệ và vị trí",
+    "subtitle": "Thông tin liên hệ chính thức để bạn xác nhận nhanh trước chuyến đi.",
+    "phone": "Điện thoại",
+    "email": "Email",
+    "address": "Địa chỉ",
+    "website": "Website",
+    "openMap": "Mở bản đồ",
+    "callNow": "Gọi ngay",
+    "sendEmail": "Gửi email"
   },
   "ratingLabels": {
     "cleanliness": "Độ sạch sẽ",
