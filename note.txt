@@ -1,3 +1,6 @@
-Hãy thay đổi màu hiển thị cho hover vô ! của các Đánh giá tổng quan, Khám phá, Tổng quan màu khác hài hòa hơn, chứ nền đen, chữ trắng trông xấu, và làm chữ hiển thị to hơn tí.
-Thiết kế lại Vùng Danh sách phòng to rõ hơn, Phân biệt giữa Phòng và Giá rõ ràng
-Có thể chia Cân đối 2/2 cho RoomVariant : bên trái gồm người và ,số phòng còn lại. Bên phải là bữa sáng và miễn phí hủy. Thiết kế ô to hơn không viết nhập nhằng như hiện tại. 
+Hãy bổ sung UI cho trang hotel detail:
+    Thêm mục Đánh giá ở dưới (ngang bậc với mục Danh sách phòng)
+        Hiển thị Rating, số người binh luận
+        Điểm số theo từng loại rating (có thanh %) 
+        Danh sách các review (Dựa vào HotelReview để hiển thị)
+Thiết kế đẹp, hài hòa với hệ thống hiện tại, code tối ưu rõ ràng chuyên nghiệp

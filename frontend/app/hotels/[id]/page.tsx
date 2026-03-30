@@ -4,6 +4,7 @@ import { Clock3, Info, MapPin, Star } from 'lucide-react';
 import { getHotelsDetailMock } from '@/mock';
 import { HotelGallery } from '@/components/hotel-gallery';
 import { HotelHighlights } from '@/components/hotel-highlights';
+import { HotelReviewsSection } from '@/components/hotel-reviews-section';
 import { HotelRoomsSection } from '@/components/hotel-rooms-section';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -266,6 +267,15 @@ export default async function HotelDetailPage({ params }: HotelDetailPageProps) 
 
           <div id="hotel-rooms" className="scroll-mt-24">
             <HotelRoomsSection rooms={hotel.rooms} currency={hotel.currency} />
+          </div>
+
+          <div id="hotel-reviews" className="scroll-mt-24">
+            <HotelReviewsSection
+              rating={hotel.rating}
+              reviewCount={hotel.reviewCount}
+              ratingBreakdown={hotel.ratingBreakdown}
+              reviews={hotel.topReviews}
+            />
           </div>
         </div>
       </section>

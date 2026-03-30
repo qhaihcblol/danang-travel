@@ -15,6 +15,23 @@
   "minutes": "{value} phút",
   "overview": "Tổng quan",
   "viewFullOverview": "Xem toàn bộ nội dung tổng quan",
+  "reviews": {
+    "title": "Đánh giá",
+    "subtitle": "Phản hồi thực tế từ khách đã lưu trú gần đây.",
+    "basedOn": "Dựa trên {count} bình luận",
+    "categoryScores": "Điểm theo hạng mục",
+    "noBreakdown": "Hiện chưa có dữ liệu điểm chi tiết theo hạng mục.",
+    "roomName": "Phòng: {room}",
+    "emptyTitle": "Chưa có đánh giá để hiển thị",
+    "emptySubtitle": "Hãy quay lại sau để xem thêm nhận xét mới nhất.",
+    "stayType": {
+      "business": "Công tác",
+      "couple": "Cặp đôi",
+      "family": "Gia đình",
+      "solo": "Một mình",
+      "group": "Nhóm bạn"
+    }
+  },
   "ratingLabels": {
     "cleanliness": "Độ sạch sẽ",
     "comfort": "Sự thoải mái",

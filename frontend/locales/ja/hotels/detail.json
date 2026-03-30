@@ -15,6 +15,23 @@
   "minutes": "{value} 分",
   "overview": "概要",
   "viewFullOverview": "概要をすべて表示",
+  "reviews": {
+    "title": "口コミ",
+    "subtitle": "実際に宿泊したゲストの最新レビューです。",
+    "basedOn": "{count} 件の口コミに基づく",
+    "categoryScores": "項目別スコア",
+    "noBreakdown": "項目別の詳細スコアはまだありません。",
+    "roomName": "客室: {room}",
+    "emptyTitle": "表示できる口コミがありません",
+    "emptySubtitle": "新しい口コミが追加されるまでお待ちください。",
+    "stayType": {
+      "business": "出張",
+      "couple": "カップル",
+      "family": "家族",
+      "solo": "一人旅",
+      "group": "グループ"
+    }
+  },
   "ratingLabels": {
     "cleanliness": "清潔さ",
     "comfort": "快適さ",
