@@ -30,8 +30,8 @@ export interface RoomBed {
   count: number;
 }
 
-export interface RoomCapacity { 
-  adults: number; 
+export interface RoomCapacity {
+  adults: number;
   children?: number;
 }
 export interface RoomVariant {
@@ -49,8 +49,8 @@ export interface RoomType {
   type?: string;
   roomVariants: RoomVariant[];
   // Area
-  sizeM2?: number; 
-  view?: string; 
+  sizeM2?: number;
+  view?: string;
 
   // Media & amenities
   gallery?: string[];
@@ -179,6 +179,9 @@ export interface HotelDetail extends HotelSummary {
   overview?: string;
   highlights?: HotelFeatureHighlight[];
   nearbyPlaces?: NearbyPlace[]; // typed thay vì string[]
+
+  // Location
+  coordinates?: GeoLocation;
 
   // Core data
   rooms: RoomType[];

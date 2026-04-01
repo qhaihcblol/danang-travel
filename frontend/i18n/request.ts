@@ -21,6 +21,8 @@ export default getRequestConfig(async () => {
     hotelsGallery,
     hotelsHighlights,
     hotelsRooms,
+    ticketsPage,
+    ticketsDetail,
   ] = await Promise.all([
     import(`../locales/${locale}/header.json`),
     import(`../locales/${locale}/home.json`),
@@ -32,6 +34,8 @@ export default getRequestConfig(async () => {
     import(`../locales/${locale}/hotels/gallery.json`),
     import(`../locales/${locale}/hotels/highlights.json`),
     import(`../locales/${locale}/hotels/rooms.json`),
+    import(`../locales/${locale}/tickets/page.json`),
+    import(`../locales/${locale}/tickets/detail.json`),
   ]);
 
   return {
@@ -50,6 +54,10 @@ export default getRequestConfig(async () => {
         gallery: hotelsGallery.default,
         highlights: hotelsHighlights.default,
         rooms: hotelsRooms.default,
+      },
+      tickets: {
+        page: ticketsPage.default,
+        detail: ticketsDetail.default,
       },
     },
   };

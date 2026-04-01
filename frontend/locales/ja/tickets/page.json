@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "title": "チケット・体験",
+    "subtitle": "ダナンの観光チケット、アクティビティ、人気体験をスムーズに予約できます。"
+  },
+  "search": {
+    "destination": {
+      "label": "エリア",
+      "defaultValue": "ダナン",
+      "placeholder": "エリアを入力",
+      "findLabel": "エリアを検索",
+      "inputPlaceholder": "スポット名または体験名を入力...",
+      "searchHistory": "検索履歴",
+      "popularDestinations": "人気エリア",
+      "history": {
+        "0": "バナヒルズ",
+        "1": "ホイアン古町",
+        "2": "ミーケービーチ"
+      },
+      "popular": {
+        "0": "ソンチャ",
+        "1": "五行山",
+        "2": "ハン川",
+        "3": "ハイチャウ"
+      }
+    },
+    "date": {
+      "label": "利用日",
+      "empty": "利用日を選択",
+      "clear": "クリア"
+    },
+    "travelers": {
+      "label": "人数・枚数",
+      "adults": "大人",
+      "children": "子ども",
+      "tickets": "チケット枚数",
+      "decreaseAdults": "大人人数を減らす",
+      "increaseAdults": "大人人数を増やす",
+      "decreaseChildren": "子ども人数を減らす",
+      "increaseChildren": "子ども人数を増やす",
+      "decreaseTickets": "チケット枚数を減らす",
+      "increaseTickets": "チケット枚数を増やす",
+      "adultsCount": "大人{count}名",
+      "childrenCount": "子ども{count}名",
+      "ticketsCount": "{count}枚",
+      "done": "完了"
+    },
+    "submit": "チケットを検索"
+  },
+  "sections": {
+    "featuredTitle": "注目のチケット",
+    "resultCount": "{count}件"
+  },
+  "sort": {
+    "recommended": "おすすめ順",
+    "rating": "評価が高い順",
+    "priceAsc": "価格が安い順",
+    "priceDesc": "価格が高い順"
+  },
+  "categories": {
+    "all": "すべて",
+    "tour": "ツアー",
+    "attraction": "観光",
+    "experience": "体験",
+    "nature": "自然",
+    "museum": "博物館"
+  },
+  "card": {
+    "discount": "{percent}% OFF",
+    "fromLabel": "最安",
+    "priceLabel": "料金",
+    "reviewCount": "レビュー {count} 件",
+    "viewDetail": "詳細を見る"
+  },
+  "empty": {
+    "title": "条件に合うチケットが見つかりません",
+    "subtitle": "キーワードやカテゴリを変更して、もう一度お試しください。"
+  }
+}

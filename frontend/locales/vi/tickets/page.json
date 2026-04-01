@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "title": "Vé & Trải Nghiệm",
+    "subtitle": "Đặt vé tham quan, hoạt động giải trí và các trải nghiệm đặc sắc tại Đà Nẵng chỉ trong vài chạm."
+  },
+  "search": {
+    "destination": {
+      "label": "Khu vực",
+      "defaultValue": "Đà Nẵng",
+      "placeholder": "Nhập khu vực",
+      "findLabel": "Tìm khu vực",
+      "inputPlaceholder": "Nhập tên địa điểm hoặc hoạt động...",
+      "searchHistory": "Lịch sử tìm kiếm",
+      "popularDestinations": "Điểm đến phổ biến",
+      "history": {
+        "0": "Bà Nà Hills",
+        "1": "Phố Cổ Hội An",
+        "2": "Biển Mỹ Khê"
+      },
+      "popular": {
+        "0": "Sơn Trà",
+        "1": "Ngũ Hành Sơn",
+        "2": "Sông Hàn",
+        "3": "Hải Châu"
+      }
+    },
+    "date": {
+      "label": "Ngày sử dụng",
+      "empty": "Chọn ngày sử dụng",
+      "clear": "Xóa"
+    },
+    "travelers": {
+      "label": "Khách & Số vé",
+      "adults": "Người lớn",
+      "children": "Trẻ em",
+      "tickets": "Số vé",
+      "decreaseAdults": "Giảm số người lớn",
+      "increaseAdults": "Tăng số người lớn",
+      "decreaseChildren": "Giảm số trẻ em",
+      "increaseChildren": "Tăng số trẻ em",
+      "decreaseTickets": "Giảm số vé",
+      "increaseTickets": "Tăng số vé",
+      "adultsCount": "{count} người lớn",
+      "childrenCount": "{count} trẻ em",
+      "ticketsCount": "{count} vé",
+      "done": "Xong"
+    },
+    "submit": "Tìm vé"
+  },
+  "sections": {
+    "featuredTitle": "Vé nổi bật",
+    "resultCount": "{count} lựa chọn"
+  },
+  "sort": {
+    "recommended": "Phù hợp nhất",
+    "rating": "Đánh giá cao",
+    "priceAsc": "Giá thấp đến cao",
+    "priceDesc": "Giá cao đến thấp"
+  },
+  "categories": {
+    "all": "Tất cả",
+    "tour": "Tour",
+    "attraction": "Tham quan",
+    "experience": "Trải nghiệm",
+    "nature": "Thiên nhiên",
+    "museum": "Bảo tàng"
+  },
+  "card": {
+    "discount": "Giảm {percent}%",
+    "fromLabel": "Từ",
+    "priceLabel": "Giá từ",
+    "reviewCount": "{count} đánh giá",
+    "viewDetail": "Xem chi tiết"
+  },
+  "empty": {
+    "title": "Không tìm thấy vé phù hợp",
+    "subtitle": "Thử đổi từ khóa hoặc chọn danh mục khác để xem thêm lựa chọn."
+  }
+}

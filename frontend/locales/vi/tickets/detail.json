@@ -1,0 +1,29 @@
+{
+  "categories": {
+    "tour": "Tour",
+    "attraction": "Tham quan",
+    "experience": "Trải nghiệm",
+    "nature": "Thiên nhiên",
+    "museum": "Bảo tàng"
+  },
+  "discount": "Giảm {percent}%",
+  "reviewCount": "{count} đánh giá",
+  "operator": "Nhà cung cấp",
+  "unknownOperator": "Đang cập nhật",
+  "bookingCount": "{count}+ lượt đã đặt",
+  "priceFrom": "Giá từ",
+  "bookNow": "Đặt ngay",
+  "highlightsTitle": "Điểm nổi bật",
+  "packagesTitle": "Gói vé",
+  "generalPoliciesTitle": "Chính sách chung",
+  "usageGuideTitle": "Hướng dẫn sử dụng",
+  "package": {
+    "available": "Còn vé",
+    "unavailable": "Hết vé",
+    "stock": "Còn {count} vé",
+    "maxPerOrder": "Tối đa {count} vé/đơn",
+    "validUntil": "Hiệu lực đến {date}",
+    "benefits": "Quyền lợi bao gồm",
+    "notIncluded": "Không bao gồm"
+  }
+}

@@ -46,6 +46,11 @@ export default function Home() {
       return;
     }
 
+    if (id === 'tickets') {
+      router.push('/tickets');
+      return;
+    }
+
     setSelectedCategory(selectedCategory === id ? null : id);
   };
 

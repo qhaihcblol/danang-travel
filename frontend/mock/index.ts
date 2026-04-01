@@ -5,6 +5,10 @@ import { hotelsSummaryMock as hotelsSummaryMockVi } from "./hotel-summary";
 import { hotelsSummaryMock as hotelsSummaryMockJa } from "./hotel-summary-jp";
 import { hotelsDetailMock as hotelsDetailMockVi } from "./hotel-detail";
 import { hotelsDetailMock as hotelsDetailMockJa } from "./hotel-detail-jp";
+import { ticketsSummaryMock as ticketsSummaryMockVi } from "./ticket-summary";
+import { ticketsSummaryMock as ticketsSummaryMockJa } from "./ticket-summary-jp";
+import { ticketsDetailMock as ticketsDetailMockVi } from "./ticket-detail";
+import { ticketsDetailMock as ticketsDetailMockJa } from "./ticket-detail-jp";
 
 export const getHotelsSummaryMock = (locale?: string) => {
   return locale === "ja" ? hotelsSummaryMockJa : hotelsSummaryMockVi;
@@ -12,6 +16,14 @@ export const getHotelsSummaryMock = (locale?: string) => {
 
 export const getHotelsDetailMock = (locale?: string) => {
   return locale === "ja" ? hotelsDetailMockJa : hotelsDetailMockVi;
+};
+
+export const getTicketsSummaryMock = (locale?: string) => {
+  return locale === "ja" ? ticketsSummaryMockJa : ticketsSummaryMockVi;
+};
+
+export const getTicketsDetailMock = (locale?: string) => {
+  return locale === "ja" ? ticketsDetailMockJa : ticketsDetailMockVi;
 };
 
 export { hotelsSummaryMockVi as hotelsSummaryMock, hotelsSummaryMockJa };
@@ -26,8 +38,19 @@ export { toursMockData } from "./tour";
 export type { Tour } from "@/types/tour";
 export { landmarksMockData } from "./landmark";
 export type { Landmark } from "@/types/landmark";
-export { ticketsMockData } from "./ticket";
-export type { Ticket } from "@/types/ticket";
+export {
+  ticketsSummaryMockVi as ticketsSummaryMock,
+  ticketsSummaryMockJa,
+  ticketsSummaryMockVi as ticketsMockData,
+};
+export type { TicketSummary } from "@/types/ticket-summary";
+export { ticketsDetailMockVi as ticketsDetailMock, ticketsDetailMockJa };
+export type {
+  TicketDetail,
+  TicketPackage,
+  Policy,
+  GeneralPolicy,
+} from "@/types/ticket-detail";
 export { carouselImagesMockData } from "./carousel";
 export type { CarouselImage } from "@/types/carousel";
 

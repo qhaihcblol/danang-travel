@@ -23,11 +23,9 @@ export interface HotelSummary {
   image: string;
 
   location: string;
-  coordinates?: GeoLocation;
 
   stars: StarRating;
   rating: number;
-  ratingBreakdown?: RatingBreakdown;
   reviewCount: number;
 
   bookingCount: number;
