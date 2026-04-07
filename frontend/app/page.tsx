@@ -1,32 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, MapPin, Hotel, Compass, Ticket, UtensilsCrossed, ShoppingBag, Clock, ArrowRight } from 'lucide-react';
+import { Search, MapPin, Hotel, Compass, Ticket, UtensilsCrossed, ShoppingBag } from 'lucide-react';
 import { ImageCarousel } from '@/components/image-carousel';
-import { ServiceCard } from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { getCurrentUser } from '@/services/auth';
-import {
-  carouselImagesMockData,
-  landmarksMockData,
-  toursMockData,
-  getRecentlyViewedMock,
-} from '@/mock';
+import { carouselImagesMockData } from '@/mock/carousel';
 
 // Extract URLs from carousel mock data
 const carouselImages = carouselImagesMockData.map(img => img.url);
 
-// Get recently viewed and featured activities
-const recentlyViewed = getRecentlyViewedMock();
-const famousLandmarks = landmarksMockData.slice(0, 4);
-const featuredActivities = toursMockData.slice(0, 4);
-
 export default function Home() {
   const t = useTranslations('home');
-  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,16 +28,6 @@ export default function Home() {
   ];
 
   const handleCategoryClick = (id: string) => {
-    if (id === 'hotels') {
-      router.push('/hotels');
-      return;
-    }
-
-    if (id === 'tickets') {
-      router.push('/tickets');
-      return;
-    }
-
     setSelectedCategory(selectedCategory === id ? null : id);
   };
 
@@ -133,73 +110,6 @@ export default function Home() {
                   {label}
                 </span>
               </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Recently Viewed Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div className="flex items-center gap-3">
-              <Clock className="w-7 h-7 text-primary" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {t('sections.recentlyViewed.title')}
-              </h2>
-            </div>
-            <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {t('common.viewAll')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentlyViewed.map((item) => (
-              <ServiceCard key={item.id} {...item} />
-            ))}
-          </div>
-        </section>
-
-        {/* Famous Landmarks Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div className="flex items-center gap-3">
-              <MapPin className="w-7 h-7 text-primary" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {t('sections.landmarks.title')}
-              </h2>
-            </div>
-            <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {t('common.viewAll')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {famousLandmarks.map((landmark) => (
-              <ServiceCard
-                key={landmark.id}
-                {...landmark}
-                type="attraction"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Featured Activities Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div className="flex items-center gap-3">
-              <Compass className="w-7 h-7 text-primary" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                {t('sections.featuredActivities.title')}
-              </h2>
-            </div>
-            <Button variant="ghost" className="text-primary hover:bg-primary/10 gap-2 group">
-              {t('common.viewAll')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredActivities.map((activity) => (
-              <ServiceCard key={activity.id} {...activity} />
             ))}
           </div>
         </section>

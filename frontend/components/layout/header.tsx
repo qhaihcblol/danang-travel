@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { AUTH_CHANGED_EVENT, getCurrentUser, logout } from '@/services/auth';
-import type { User } from '@/mock';
+import type { User } from '@/types/auth';
 import { localeCookieName } from '@/i18n/config';
 
 interface HeaderProps {

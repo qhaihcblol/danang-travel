@@ -4,9 +4,8 @@ import {
   mockLogin,
   mockLogout,
   mockRegister,
-  type AuthResponse,
-  type User,
-} from "@/mock";
+} from "@/mock/auth";
+import type { AuthResponse, User } from "@/types/auth";
 
 const AUTH_TOKEN_KEY = "anshin_auth_token";
 const AUTH_CHANGED_EVENT = "anshin-auth-changed";
