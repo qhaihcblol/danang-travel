@@ -16,5 +16,9 @@ export interface AuthResponse {
   success: boolean;
   user?: User;
   token?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  expiresIn?: number;
+  message?: string;
   error?: string;
 }

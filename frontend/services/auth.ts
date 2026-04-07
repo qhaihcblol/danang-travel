@@ -1,14 +1,30 @@
-import {
-  mockForgotPassword,
-  mockGetCurrentUser,
-  mockLogin,
-  mockLogout,
-  mockRegister,
-} from "@/mock/auth";
 import type { AuthResponse, User } from "@/types/auth";
 
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ?? "";
 const AUTH_TOKEN_KEY = "anshin_auth_token";
 const AUTH_CHANGED_EVENT = "anshin-auth-changed";
+
+type ApiBaseResponse = {
+  success: boolean;
+  message?: string;
+  error?: string;
+};
+
+type ApiAuthResponse = ApiBaseResponse & {
+  data?: {
+    user?: User;
+    accessToken?: string;
+    refreshToken?: string;
+    expiresIn?: number;
+  };
+};
+
+type ApiMeResponse = ApiBaseResponse & {
+  data?: {
+    user?: User;
+  };
+};
 
 function notifyAuthChanged() {
   if (typeof window === "undefined") return;
@@ -34,15 +50,77 @@ function getToken(): string | undefined {
   return localStorage.getItem(AUTH_TOKEN_KEY) ?? undefined;
 }
 
+function withBaseUrl(path: string) {
+  if (!API_BASE_URL) return path;
+  return `${API_BASE_URL}${path}`;
+}
+
+async function requestJson<T extends ApiBaseResponse>(
+  path: string,
+  init: RequestInit,
+): Promise<T> {
+  try {
+    const response = await fetch(withBaseUrl(path), {
+      ...init,
+      headers: {
+        "Content-Type": "application/json",
+        ...(init.headers ?? {}),
+      },
+    });
+
+    const payload = (await response.json().catch(() => ({}))) as T;
+    if (!response.ok && payload.success !== false) {
+      return {
+        success: false,
+        error: payload.error ?? "Request failed.",
+      } as T;
+    }
+
+    return payload;
+  } catch {
+    return {
+      success: false,
+      error: "Network error. Please try again.",
+    } as T;
+  }
+}
+
+function toAuthResponse(apiResponse: ApiAuthResponse): AuthResponse {
+  if (!apiResponse.success) {
+    return {
+      success: false,
+      error: apiResponse.error ?? apiResponse.message ?? "Request failed.",
+    };
+  }
+
+  const accessToken = apiResponse.data?.accessToken;
+
+  return {
+    success: true,
+    user: apiResponse.data?.user,
+    token: accessToken,
+    accessToken,
+    refreshToken: apiResponse.data?.refreshToken,
+    expiresIn: apiResponse.data?.expiresIn,
+    message: apiResponse.message,
+  };
+}
+
 export async function login(
   email: string,
   password: string,
 ): Promise<AuthResponse> {
-  const response = await mockLogin(email, password);
-  if (response.success) {
-    saveToken(response.token);
+  const response = await requestJson<ApiAuthResponse>("/api/auth/login", {
+    method: "POST",
+    body: JSON.stringify({ email, password }),
+  });
+
+  const normalized = toAuthResponse(response);
+  if (normalized.success) {
+    saveToken(normalized.accessToken);
   }
-  return response;
+
+  return normalized;
 }
 
 export async function register(
@@ -50,20 +128,73 @@ export async function register(
   email: string,
   password: string,
 ): Promise<AuthResponse> {
-  return mockRegister(fullName, email, password);
+  const response = await requestJson<ApiAuthResponse>("/api/auth/register", {
+    method: "POST",
+    body: JSON.stringify({ fullName, email, password }),
+  });
+
+  return toAuthResponse(response);
 }
 
 export async function forgotPassword(email: string): Promise<AuthResponse> {
-  return mockForgotPassword(email);
+  const response = await requestJson<ApiBaseResponse>(
+    "/api/auth/forgot-password",
+    {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    },
+  );
+
+  if (!response.success) {
+    return {
+      success: false,
+      error: response.error ?? response.message ?? "Request failed.",
+    };
+  }
+
+  return {
+    success: true,
+    message: response.message,
+  };
 }
 
 export async function getCurrentUser(): Promise<User | null> {
-  return mockGetCurrentUser(getToken());
+  const token = getToken();
+  if (!token) return null;
+
+  const response = await requestJson<ApiMeResponse>("/api/auth/me", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.success) {
+    clearToken();
+    return null;
+  }
+
+  return response.data?.user ?? null;
 }
 
 export async function logout(): Promise<AuthResponse> {
+  const response = await requestJson<ApiBaseResponse>("/api/auth/logout", {
+    method: "POST",
+  });
+
   clearToken();
-  return mockLogout();
+
+  if (!response.success) {
+    return {
+      success: false,
+      error: response.error ?? response.message ?? "Request failed.",
+    };
+  }
+
+  return {
+    success: true,
+    message: response.message,
+  };
 }
 
 export { AUTH_CHANGED_EVENT };
