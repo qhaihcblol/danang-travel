@@ -7,16 +7,16 @@ import { ImageCarousel } from '@/components/image-carousel';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { getCurrentUser } from '@/services/auth';
-import { carouselImagesMockData } from '@/mock/carousel';
-
-// Extract URLs from carousel mock data
-const carouselImages = carouselImagesMockData.map(img => img.url);
+import { getHomeCarouselImages } from '@/services/home-carousel';
+import type { CarouselImage } from '@/types/carousel';
 
 export default function Home() {
   const t = useTranslations('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [carouselItems, setCarouselItems] = useState<CarouselImage[]>([]);
+  const [isCarouselLoading, setIsCarouselLoading] = useState(true);
 
   const categoryButtons = [
     { id: 'landmarks', label: t('categories.landmarks'), icon: MapPin },
@@ -41,12 +41,23 @@ export default function Home() {
       }
     };
 
+    const loadCarousel = async () => {
+      const items = await getHomeCarouselImages();
+      if (isMounted) {
+        setCarouselItems(items);
+        setIsCarouselLoading(false);
+      }
+    };
+
     loadCurrentUser();
+    loadCarousel();
 
     return () => {
       isMounted = false;
     };
   }, []);
+
+  const carouselImages = carouselItems.map((item) => item.url);
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,7 +66,11 @@ export default function Home() {
         {/* Hero Section with Carousel and Integrated Search */}
         <section className="relative mb-20">
           <div className="relative">
-            <ImageCarousel images={carouselImages} />
+            {carouselImages.length > 0 ? (
+              <ImageCarousel images={carouselImages} />
+            ) : (
+              <div className="relative w-full h-88 sm:h-117.5 rounded-2xl overflow-hidden bg-muted/40" />
+            )}
 
             {/* Overlay Content */}
             <div className="absolute inset-0 flex flex-col justify-center items-center p-4 sm:p-8">
@@ -64,6 +79,9 @@ export default function Home() {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-3 leading-tight">
                   {t('hero.title')}
                 </h1>
+                {isCarouselLoading && (
+                  <p className="text-sm text-white/80">Loading highlights...</p>
+                )}
                 <p className="text-base sm:text-lg text-white/95 drop-shadow-md">
                   {t('hero.subtitle')}
                 </p>
