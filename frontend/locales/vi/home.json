@@ -21,19 +21,7 @@
     "services": "Dịch vụ",
     "topics": "Chuyên mục"
   },
-  "common": {
-    "viewAll": "Xem tất cả"
-  },
   "sections": {
-    "recentlyViewed": {
-      "title": "Đã xem gần đây"
-    },
-    "landmarks": {
-      "title": "Các địa danh nổi tiếng"
-    },
-    "featuredActivities": {
-      "title": "Hoạt động nổi bật"
-    },
     "featuredLabel": "Nổi bật",
     "placeholder": "Khu vực này đã sẵn sàng để bổ sung card nội dung ở bước tiếp theo.",
     "featuredPlaces": {

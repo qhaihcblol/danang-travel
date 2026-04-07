@@ -21,19 +21,7 @@
     "services": "サービス",
     "topics": "カテゴリー"
   },
-  "common": {
-    "viewAll": "すべて見る"
-  },
   "sections": {
-    "recentlyViewed": {
-      "title": "最近見た項目"
-    },
-    "landmarks": {
-      "title": "有名スポット"
-    },
-    "featuredActivities": {
-      "title": "注目アクティビティ"
-    },
     "featuredLabel": "注目",
     "placeholder": "このエリアは次のステップでカードコンテンツを追加できるように準備されています。",
     "featuredPlaces": {
