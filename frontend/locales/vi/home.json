@@ -6,12 +6,20 @@
     "exploreButton": "Khám phá"
   },
   "categories": {
-    "landmarks": "Các địa danh nổi tiếng",
+    "heading": "Danh mục",
+    "title": "Khám phá nhanh theo nhu cầu",
+    "description": "Vuốt hoặc dùng nút điều hướng để xem thêm các nhóm nội dung phù hợp với chuyến đi của bạn.",
+    "scrollLeft": "Cuộn danh mục sang trái",
+    "scrollRight": "Cuộn danh mục sang phải",
+    "attractions": "Điểm tham quan du lịch",
     "hotels": "Khách sạn",
-    "tours": "Tour & Trải nghiệm",
-    "tickets": "Vé tham quan",
-    "food": "Ẩm thực",
-    "shopping": "Mua sắm"
+    "restaurants": "Nhà hàng",
+    "cafes": "Cà phê",
+    "bars": "Quán bar",
+    "shops": "Cửa hàng",
+    "activities": "Hoạt động",
+    "services": "Dịch vụ",
+    "topics": "Chuyên mục"
   },
   "common": {
     "viewAll": "Xem tất cả"
@@ -25,6 +33,20 @@
     },
     "featuredActivities": {
       "title": "Hoạt động nổi bật"
+    },
+    "featuredLabel": "Nổi bật",
+    "placeholder": "Khu vực này đã sẵn sàng để bổ sung card nội dung ở bước tiếp theo.",
+    "featuredPlaces": {
+      "title": "Địa điểm nổi bật",
+      "description": "Không gian dành cho các điểm tham quan và địa điểm nổi bật được ưu tiên hiển thị trên trang chủ."
+    },
+    "featuredHotels": {
+      "title": "Khách sạn nổi bật",
+      "description": "Khu vực này sẽ dùng để giới thiệu các khách sạn được đề xuất hoặc có mức quan tâm cao."
+    },
+    "trendingDining": {
+      "title": "Nhà hàng/Cafe trending",
+      "description": "Khu vực chờ cho các địa điểm ăn uống đang được quan tâm nhiều, phù hợp để đưa dữ liệu động vào sau."
     }
   },
   "cta": {

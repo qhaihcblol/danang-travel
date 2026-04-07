@@ -6,12 +6,20 @@
     "exploreButton": "探す"
   },
   "categories": {
-    "landmarks": "人気スポット",
+    "heading": "カテゴリー",
+    "title": "目的別にすばやく探す",
+    "description": "スワイプまたは左右のボタンで、旅に合ったカテゴリをすばやく確認できます。",
+    "scrollLeft": "カテゴリを左へスクロール",
+    "scrollRight": "カテゴリを右へスクロール",
+    "attractions": "観光スポット",
     "hotels": "ホテル",
-    "tours": "ツアー・体験",
-    "tickets": "入場チケット",
-    "food": "グルメ",
-    "shopping": "ショッピング"
+    "restaurants": "レストラン",
+    "cafes": "カフェ",
+    "bars": "バー",
+    "shops": "ショップ",
+    "activities": "アクティビティ",
+    "services": "サービス",
+    "topics": "カテゴリー"
   },
   "common": {
     "viewAll": "すべて見る"
@@ -25,6 +33,20 @@
     },
     "featuredActivities": {
       "title": "注目アクティビティ"
+    },
+    "featuredLabel": "注目",
+    "placeholder": "このエリアは次のステップでカードコンテンツを追加できるように準備されています。",
+    "featuredPlaces": {
+      "title": "注目スポット",
+      "description": "トップページで優先表示したい観光地やおすすめスポットを配置するためのセクションです。"
+    },
+    "featuredHotels": {
+      "title": "注目ホテル",
+      "description": "おすすめホテルや関心の高い宿泊施設を紹介するためのエリアです。"
+    },
+    "trendingDining": {
+      "title": "トレンドのレストラン・カフェ",
+      "description": "人気上昇中の飲食スポットを配置し、後から動的データを入れやすくするためのプレースホルダーです。"
     }
   },
   "cta": {
