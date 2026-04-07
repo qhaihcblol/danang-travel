@@ -1,0 +1,41 @@
+[
+  {
+    "id": "place_001",
+    "name": "バーナーヒルズ",
+    "address": "Thôn An Sơn, xã Hòa Ninh, Hòa Vang, Đà Nẵng",
+    "type": "テーマパーク",
+    "tags": ["山岳観光", "インスタ映え", "ファミリー"],
+    "image": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+    "shortDescription": "爽やかで清々しい気候の中、一日で四季を体験できます。クラシックなフランス建築が並ぶフレンチビレッジをお楽しみください。",
+    "rating": 4.7,
+    "reviewCount": 10234,
+    "latitude": 15.9989,
+    "longitude": 107.9953
+  },
+  {
+    "id": "place_002",
+    "name": "ドラゴンブリッジ",
+    "address": "Đường Nguyễn Văn Linh, phường An Hải Trung, quận Hải Châu, TP. Đà Nẵng",
+    "type": "観光スポット",
+    "tags": ["インスタ映え", "シティビュー", "夜景"],
+    "image": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg",
+    "shortDescription": "ダナンのシンボルとも言えるこの橋は、週末に龍が炎と水を吹き出す壮大なショーで有名です。",
+    "rating": 4.6,
+    "reviewCount": 8567,
+    "latitude": 16.047079,
+    "longitude": 108.20623
+  },
+  {
+    "id": "place_003",
+    "name": "マーブルマウンテン",
+    "address": "52 Huyền Trân Công Chúa, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng",
+    "type": "観光スポット",
+    "tags": ["山岳観光", "洞窟探検", "宗教・寺院"],
+    "image": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+    "shortDescription": "五つの石灰岩の山々からなるマーブルマウンテンには、神聖な洞窟や歴史ある寺院、美しい自然の景色が広がり、多くの旅行者や写真家を魅了しています。",
+    "rating": 4.5,
+    "reviewCount": 7342,
+    "latitude": 15.9955056,
+    "longitude": 108.2588049
+  }
+]

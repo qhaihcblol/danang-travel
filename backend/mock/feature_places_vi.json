@@ -1,0 +1,41 @@
+[
+  {
+    "id": "place_001",
+    "name": "Bà Nà Hills",
+    "address": "Thôn An Sơn, xã Hòa Ninh, Hòa Vang, Đà Nẵng",
+    "type": "Công viên giải trí",
+    "tags": ["Du lịch núi", "Check-in sống ảo", "Gia đình"],
+    "image": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+    "shortDescription": "Khí hậu mát mẻ, trong lành, trải nghiệm 4 mùa trong một ngày. Ghé thăm Làng Pháp với kiến trúc cổ điển kiểu Pháp.",
+    "rating": 4.7,
+    "reviewCount": 10234,
+    "latitude": 15.9989,
+    "longitude": 107.9953
+  },
+  {
+    "id": "place_002",
+    "name": "Cầu Rồng",
+    "address": "Đường Nguyễn Văn Linh, phường An Hải Trung, quận Hải Châu, TP. Đà Nẵng",
+    "type": "Thắng cảnh",
+    "tags": ["Check-in sống ảo", "Cảnh quan thành phố", "Buổi tối"],
+    "image": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg",
+    "shortDescription": "Cây cầu biểu tượng của Đà Nẵng, nổi tiếng với thiết kế hình rồng phun lửa và nước vào cuối tuần.",
+    "rating": 4.6,
+    "reviewCount": 8567,
+    "latitude": 16.047079,
+    "longitude": 108.20623
+  },
+  {
+    "id": "place_003",
+    "name": "Ngũ Hành Sơn",
+    "address": "52 Huyền Trân Công Chúa, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng",
+    "type": "Thắng cảnh",
+    "tags": ["Du lịch núi", "Hang động", "Tôn giáo"],
+    "image": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+    "shortDescription": "Ngũ Hành Sơn gồm năm ngọn núi đá vôi nổi bật, với các hang động linh thiêng, chùa chiền cổ kính và khung cảnh thiên nhiên tuyệt đẹp, thu hút nhiều du khách và nhiếp ảnh gia.",
+    "rating": 4.5,
+    "reviewCount": 7342,
+    "latitude": 15.9955056,
+    "longitude": 108.2588049
+  }
+]
