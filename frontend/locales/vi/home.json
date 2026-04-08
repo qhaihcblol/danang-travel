@@ -2,6 +2,7 @@
   "hero": {
     "title": "Chạm vào vẻ đẹp Đà Nẵng",
     "subtitle": "An tâm từng bước - Nâng tầm hành trình của bạn",
+    "loading": "Đang tải điểm nhấn nổi bật...",
     "searchPlaceholder": "Khách sạn, tour, địa điểm...",
     "exploreButton": "Khám phá"
   },
@@ -26,7 +27,11 @@
     "placeholder": "Khu vực này đã sẵn sàng để bổ sung card nội dung ở bước tiếp theo.",
     "featuredPlaces": {
       "title": "Địa điểm nổi bật",
-      "description": "Không gian dành cho các điểm tham quan và địa điểm nổi bật được ưu tiên hiển thị trên trang chủ."
+      "description": "Không gian dành cho các điểm tham quan và địa điểm nổi bật được ưu tiên hiển thị trên trang chủ.",
+      "loading": "Đang tải danh sách địa điểm nổi bật...",
+      "empty": "Chưa có dữ liệu địa điểm nổi bật để hiển thị.",
+      "reviews": "đánh giá",
+      "coordinates": "Tọa độ"
     },
     "featuredHotels": {
       "title": "Khách sạn nổi bật",

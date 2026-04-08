@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "u_001",
+      "email": "user@example.com",
+      "fullName": "Dev Hai",
+      "password": "123456",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=3",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "preferences": {
+        "language": "vi",
+        "newsletter": true,
+        "notifications": true
+      }
+    }
+  ]
+}
