@@ -1,41 +1,107 @@
 [
   {
     "id": "place_001",
-    "name": "バーナーヒルズ",
-    "address": "Thôn An Sơn, xã Hòa Ninh, Hòa Vang, Đà Nẵng",
+    "name": "Bà Nà Hills",
+    "address": "An Sơン村, Hòa Ninh社, Hòa Vang郡, Đà Nẵng市",
     "type": "テーマパーク",
-    "tags": ["山岳観光", "インスタ映え", "ファミリー"],
-    "image": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "爽やかで清々しい気候の中、一日で四季を体験できます。クラシックなフランス建築が並ぶフレンチビレッジをお楽しみください。",
+    "tags": ["山岳観光", "フォトジェニック", "ファミリー"],
+    "coverImage": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "涼しく清々しい気候で、一日に四季を体験できます。クラシックなフランス建築が並ぶLàng Phápもお見逃しなく。",
     "rating": 4.7,
     "reviewCount": 10234,
-    "latitude": 15.9989,
-    "longitude": 107.9953
+    "location": {
+      "lat": 15.9989,
+      "lng": 107.9953
+    }
   },
   {
     "id": "place_002",
-    "name": "ドラゴンブリッジ",
-    "address": "Đường Nguyễn Văn Linh, phường An Hải Trung, quận Hải Châu, TP. Đà Nẵng",
+    "name": "Cầu Rồng",
+    "address": "Nguyễn Văn Linh通り, An Hải Trung坊, Hải Châu区, Đà Nẵng市",
     "type": "観光スポット",
-    "tags": ["インスタ映え", "シティビュー", "夜景"],
-    "image": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "ダナンのシンボルとも言えるこの橋は、週末に龍が炎と水を吹き出す壮大なショーで有名です。",
+    "tags": ["フォトジェニック", "都市景観", "夜景"],
+    "coverImage": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Đà Nẵngのシンボル的な橋。週末には龍の口から炎と水が噴き出す幻想的なショーで有名です。",
     "rating": 4.6,
     "reviewCount": 8567,
-    "latitude": 16.047079,
-    "longitude": 108.20623
+    "location": {
+      "lat": 16.047079,
+      "lng": 108.20623
+    }
   },
   {
     "id": "place_003",
-    "name": "マーブルマウンテン",
-    "address": "52 Huyền Trân Công Chúa, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng",
+    "name": "Ngũ Hành Sơn",
+    "address": "52 Huyền Trân Công Chúa通り, Hòa Hải坊, Ngũ Hành Sơn区, Đà Nẵng市",
     "type": "観光スポット",
     "tags": ["山岳観光", "洞窟探検", "宗教・寺院"],
-    "image": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "五つの石灰岩の山々からなるマーブルマウンテンには、神聖な洞窟や歴史ある寺院、美しい自然の景色が広がり、多くの旅行者や写真家を魅了しています。",
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "5つの石灰岩の山からなるNgũ Hành Sơn。神聖な洞窟や歴史ある寺院、壮大な自然景観が広がり、多くの旅行者や写真愛好家を魅了します。",
     "rating": 4.5,
     "reviewCount": 7342,
-    "latitude": 15.9955056,
-    "longitude": 108.2588049
+    "location": {
+      "lat": 15.9955056,
+      "lng": 108.2588049
+    }
+  },
+  {
+    "id": "place_004",
+    "name": "Bãi biển Mỹ Khê",
+    "address": "Võ Nguyên Giáp通り, Phước Mỹ坊, Sơn Trà区, Đà Nẵng市",
+    "type": "ビーチ",
+    "tags": ["海水浴", "日光浴", "フォトジェニック", "サンセット"],
+    "coverImage": "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Đà Nẵng随一の人気ビーチ。白く細かな砂浜と透き通った海水が広がり、海水浴やリゾート、写真撮影に最適です。",
+    "rating": 4.8,
+    "reviewCount": 8920,
+    "location": {
+      "lat": 16.054444,
+      "lng": 108.230278
+    }
+  },
+  {
+    "id": "place_005",
+    "name": "Rạn Nam Ô",
+    "address": "Hòa Hiệp Bắc坊, Liên Chiểu区, Đà Nẵng市",
+    "type": "観光スポット",
+    "tags": ["フォトジェニック", "ビーチ", "秘境・穴場"],
+    "coverImage": "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "苔むした岩礁が広がる秘境ビーチ。透き通った海と緑の岩礁が織りなす幻想的な風景は、まるで天然の絵画のようです。伝統的な魚醤の村としても有名。",
+    "rating": 4.4,
+    "reviewCount": 3120,
+    "location": {
+      "lat": 16.1073,
+      "lng": 108.1485
+    }
+  },
+  {
+    "id": "place_006",
+    "name": "Giếng Trời",
+    "address": "Hòa Ninh社, Hòa Vang郡, Đà Nẵng市",
+    "type": "自然・トレッキング",
+    "tags": ["トレッキング", "キャンプ", "秘境・穴場"],
+    "coverImage": "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Bà Nà Hillsから約10kmの原生林に囲まれた天然の滝と清流。「天の井戸」と呼ばれる神秘的な自然プールでトレッキングやキャンプが楽しめます。",
+    "rating": 4.5,
+    "reviewCount": 2840,
+    "location": {
+      "lat": 15.992,
+      "lng": 107.963
+    }
+  },
+  {
+    "id": "place_007",
+    "name": "Cầu Sông Hàn",
+    "address": "An Hải Bắc坊, Sơn Trà区, Đà Nẵng市",
+    "type": "観光スポット",
+    "tags": ["夜景", "フォトジェニック", "Hàn川ビュー"],
+    "coverImage": "https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "ベトナム人技術者が設計・建設した国内初かつ唯一の跳開橋。1万個以上のLEDで輝く夜景は圧巻で、橋が90度回転する瞬間は必見です。",
+    "rating": 4.6,
+    "reviewCount": 5210,
+    "location": {
+      "lat": 16.0683,
+      "lng": 108.2225
+    }
   }
 ]

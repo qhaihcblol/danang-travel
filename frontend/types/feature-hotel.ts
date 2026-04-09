@@ -1,17 +1,17 @@
-export interface FeaturePlaceLocation {
+export interface FeatureHotelLocation {
   lat: number;
   lng: number;
 }
 
-export interface FeaturePlace {
+export interface FeatureHotel {
   id: string;
   name: string;
   address: string;
-  type: string;
-  tags: string[];
+  highlights: string[];
   coverImage: string;
   shortDescription: string;
+  stars: number;
   rating: number;
   reviewCount: number;
-  location: FeaturePlaceLocation;
+  location: FeatureHotelLocation;
 }

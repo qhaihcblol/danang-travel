@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { type RefObject, useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Activity,
@@ -16,22 +16,61 @@ import {
   Store,
   UtensilsCrossed,
 } from 'lucide-react';
+import { FeatureHotelCard } from '@/components/feature-hotel-card';
 import { FeaturePlaceCard } from '@/components/feature-place-card';
 import { ImageCarousel } from '@/components/image-carousel';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { defaultLocale, isAppLocale, type AppLocale } from '@/i18n/config';
+import { cn } from '@/lib/utils';
 import { getCurrentUser } from '@/services/auth';
 import { getFeatureImages } from '@/services/feature-images';
+import { getFeatureHotels } from '@/services/feature-hotels';
 import { getFeaturePlaces } from '@/services/feature-places';
 import type { CarouselImage } from '@/types/carousel';
+import type { FeatureHotel } from '@/types/feature-hotel';
 import type { FeaturePlace } from '@/types/feature-place';
 
 const featurePlaceImageOverlays = [
   'from-slate-950/78 via-slate-900/18 to-transparent',
   'from-cyan-950/78 via-cyan-900/16 to-transparent',
   'from-emerald-950/78 via-emerald-900/16 to-transparent',
+  'from-amber-950/78 via-amber-900/14 to-transparent',
 ];
+
+interface EdgeScrollButtonProps {
+  direction: 'left' | 'right';
+  ariaLabel: string;
+  onClick: () => void;
+  className?: string;
+}
+
+function EdgeScrollButton({
+  direction,
+  ariaLabel,
+  onClick,
+  className,
+}: EdgeScrollButtonProps) {
+  return (
+    <Button
+      type="button"
+      variant="outline"
+      size="icon-sm"
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className={cn(
+        'z-20 h-10 w-10 shrink-0 rounded-full border-border/70 bg-card/90 text-slate-600 shadow-md backdrop-blur-sm hover:border-primary/25 hover:bg-muted/80 hover:text-slate-950 sm:h-11 sm:w-11',
+        className,
+      )}
+    >
+      {direction === 'left' ? (
+        <ChevronLeft className="h-4 w-4" />
+      ) : (
+        <ChevronRight className="h-4 w-4" />
+      )}
+    </Button>
+  );
+}
 
 export default function Home() {
   const t = useTranslations('home');
@@ -42,9 +81,13 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [featureImages, setFeatureImages] = useState<CarouselImage[]>([]);
   const [featuredPlaces, setFeaturedPlaces] = useState<FeaturePlace[]>([]);
+  const [featuredHotels, setFeaturedHotels] = useState<FeatureHotel[]>([]);
   const [isCarouselLoading, setIsCarouselLoading] = useState(true);
   const [isFeaturedPlacesLoading, setIsFeaturedPlacesLoading] = useState(true);
+  const [isFeaturedHotelsLoading, setIsFeaturedHotelsLoading] = useState(true);
   const categoryScrollRef = useRef<HTMLDivElement>(null);
+  const featuredPlacesScrollRef = useRef<HTMLDivElement>(null);
+  const featuredHotelsScrollRef = useRef<HTMLDivElement>(null);
 
   const categoryButtons = [
     { id: 'attractions', label: t('categories.attractions'), icon: MapPin },
@@ -80,11 +123,30 @@ export default function Home() {
     setSelectedCategory((currentCategory) => (currentCategory === id ? null : id));
   };
 
-  const scrollCategories = (direction: 'left' | 'right') => {
-    categoryScrollRef.current?.scrollBy({
-      left: direction === 'left' ? -320 : 320,
+  const scrollContainer = (
+    containerRef: RefObject<HTMLDivElement | null>,
+    direction: 'left' | 'right',
+    viewportRatio: number,
+  ) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.scrollBy({
+      left: (direction === 'left' ? -1 : 1) * Math.max(container.clientWidth * viewportRatio, 280),
       behavior: 'smooth',
     });
+  };
+
+  const scrollCategories = (direction: 'left' | 'right') => {
+    scrollContainer(categoryScrollRef, direction, 0.82);
+  };
+
+  const scrollFeaturedPlaces = (direction: 'left' | 'right') => {
+    scrollContainer(featuredPlacesScrollRef, direction, 0.94);
+  };
+
+  const scrollFeaturedHotels = (direction: 'left' | 'right') => {
+    scrollContainer(featuredHotelsScrollRef, direction, 0.94);
   };
 
   useEffect(() => {
@@ -125,7 +187,17 @@ export default function Home() {
       }
     };
 
+    const loadFeaturedHotels = async () => {
+      setIsFeaturedHotelsLoading(true);
+      const items = await getFeatureHotels(locale);
+      if (isMounted) {
+        setFeaturedHotels(items);
+        setIsFeaturedHotelsLoading(false);
+      }
+    };
+
     loadFeaturedPlaces();
+    loadFeaturedHotels();
 
     return () => {
       isMounted = false;
@@ -171,18 +243,120 @@ export default function Home() {
     }
 
     return (
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {featuredPlaces.map((place, index) => (
-          <FeaturePlaceCard
-            key={place.id}
-            place={place}
-            locale={locale}
-            featuredLabel={t('sections.featuredLabel')}
-            reviewsLabel={t('sections.featuredPlaces.reviews')}
-            coordinatesLabel={t('sections.featuredPlaces.coordinates')}
-            overlayClassName={featurePlaceImageOverlays[index % featurePlaceImageOverlays.length]}
-          />
-        ))}
+      <div className="flex items-center gap-2 sm:gap-3">
+        <EdgeScrollButton
+          direction="left"
+          ariaLabel={t('sections.featuredPlaces.scrollLeft')}
+          onClick={() => scrollFeaturedPlaces('left')}
+        />
+
+        <div className="min-w-0 flex-1">
+          <div
+            ref={featuredPlacesScrollRef}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain px-1 py-2 pb-4 sm:px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {featuredPlaces.map((place, index) => (
+              <div
+                key={place.id}
+                className="min-w-0 shrink-0 self-stretch snap-start basis-full md:basis-[calc((100%-1rem)/2)] xl:basis-[calc((100%-2rem)/3)]"
+              >
+                <FeaturePlaceCard
+                  place={place}
+                  locale={locale}
+                  featuredLabel={t('sections.featuredLabel')}
+                  reviewsLabel={t('sections.featuredPlaces.reviews')}
+                  coordinatesLabel={t('sections.featuredPlaces.coordinates')}
+                  overlayClassName={featurePlaceImageOverlays[index % featurePlaceImageOverlays.length]}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <EdgeScrollButton
+          direction="right"
+          ariaLabel={t('sections.featuredPlaces.scrollRight')}
+          onClick={() => scrollFeaturedPlaces('right')}
+        />
+      </div>
+    );
+  };
+
+  const renderFeaturedHotelsContent = () => {
+    if (isFeaturedHotelsLoading) {
+      return (
+        <div className="space-y-4">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {Array.from({ length: 3 }, (_, index) => (
+              <div
+                key={`feature-hotel-skeleton-${index}`}
+                className="overflow-hidden rounded-3xl border border-border/80 bg-card/95 shadow-sm"
+              >
+                <div className="h-64 animate-pulse bg-muted/70" />
+                <div className="space-y-3 px-5 py-5">
+                  <div className="h-5 w-2/3 animate-pulse rounded-full bg-muted/60" />
+                  <div className="h-4 w-full animate-pulse rounded-full bg-muted/50" />
+                  <div className="h-4 w-4/5 animate-pulse rounded-full bg-muted/50" />
+                  <div className="flex gap-2 pt-2">
+                    <div className="h-7 w-20 animate-pulse rounded-full bg-muted/55" />
+                    <div className="h-7 w-24 animate-pulse rounded-full bg-muted/55" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground">
+            {t('sections.featuredHotels.loading')}
+          </p>
+        </div>
+      );
+    }
+
+    if (featuredHotels.length === 0) {
+      return (
+        <div className="rounded-2xl border border-dashed border-primary/30 bg-linear-to-r from-primary/6 via-background to-accent/6 px-5 py-8 text-sm text-muted-foreground">
+          {t('sections.featuredHotels.empty')}
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex items-center gap-2 sm:gap-3">
+        <EdgeScrollButton
+          direction="left"
+          ariaLabel={t('sections.featuredHotels.scrollLeft')}
+          onClick={() => scrollFeaturedHotels('left')}
+        />
+
+        <div className="min-w-0 flex-1">
+          <div
+            ref={featuredHotelsScrollRef}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain px-1 py-2 pb-4 sm:px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {featuredHotels.map((hotel, index) => (
+              <div
+                key={hotel.id}
+                className="min-w-0 shrink-0 self-stretch snap-start basis-full md:basis-[calc((100%-1rem)/2)] xl:basis-[calc((100%-2rem)/3)]"
+              >
+                <FeatureHotelCard
+                  hotel={hotel}
+                  locale={locale}
+                  featuredLabel={t('sections.featuredLabel')}
+                  reviewsLabel={t('sections.featuredHotels.reviews')}
+                  coordinatesLabel={t('sections.featuredHotels.coordinates')}
+                  starSuffix={t('sections.featuredHotels.starSuffix')}
+                  overlayClassName={featurePlaceImageOverlays[index % featurePlaceImageOverlays.length]}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <EdgeScrollButton
+          direction="right"
+          ariaLabel={t('sections.featuredHotels.scrollRight')}
+          onClick={() => scrollFeaturedHotels('right')}
+        />
       </div>
     );
   };
@@ -242,7 +416,7 @@ export default function Home() {
         {/* Category Buttons */}
         <section className="mx-auto mb-20 max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex flex-col gap-4">
               <div className="max-w-2xl space-y-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary/80">
                   {t('categories.heading')}
@@ -254,66 +428,54 @@ export default function Home() {
                   {t('categories.description')}
                 </p>
               </div>
-
-              <div className="flex items-center gap-2 self-start sm:self-auto">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="icon-sm"
-                  onClick={() => scrollCategories('left')}
-                  aria-label={t('categories.scrollLeft')}
-                  className="rounded-full border-border/80 bg-card/80 shadow-sm hover:bg-card"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="icon-sm"
-                  onClick={() => scrollCategories('right')}
-                  aria-label={t('categories.scrollRight')}
-                  className="rounded-full border-border/80 bg-card/80 shadow-sm hover:bg-card"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
             </div>
 
-            <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-linear-to-r from-background to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-linear-to-l from-background to-transparent" />
+            <div className="flex items-center gap-2 sm:gap-3">
+              <EdgeScrollButton
+                direction="left"
+                ariaLabel={t('categories.scrollLeft')}
+                onClick={() => scrollCategories('left')}
+              />
 
-              <div
-                ref={categoryScrollRef}
-                className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth overscroll-x-contain pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              >
-                {categoryButtons.map(({ id, label, icon: Icon }) => (
-                  <button
-                    key={id}
-                    type="button"
-                    aria-pressed={selectedCategory === id}
-                    onClick={() => handleCategoryClick(id)}
-                    className={`group min-w-39.5 shrink-0 snap-start rounded-3xl border p-4 text-left transition-all duration-300 hover:-translate-y-0.5 sm:min-w-44 sm:p-5 ${
-                      selectedCategory === id
-                        ? 'border-primary/35 bg-linear-to-br from-primary/12 via-white to-accent/8 shadow-lg shadow-primary/10'
-                        : 'border-border/80 bg-card/90 shadow-sm hover:border-primary/25 hover:shadow-md'
-                    }`}
-                  >
-                    <span
-                      className={`mb-4 flex h-11 w-11 items-center justify-center rounded-2xl transition-colors ${
+              <div className="min-w-0 flex-1">
+                <div
+                  ref={categoryScrollRef}
+                  className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain px-1 py-1 pb-3 sm:px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {categoryButtons.map(({ id, label, icon: Icon }) => (
+                    <button
+                      key={id}
+                      type="button"
+                      aria-pressed={selectedCategory === id}
+                      onClick={() => handleCategoryClick(id)}
+                      className={`group min-w-52 shrink-0 snap-start rounded-4xl border px-5 py-5 text-left transition-all duration-300 hover:-translate-y-0.5 sm:min-w-60 sm:px-6 sm:py-6 ${
                         selectedCategory === id
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/15'
+                          ? 'border-primary/35 bg-linear-to-br from-primary/12 via-white to-accent/8 shadow-lg shadow-primary/10'
+                          : 'border-border/80 bg-card/90 shadow-sm hover:border-primary/25 hover:shadow-md'
                       }`}
                     >
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="block text-sm font-semibold leading-snug text-foreground">
-                      {label}
-                    </span>
-                  </button>
-                ))}
+                      <span
+                        className={`mb-4 flex h-14 w-14 items-center justify-center rounded-[1.2rem] transition-colors sm:mb-5 sm:h-16 sm:w-16 ${
+                          selectedCategory === id
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-primary/10 text-primary group-hover:bg-primary/15'
+                        }`}
+                      >
+                        <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                      </span>
+                      <span className="block text-base font-semibold leading-snug text-foreground sm:text-lg">
+                        {label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              <EdgeScrollButton
+                direction="right"
+                ariaLabel={t('categories.scrollRight')}
+                onClick={() => scrollCategories('right')}
+              />
             </div>
           </div>
         </section>
@@ -343,6 +505,8 @@ export default function Home() {
                 <div className="px-6 py-8 sm:px-8 sm:py-10">
                   {section.id === 'featured-places' ? (
                     renderFeaturedPlacesContent()
+                  ) : section.id === 'featured-hotels' ? (
+                    renderFeaturedHotelsContent()
                   ) : (
                     <div className="rounded-2xl border border-dashed border-primary/30 bg-linear-to-r from-primary/6 via-background to-accent/6 px-5 py-8 text-sm text-muted-foreground">
                       {t('sections.placeholder')}

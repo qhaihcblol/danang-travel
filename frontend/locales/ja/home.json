@@ -30,12 +30,21 @@
       "description": "トップページで優先表示したい観光地やおすすめスポットを配置するためのセクションです。",
       "loading": "注目スポットを読み込んでいます...",
       "empty": "表示できる注目スポットはまだありません。",
+      "scrollLeft": "注目スポットを左へスクロール",
+      "scrollRight": "注目スポットを右へスクロール",
       "reviews": "件のレビュー",
       "coordinates": "座標"
     },
     "featuredHotels": {
       "title": "注目ホテル",
-      "description": "おすすめホテルや関心の高い宿泊施設を紹介するためのエリアです。"
+      "description": "立地の良さ、評価、設備のバランスに優れたおすすめホテルを一覧で確認できます。",
+      "loading": "注目ホテルを読み込んでいます...",
+      "empty": "表示できる注目ホテルはまだありません。",
+      "scrollLeft": "注目ホテルを左へスクロール",
+      "scrollRight": "注目ホテルを右へスクロール",
+      "reviews": "件のレビュー",
+      "coordinates": "座標",
+      "starSuffix": "つ星"
     },
     "trendingDining": {
       "title": "トレンドのレストラン・カフェ",

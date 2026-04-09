@@ -1,0 +1,271 @@
+[
+  {
+    "hotelId": "hotel_001",
+    "rooms": [
+      {
+        "type": "Deluxe",
+        "description": "Phòng Deluxe rộng rãi với ban công nhìn ra biển, trang bị đầy đủ tiện nghi hiện đại.",
+        "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+          "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 1200000,
+        "currency": "VND",
+        "bedType": "King",
+        "quantity": 10,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar",
+          "Bồn tắm"
+        ]
+      },
+      {
+        "type": "Suite",
+        "description": "Phòng Suite sang trọng với phòng khách riêng, ban công rộng và view biển tuyệt đẹp.",
+        "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+          "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 2 }],
+        "price": 2200000,
+        "currency": "VND",
+        "bedType": "King",
+        "quantity": 5,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar",
+          "Bồn tắm",
+          "Phòng khách riêng",
+          "Ban công rộng"
+        ]
+      }
+    ]
+  },
+  {
+    "hotelId": "hotel_002",
+    "rooms": [
+      {
+        "type": "Superior",
+        "description": "Phòng Superior tiện nghi với cửa sổ nhìn ra thành phố.",
+        "coverImage": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
+          "https://images.pexels.com/photos/164594/pexels-photo-164594.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 0 }],
+        "price": 900000,
+        "currency": "VND",
+        "bedType": "Queen",
+        "quantity": 8,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Mini fridge"
+        ]
+      },
+      {
+        "type": "Deluxe",
+        "description": "Phòng Deluxe rộng rãi với giường King và view thành phố.",
+
+        "coverImage": "https://images.pexels.com/photos/164596/pexels-photo-164596.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/164596/pexels-photo-164596.jpeg",
+          "https://images.pexels.com/photos/164597/pexels-photo-164597.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 1300000,
+        "currency": "VND",
+        "bedType": "King",
+        "quantity": 6,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Mini fridge",
+          "Bồn tắm"
+        ]
+      }
+    ]
+  },
+  {
+    "hotelId": "hotel_003",
+    "rooms": [
+      {
+        "type": "Standard",
+        "description": "Phòng Standard ấm cúng, phù hợp cho chuyến công tác ngắn ngày.",
+        "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+          "https://images.pexels.com/photos/261104/pexels-photo-261104.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 0 }],
+        "price": 700000,
+        "currency": "VND",
+        "bedType": "Single x2",
+        "quantity": 12,
+        "amenities": ["Wi-Fi miễn phí", "TV màn hình phẳng", "Điều hòa"]
+      },
+      {
+        "type": "Deluxe",
+        "description": "Phòng Deluxe rộng rãi, ban công nhìn ra sông.",
+        "coverImage": "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg",
+          "https://images.pexels.com/photos/261106/pexels-photo-261106.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 1250000,
+        "currency": "VND",
+        "bedType": "Queen",
+        "quantity": 7,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar"
+        ]
+      },
+      {
+        "type": "Suite",
+        "description": "Phòng Suite cao cấp với phòng khách riêng và bếp nhỏ.",
+        "coverImage": "https://images.pexels.com/photos/261107/pexels-photo-261107.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261107/pexels-photo-261107.jpeg",
+          "https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg"
+        ],
+        "capacity": [{ "adults": 4, "children": 2 }],
+        "price": 2500000,
+        "currency": "VND",
+        "bedType": "King + Sofa Bed",
+        "quantity": 3,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar",
+          "Bồn tắm",
+          "Phòng khách riêng",
+          "Bếp nhỏ"
+        ]
+      }
+    ]
+  },
+  {
+    "hotelId": "hotel_004",
+    "rooms": [
+      {
+        "type": "Superior",
+        "description": "Phòng Superior 2 giường đơn, phù hợp cho gia đình nhỏ.",
+        "coverImage": "https://images.pexels.com/photos/261109/pexels-photo-261109.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261109/pexels-photo-261109.jpeg",
+          "https://images.pexels.com/photos/261110/pexels-photo-261110.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 950000,
+        "currency": "VND",
+        "bedType": "Single x2",
+        "quantity": 8,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Bồn tắm"
+        ]
+      },
+      {
+        "type": "Deluxe",
+        "description": "Phòng Deluxe sang trọng với giường King và ban công hướng thành phố.",
+        "coverImage": "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
+          "https://images.pexels.com/photos/261112/pexels-photo-261112.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 1400000,
+        "currency": "VND",
+        "bedType": "King",
+        "quantity": 5,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar",
+          "Bồn tắm"
+        ]
+      }
+    ]
+  },
+  {
+    "hotelId": "hotel_005",
+    "rooms": [
+      {
+        "type": "Standard",
+        "description": "Phòng Standard đơn giản, đầy đủ tiện nghi cơ bản.",
+        "coverImage": "https://images.pexels.com/photos/261113/pexels-photo-261113.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261113/pexels-photo-261113.jpeg",
+          "https://images.pexels.com/photos/261114/pexels-photo-261114.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 0 }],
+        "price": 650000,
+        "currency": "VND",
+        "bedType": "Single x2",
+        "quantity": 15,
+        "amenities": ["Wi-Fi miễn phí", "TV màn hình phẳng", "Điều hòa"]
+      },
+      {
+        "type": "Deluxe",
+        "description": "Phòng Deluxe hiện đại với ban công và view thành phố.",
+        "coverImage": "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
+          "https://images.pexels.com/photos/261116/pexels-photo-261116.jpeg"
+        ],
+        "capacity": [{ "adults": 2, "children": 1 }],
+        "price": 1250000,
+        "currency": "VND",
+        "bedType": "Queen",
+        "quantity": 7,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar"
+        ]
+      },
+      {
+        "type": "Suite",
+        "description": "Phòng Suite cao cấp với phòng khách riêng, bếp nhỏ và ban công.",
+        "coverImage": "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg",
+        "gallery": [
+          "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg",
+          "https://images.pexels.com/photos/261118/pexels-photo-261118.jpeg"
+        ],
+        "capacity": [{ "adults": 4, "children": 2 }],
+        "price": 2400000,
+        "currency": "VND",
+        "bedType": "King + Sofa Bed",
+        "quantity": 4,
+        "amenities": [
+          "Wi-Fi miễn phí",
+          "TV màn hình phẳng",
+          "Điều hòa",
+          "Minibar",
+          "Bồn tắm",
+          "Phòng khách riêng",
+          "Bếp nhỏ",
+          "Ban công"
+        ]
+      }
+    ]
+  }
+]

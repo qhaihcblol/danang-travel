@@ -9,6 +9,7 @@ type ApiBaseResponse = {
   success: boolean;
   message?: string;
   error?: string;
+  status?: number;
 };
 
 type ApiAuthResponse = ApiBaseResponse & {
@@ -61,6 +62,7 @@ async function requestJson<T extends ApiBaseResponse>(
 ): Promise<T> {
   try {
     const response = await fetch(withBaseUrl(path), {
+      cache: "no-store",
       ...init,
       headers: {
         "Content-Type": "application/json",
@@ -69,17 +71,23 @@ async function requestJson<T extends ApiBaseResponse>(
     });
 
     const payload = (await response.json().catch(() => ({}))) as T;
-    if (!response.ok && payload.success !== false) {
+    if (!response.ok) {
       return {
+        ...payload,
         success: false,
-        error: payload.error ?? "Request failed.",
+        status: response.status,
+        error: payload.error ?? payload.message ?? "Request failed.",
       } as T;
     }
 
-    return payload;
+    return {
+      ...payload,
+      status: response.status,
+    } as T;
   } catch {
     return {
       success: false,
+      status: 0,
       error: "Network error. Please try again.",
     } as T;
   }
@@ -170,7 +178,10 @@ export async function getCurrentUser(): Promise<User | null> {
   });
 
   if (!response.success) {
-    clearToken();
+    if (response.status === 401) {
+      clearToken();
+    }
+
     return null;
   }
 
@@ -178,8 +189,14 @@ export async function getCurrentUser(): Promise<User | null> {
 }
 
 export async function logout(): Promise<AuthResponse> {
+  const token = getToken();
   const response = await requestJson<ApiBaseResponse>("/api/auth/logout", {
     method: "POST",
+    headers: token
+      ? {
+          Authorization: `Bearer ${token}`,
+        }
+      : undefined,
   });
 
   clearToken();

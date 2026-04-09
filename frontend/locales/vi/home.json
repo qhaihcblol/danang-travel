@@ -30,12 +30,21 @@
       "description": "Không gian dành cho các điểm tham quan và địa điểm nổi bật được ưu tiên hiển thị trên trang chủ.",
       "loading": "Đang tải danh sách địa điểm nổi bật...",
       "empty": "Chưa có dữ liệu địa điểm nổi bật để hiển thị.",
+      "scrollLeft": "Cuộn địa điểm nổi bật sang trái",
+      "scrollRight": "Cuộn địa điểm nổi bật sang phải",
       "reviews": "đánh giá",
       "coordinates": "Tọa độ"
     },
     "featuredHotels": {
       "title": "Khách sạn nổi bật",
-      "description": "Khu vực này sẽ dùng để giới thiệu các khách sạn được đề xuất hoặc có mức quan tâm cao."
+      "description": "Khám phá các khách sạn được đề xuất nhiều nhất với vị trí thuận tiện, đánh giá tốt và tiện nghi phù hợp cho chuyến đi của bạn.",
+      "loading": "Đang tải danh sách khách sạn nổi bật...",
+      "empty": "Chưa có dữ liệu khách sạn nổi bật để hiển thị.",
+      "scrollLeft": "Cuộn khách sạn nổi bật sang trái",
+      "scrollRight": "Cuộn khách sạn nổi bật sang phải",
+      "reviews": "đánh giá",
+      "coordinates": "Tọa độ",
+      "starSuffix": " sao"
     },
     "trendingDining": {
       "title": "Nhà hàng/Cafe trending",

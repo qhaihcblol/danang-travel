@@ -1,0 +1,77 @@
+[
+  {
+    "id": "hotel_001",
+    "name": "Grand Sunrise Boutiqueホテル",
+    "address": "10 Lê Lộ通り, Bắc Mỹ Phú坊, Ngũ Hành Sơn区, Đà Nẵng市",
+    "highlights": ["高級", "海近く", "サービス良好"],
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "豪華な4つ星ホテル。海に近く、プロフェッショナルなサービスと充実した設備を提供しています。",
+    "stars": 4,
+    "rating": 4.7,
+    "reviewCount": 1241,
+    "location": {
+      "lat": 16.035,
+      "lng": 108.253
+    }
+  },
+  {
+    "id": "hotel_002",
+    "name": "Riverside Luxuryホテル",
+    "address": "12 Bạch Đằng通り, Hải Châu区, Đà Nẵng市",
+    "highlights": ["Hàn川ビュー", "市街地中心", "高級スパ"],
+    "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Hàn川の眺望を誇る5つ星ホテル。市内中心部に位置し、高級スパとレストランを完備しています。",
+    "stars": 5,
+    "rating": 4.9,
+    "reviewCount": 856,
+    "location": {
+      "lat": 16.067,
+      "lng": 108.222
+    }
+  },
+  {
+    "id": "hotel_003",
+    "name": "Ocean Viewホテル",
+    "address": "50 Võ Nguyên Giáp通り, Sơn Trà区, Đà Nẵng市",
+    "highlights": ["Mỹ Khêビーチ近く", "屋外プール", "シーフードレストラン"],
+    "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Mỹ Khêビーチに近い4つ星ホテル。屋外プールと新鮮なシーフードレストランを備えています。",
+    "stars": 4,
+    "rating": 4.5,
+    "reviewCount": 942,
+    "location": {
+      "lat": 16.073,
+      "lng": 108.243
+    }
+  },
+  {
+    "id": "hotel_004",
+    "name": "Sunset Boutiqueホテル",
+    "address": "25 Trường Sa通り, Ngũ Hành Sơn区, Đà Nẵng市",
+    "highlights": ["高級デザイン", "海近く", "ルーフトップバー"],
+    "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "海に近いラグジュアリーなブティックホテル。モダンなデザインとルーフトップバーが魅力です。",
+    "stars": 4,
+    "rating": 4.6,
+    "reviewCount": 687,
+    "location": {
+      "lat": 16.038,
+      "lng": 108.255
+    }
+  },
+  {
+    "id": "hotel_005",
+    "name": "Central Danangホテル",
+    "address": "80 Nguyễn Văn Linh通り, Hải Châu区, Đà Nẵng市",
+    "highlights": ["中心部近く", "会議室完備", "充実したサービス"],
+    "coverImage": "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "市内中心部に近い3つ星ホテル。会議室を完備し、丁寧なサービスを提供しています。",
+    "stars": 3,
+    "rating": 4.3,
+    "reviewCount": 412,
+    "location": {
+      "lat": 16.06,
+      "lng": 108.222
+    }
+  }
+]

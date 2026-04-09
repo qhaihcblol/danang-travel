@@ -33,9 +33,10 @@ def get_feature_image_list() -> dict:
 
 @router.get("/feature-places")
 def get_feature_places(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
+    items = _read_json(FEATURE_PLACE_PATHS[locale])
     return {
         "success": True,
         "data": {
-            "items": _read_json(FEATURE_PLACE_PATHS[locale]),
+            "items": items if isinstance(items, list) else [],
         },
     }

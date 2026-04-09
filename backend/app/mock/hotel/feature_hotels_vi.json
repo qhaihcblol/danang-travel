@@ -1,0 +1,77 @@
+[
+  {
+    "id": "hotel_001",
+    "name": "Khách sạn Grand Sunrise Boutique",
+    "address": "10 Lê Lộ, Bắc Mỹ Phú, Ngũ Hành Sơn, Đà Nẵng",
+    "highlights": ["Sang trọng", "Gần biển", "Dịch vụ tốt"],
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Khách sạn 4 sao sang trọng, gần biển, dịch vụ chuyên nghiệp, tiện nghi đầy đủ",
+    "stars": 4,
+    "rating": 4.7,
+    "reviewCount": 1241,
+    "location": {
+      "lat": 16.035,
+      "lng": 108.253
+    }
+  },
+  {
+    "id": "hotel_002",
+    "name": "Khách sạn Riverside Luxury",
+    "address": "12 Bạch Đằng, Hải Châu, Đà Nẵng",
+    "highlights": ["View sông Hàn", "Trung tâm thành phố", "Spa cao cấp"],
+    "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Khách sạn 5 sao với view sông Hàn, trung tâm thành phố, spa và nhà hàng cao cấp",
+    "stars": 5,
+    "rating": 4.9,
+    "reviewCount": 856,
+    "location": {
+      "lat": 16.067,
+      "lng": 108.222
+    }
+  },
+  {
+    "id": "hotel_003",
+    "name": "Khách sạn Ocean View",
+    "address": "50 Võ Nguyên Giáp, Sơn Trà, Đà Nẵng",
+    "highlights": ["Gần biển Mỹ Khê", "Hồ bơi ngoài trời", "Nhà hàng hải sản"],
+    "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Khách sạn 4 sao gần biển Mỹ Khê, có hồ bơi ngoài trời và nhà hàng hải sản tươi ngon",
+    "stars": 4,
+    "rating": 4.5,
+    "reviewCount": 942,
+    "location": {
+      "lat": 16.073,
+      "lng": 108.243
+    }
+  },
+  {
+    "id": "hotel_004",
+    "name": "Khách sạn Sunset Boutique",
+    "address": "25 Trường Sa, Ngũ Hành Sơn, Đà Nẵng",
+    "highlights": ["Thiết kế sang trọng", "Gần biển", "Bar rooftop"],
+    "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Khách sạn boutique sang trọng, gần biển, có rooftop bar và thiết kế hiện đại",
+    "stars": 4,
+    "rating": 4.6,
+    "reviewCount": 687,
+    "location": {
+      "lat": 16.038,
+      "lng": 108.255
+    }
+  },
+  {
+    "id": "hotel_005",
+    "name": "Khách sạn Central Danang",
+    "address": "80 Nguyễn Văn Linh, Hải Châu, Đà Nẵng",
+    "highlights": ["Gần trung tâm", "Phòng hội nghị", "Dịch vụ hoàn hảo"],
+    "coverImage": "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Khách sạn 3 sao tiện nghi, gần trung tâm, có phòng hội nghị và dịch vụ chu đáo",
+    "stars": 3,
+    "rating": 4.3,
+    "reviewCount": 412,
+    "location": {
+      "lat": 16.06,
+      "lng": 108.222
+    }
+  }
+]

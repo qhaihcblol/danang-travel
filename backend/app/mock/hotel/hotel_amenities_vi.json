@@ -1,0 +1,57 @@
+[
+  {
+    "hotelId": "hotel_001",
+    "amenities": [
+      "Wi-Fi miễn phí",
+      "Bể bơi ngoài trời",
+      "Spa & massage",
+      "Gym",
+      "Nhà hàng",
+      "Quầy bar"
+    ]
+  },
+  {
+    "hotelId": "hotel_002",
+    "amenities": [
+      "Wi-Fi miễn phí",
+      "Đưa đón sân bay",
+      "Hồ bơi trong nhà",
+      "Trung tâm thể dục",
+      "Tiện nghi BBQ",
+      "Dịch vụ giặt ủi"
+    ]
+  },
+  {
+    "hotelId": "hotel_003",
+    "amenities": [
+      "Wi-Fi miễn phí",
+      "Bãi đỗ xe miễn phí",
+      "Nhà hàng buffet",
+      "Quầy lễ tân 24/24",
+      "Dịch vụ phòng",
+      "Phòng họp / Hội thảo"
+    ]
+  },
+  {
+    "hotelId": "hotel_004",
+    "amenities": [
+      "Wi-Fi miễn phí",
+      "Bể bơi vô cực",
+      "Quầy bar trên tầng thượng",
+      "Phòng tập yoga",
+      "Dịch vụ spa",
+      "Cho phép thú cưng"
+    ]
+  },
+  {
+    "hotelId": "hotel_005",
+    "amenities": [
+      "Wi-Fi miễn phí",
+      "Hồ bơi trẻ em",
+      "Nhà hàng Á-Âu",
+      "Dịch vụ đưa đón",
+      "Cho thuê xe đạp",
+      "Phòng gia đình"
+    ]
+  }
+]

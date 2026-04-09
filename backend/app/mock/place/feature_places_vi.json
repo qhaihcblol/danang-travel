@@ -2,40 +2,106 @@
   {
     "id": "place_001",
     "name": "Bà Nà Hills",
-    "address": "Thôn An Sơn, xã Hòa Ninh, Hòa Vang, Đà Nẵng",
+    "address": "Thôn An Sơn, xã Hòa Ninh, huyện Hòa Vang, Đà Nẵng",
     "type": "Công viên giải trí",
     "tags": ["Du lịch núi", "Check-in sống ảo", "Gia đình"],
-    "image": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "Khí hậu mát mẻ, trong lành, trải nghiệm 4 mùa trong một ngày. Ghé thăm Làng Pháp với kiến trúc cổ điển kiểu Pháp.",
+    "coverImage": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Khí hậu mát mẻ, trong lành, trải nghiệm 4 mùa trong một ngày. Ghé thăm Làng Pháp với kiến trúc cổ điển độc đáo và cáp treo đạt kỷ lục thế giới.",
     "rating": 4.7,
     "reviewCount": 10234,
-    "latitude": 15.9989,
-    "longitude": 107.9953
+    "location": {
+      "lat": 15.9989,
+      "lng": 107.9953
+    }
   },
   {
     "id": "place_002",
     "name": "Cầu Rồng",
-    "address": "Đường Nguyễn Văn Linh, phường An Hải Trung, quận Hải Châu, TP. Đà Nẵng",
+    "address": "Đường Nguyễn Văn Linh, phường An Hải Trung, quận Hải Châu, Đà Nẵng",
     "type": "Thắng cảnh",
     "tags": ["Check-in sống ảo", "Cảnh quan thành phố", "Buổi tối"],
-    "image": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "Cây cầu biểu tượng của Đà Nẵng, nổi tiếng với thiết kế hình rồng phun lửa và nước vào cuối tuần.",
+    "coverImage": "https://images.pexels.com/photos/417321/pexels-photo-417321.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Biểu tượng nổi tiếng của Đà Nẵng với thiết kế hình rồng ấn tượng. Vào cuối tuần, cầu phun lửa và nước tạo nên màn trình diễn hoành tráng thu hút đông đảo du khách.",
     "rating": 4.6,
     "reviewCount": 8567,
-    "latitude": 16.047079,
-    "longitude": 108.20623
+    "location": {
+      "lat": 16.047079,
+      "lng": 108.20623
+    }
   },
   {
     "id": "place_003",
     "name": "Ngũ Hành Sơn",
-    "address": "52 Huyền Trân Công Chúa, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng",
+    "address": "52 Huyền Trân Công Chúa, phường Hòa Hải, quận Ngũ Hành Sơn, Đà Nẵng",
     "type": "Thắng cảnh",
     "tags": ["Du lịch núi", "Hang động", "Tôn giáo"],
-    "image": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
-    "shortDescription": "Ngũ Hành Sơn gồm năm ngọn núi đá vôi nổi bật, với các hang động linh thiêng, chùa chiền cổ kính và khung cảnh thiên nhiên tuyệt đẹp, thu hút nhiều du khách và nhiếp ảnh gia.",
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Quần thể 5 ngọn núi đá vôi huyền bí với các hang động linh thiêng, chùa chiền cổ kính và khung cảnh thiên nhiên tuyệt đẹp. Điểm đến lý tưởng cho du khách và nhiếp ảnh gia.",
     "rating": 4.5,
     "reviewCount": 7342,
-    "latitude": 15.9955056,
-    "longitude": 108.2588049
+    "location": {
+      "lat": 15.9955056,
+      "lng": 108.2588049
+    }
+  },
+  {
+    "id": "place_004",
+    "name": "Bãi biển Mỹ Khê",
+    "address": "Đường Võ Nguyên Giáp, phường Phước Mỹ, quận Sơn Trà, Đà Nẵng",
+    "type": "Bãi biển",
+    "tags": ["Biển", "Tắm nắng", "Check-in sống ảo", "Hoàng hôn"],
+    "coverImage": "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "shortDescription": "Bãi biển nổi tiếng nhất Đà Nẵng với cát trắng mịn và nước biển trong xanh. Thích hợp để tắm biển, nghỉ dưỡng và chụp ảnh, đặc biệt đẹp vào lúc bình minh và hoàng hôn.",
+    "rating": 4.8,
+    "reviewCount": 8920,
+    "location": {
+      "lat": 16.054444,
+      "lng": 108.230278
+    }
+  },
+  {
+    "id": "place_005",
+    "name": "Rạn Nam Ô",
+    "address": "Phường Hòa Hiệp Bắc, quận Liên Chiểu, Đà Nẵng",
+    "type": "Thắng cảnh",
+    "tags": ["Check-in sống ảo", "Biển hoang sơ", "Khám phá"],
+    "coverImage": "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Bãi rạn đá phủ rêu xanh mướt độc đáo nằm trong làng chài cổ Nam Ô. Vẻ đẹp hoang sơ, nước biển trong vắt và không khí yên bình làm nơi đây trở thành thiên đường ẩn giấu của Đà Nẵng.",
+    "rating": 4.4,
+    "reviewCount": 3120,
+    "location": {
+      "lat": 16.1073,
+      "lng": 108.1485
+    }
+  },
+  {
+    "id": "place_006",
+    "name": "Giếng Trời",
+    "address": "Xã Hòa Ninh, huyện Hòa Vang, Đà Nẵng",
+    "type": "Thiên nhiên - Trekking",
+    "tags": ["Trekking", "Cắm trại", "Hoang sơ"],
+    "coverImage": "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Thác nước thiên nhiên hùng vĩ ẩn mình trong rừng nguyên sinh phía Tây Đà Nẵng, cách Bà Nà Hills khoảng 10km. Điểm lý tưởng cho những ai yêu thích trekking, cắm trại và khám phá thiên nhiên hoang dã.",
+    "rating": 4.5,
+    "reviewCount": 2840,
+    "location": {
+      "lat": 15.992,
+      "lng": 107.963
+    }
+  },
+  {
+    "id": "place_007",
+    "name": "Cầu Sông Hàn",
+    "address": "Phường An Hải Bắc, quận Sơn Trà, Đà Nẵng",
+    "type": "Thắng cảnh",
+    "tags": ["Cầu quay", "Buổi tối", "View sông Hàn"],
+    "coverImage": "https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop",
+    "shortDescription": "Cây cầu quay đầu tiên và duy nhất tại Việt Nam, do chính kỹ sư Việt Nam thiết kế và thi công. Hệ thống hơn 10.000 đèn LED lung linh về đêm và màn xoay cầu 90 độ là trải nghiệm không thể bỏ lỡ.",
+    "rating": 4.6,
+    "reviewCount": 5210,
+    "location": {
+      "lat": 16.0683,
+      "lng": 108.2225
+    }
   }
 ]

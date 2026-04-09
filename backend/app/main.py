@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes.auth import router as auth_router
+from app.api.routes.hotel import router as hotel_router
 from app.api.routes.place import router as place_router
 
 app = FastAPI(title="Danang Travel Mock Backend")
@@ -17,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(hotel_router)
 app.include_router(place_router)
 
 

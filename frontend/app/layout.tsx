@@ -1,23 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Noto_Sans_JP } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Header } from '@/components/layout/header'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ['latin', 'vietnamese'],
+const notoSansJp = Noto_Sans_JP({
   display: 'swap',
-  variable: '--font-sans',
-});
-
-const poppins = Poppins({ 
+  weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  display: 'swap',
-  variable: '--font-heading',
-});
+  variable: '--app-font-sans',
+})
 
 export const metadata: Metadata = {
   title: 'AnshinDanang.jp - Hỗ Trợ Du Lịch Đà Nẵng',
@@ -56,7 +50,7 @@ export default async function RootLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${inter.variable} ${poppins.variable}`}>
+    <html lang={locale} className={notoSansJp.variable}>
       <body className="font-sans antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />

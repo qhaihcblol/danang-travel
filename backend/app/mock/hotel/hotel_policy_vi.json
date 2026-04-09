@@ -1,0 +1,52 @@
+[
+  {
+    "hotelId": "hotel_001",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "cancellation": "Miễn phí hủy trước 48 giờ.",
+    "children": "Chấp nhận trẻ em mọi độ tuổi.",
+    "pets": "Không cho phép thú cưng.",
+    "payment": ["Tiền mặt", "Visa", "Mastercard"],
+    "note": "Yêu cầu đặt cọc khi nhận phòng."
+  },
+  {
+    "hotelId": "hotel_002",
+    "checkIn": "15:00",
+    "checkOut": "12:00",
+    "cancellation": "Miễn phí hủy trước 72 giờ.",
+    "children": "Trẻ em dưới 6 tuổi miễn phí khi ngủ cùng bố mẹ.",
+    "pets": "Không cho phép thú cưng.",
+    "payment": ["Tiền mặt", "Visa", "Mastercard", "JCB"],
+    "note": "Yêu cầu thẻ tín dụng để đảm bảo đặt phòng."
+  },
+  {
+    "hotelId": "hotel_003",
+    "checkIn": "14:00",
+    "checkOut": "11:00",
+    "cancellation": "Miễn phí hủy trước 24 giờ.",
+    "children": "Có giường phụ theo yêu cầu.",
+    "pets": "Cho phép thú cưng nhỏ (có phụ phí).",
+    "payment": ["Tiền mặt", "Visa", "Mastercard"],
+    "note": "Giờ nhận phòng sớm tùy tình trạng phòng."
+  },
+  {
+    "hotelId": "hotel_004",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "cancellation": "Miễn phí hủy trước 48 giờ.",
+    "children": "Chấp nhận trẻ em mọi độ tuổi.",
+    "pets": "Cho phép thú cưng (có phụ phí).",
+    "payment": ["Tiền mặt", "Visa", "Mastercard"],
+    "note": "Yêu cầu đặt cọc 500.000 VND."
+  },
+  {
+    "hotelId": "hotel_005",
+    "checkIn": "13:00",
+    "checkOut": "11:00",
+    "cancellation": "Miễn phí hủy trước 24 giờ.",
+    "children": "Trẻ em dưới 6 tuổi miễn phí.",
+    "pets": "Không cho phép thú cưng.",
+    "payment": ["Tiền mặt", "Visa", "Mastercard"],
+    "note": "Phụ thu khi trả phòng muộn."
+  }
+]

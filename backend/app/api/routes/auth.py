@@ -16,7 +16,7 @@ INVALID_TOKEN_MESSAGE = "Invalid or expired token"
 
 
 class UserPreferences(BaseModel):
-    language: Literal["vi", "jp", "ja"]
+    language: Literal["vi", "ja"]
     newsletter: bool
     notifications: bool
 

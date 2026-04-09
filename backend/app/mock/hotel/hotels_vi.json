@@ -1,0 +1,152 @@
+[
+  {
+    "id": "hotel_001",
+    "name": "Khách sạn Grand Sunrise Boutique",
+    "address": "10 Lê Lộ, Bắc Mỹ Phú, Ngũ Hành Sơn, Đà Nẵng",
+    "highlights": ["Sang trọng", "Gần biển", "Dịch vụ tốt"],
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg"
+    ],
+    "shortDescription": "Khách sạn 4 sao sang trọng, gần biển, dịch vụ chuyên nghiệp, tiện nghi đầy đủ",
+    "description": "Khách sạn Grand Sunrise Boutique tọa lạc tại vị trí đắc địa ở Bắc Mỹ Phú, Ngũ Hành Sơn, Đà Nẵng. Với thiết kế sang trọng và hiện đại, khách sạn cung cấp các phòng nghỉ tiện nghi, hồ bơi ngoài trời, nhà hàng phục vụ ẩm thực đa dạng và dịch vụ spa thư giãn. Đây là lựa chọn lý tưởng cho du khách muốn tận hưởng kỳ nghỉ tuyệt vời bên bờ biển Mỹ Khê và khám phá những điểm tham quan nổi tiếng của Đà Nẵng.",
+    "stars": 4,
+    "rating": 4.7,
+    "reviewCount": 1241,
+    "location": {
+      "lat": 16.035,
+      "lng": 108.253
+    },
+    "priceRange": {
+      "min": 750000,
+      "max": 2200000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_002",
+    "name": "Khách sạn Riverside Luxury",
+    "address": "12 Bạch Đằng, Hải Châu, Đà Nẵng",
+    "highlights": ["View sông Hàn", "Trung tâm thành phố", "Spa cao cấp"],
+    "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg"
+    ],
+    "shortDescription": "Khách sạn 5 sao với view sông Hàn, trung tâm thành phố, spa và nhà hàng cao cấp",
+    "description": "Khách sạn Riverside Luxury nằm ngay trung tâm thành phố Đà Nẵng, bên bờ sông Hàn thơ mộng. Với thiết kế sang trọng và dịch vụ đẳng cấp, khách sạn cung cấp các phòng nghỉ với view tuyệt đẹp, spa cao cấp, nhà hàng phục vụ ẩm thực quốc tế và các tiện ích hiện đại khác. Đây là điểm dừng chân lý tưởng cho du khách muốn trải nghiệm sự sang trọng và tận hưởng không gian yên bình bên sông Hàn.",
+    "stars": 5,
+    "rating": 4.9,
+    "reviewCount": 856,
+    "location": {
+      "lat": 16.067,
+      "lng": 108.222
+    },
+    "priceRange": {
+      "min": 1500000,
+      "max": 4000000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_003",
+    "name": "Khách sạn Ocean View",
+    "address": "50 Võ Nguyên Giáp, Sơn Trà, Đà Nẵng",
+    "highlights": ["Gần biển Mỹ Khê", "Hồ bơi ngoài trời", "Nhà hàng hải sản"],
+    "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261104/pexels-photo-261104.jpeg",
+      "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg"
+    ],
+    "shortDescription": "Khách sạn 4 sao gần biển Mỹ Khê, có hồ bơi ngoài trời và nhà hàng hải sản tươi ngon",
+    "description": "Khách sạn Ocean View tọa lạc tại vị trí thuận tiện gần biển Mỹ Khê, cung cấp các phòng nghỉ hiện đại với view biển tuyệt đẹp. Khách sạn có hồ bơi ngoài trời, nhà hàng chuyên phục vụ hải sản tươi ngon và các tiện ích khác như phòng tập gym và dịch vụ đưa đón sân bay. Đây là lựa chọn lý tưởng cho du khách muốn tận hưởng kỳ nghỉ thư giãn bên bờ biển và khám phá những điểm tham quan nổi tiếng của Đà Nẵng.",
+    "stars": 4,
+    "rating": 4.5,
+    "reviewCount": 942,
+    "location": {
+      "lat": 16.073,
+      "lng": 108.243
+    },
+    "priceRange": {
+      "min": 850000,
+      "max": 2500000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_004",
+    "name": "Khách sạn Sunset Boutique",
+    "address": "25 Trường Sa, Ngũ Hành Sơn, Đà Nẵng",
+    "highlights": ["Thiết kế sang trọng", "Gần biển", "Bar rooftop"],
+    "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+      "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
+      "https://images.pexels.com/photos/261112/pexels-photo-261112.jpeg",
+      "https://images.pexels.com/photos/261110/pexels-photo-261110.jpeg"
+    ],
+    "shortDescription": "Khách sạn boutique sang trọng, gần biển, có rooftop bar và thiết kế hiện đại",
+    "description": "Khách sạn Sunset Boutique là một khách sạn boutique sang trọng nằm gần biển, với thiết kế hiện đại và tinh tế. Khách sạn có rooftop bar với view đẹp, nơi du khách có thể thưởng thức đồ uống và ngắm hoàng hôn tuyệt đẹp. Ngoài ra, khách sạn còn cung cấp các phòng nghỉ tiện nghi, dịch vụ spa thư giãn và nhà hàng phục vụ ẩm thực đa dạng. Đây là lựa chọn lý tưởng cho du khách muốn tận hưởng kỳ nghỉ sang trọng và thư giãn bên bờ biển.",
+    "stars": 4,
+    "rating": 4.6,
+    "reviewCount": 687,
+    "location": {
+      "lat": 16.038,
+      "lng": 108.255
+    },
+    "priceRange": {
+      "min": 1100000,
+      "max": 3000000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_005",
+    "name": "Khách sạn Central Danang",
+    "address": "80 Nguyễn Văn Linh, Hải Châu, Đà Nẵng",
+    "highlights": ["Gần trung tâm", "Phòng hội nghị", "Dịch vụ hoàn hảo"],
+    "coverImage": "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+      "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
+      "https://images.pexels.com/photos/261116/pexels-photo-261116.jpeg",
+      "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg"
+    ],
+    "shortDescription": "Khách sạn 3 sao tiện nghi, gần trung tâm, có phòng hội nghị và dịch vụ chu đáo",
+    "description": "Khách sạn Central Danang là một khách sạn 3 sao tiện nghi nằm gần trung tâm thành phố Đà Nẵng. Khách sạn cung cấp các phòng nghỉ thoải mái, phòng hội nghị hiện đại và dịch vụ chu đáo. Đây là lựa chọn lý tưởng cho du khách muốn ở gần các điểm tham quan nổi tiếng và tận hưởng sự tiện lợi của trung tâm thành phố.",
+    "stars": 3,
+    "rating": 4.3,
+    "reviewCount": 412,
+    "location": {
+      "lat": 16.06,
+      "lng": 108.222
+    },
+    "priceRange": {
+      "min": 500000,
+      "max": 1200000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  }
+]

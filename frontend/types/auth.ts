@@ -6,7 +6,7 @@ export interface User {
   role: "user" | "admin";
   createdAt: string;
   preferences: {
-    language: "vi" | "jp";
+    language: "vi" | "ja";
     newsletter: boolean;
     notifications: boolean;
   };

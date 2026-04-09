@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getBackendApiUrl } from "@/lib/backend-api";
 import { defaultLocale, isAppLocale } from "@/i18n/config";
-import type { FeaturePlace } from "@/types/feature-place";
+import type { FeatureHotel } from "@/types/feature-hotel";
 
 export const runtime = "nodejs";
 
-type FeaturePlacesResponse = {
+type FeatureHotelsResponse = {
   success: boolean;
   data?: {
-    items?: FeaturePlace[];
+    items?: FeatureHotel[];
   };
   error?: string;
 };
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = new URLSearchParams({ locale });
     const response = await fetch(
-      getBackendApiUrl(`/api/feature-places?${searchParams}`),
+      getBackendApiUrl(`/api/feature-hotels?${searchParams}`),
       {
         method: "GET",
         cache: "no-store",
@@ -30,12 +30,12 @@ export async function GET(request: NextRequest) {
 
     const payload = (await response
       .json()
-      .catch(() => ({}))) as FeaturePlacesResponse;
+      .catch(() => ({}))) as FeatureHotelsResponse;
     if (!response.ok || !payload.success) {
       return NextResponse.json(
         {
           success: false,
-          error: payload.error ?? "Unable to load feature places data.",
+          error: payload.error ?? "Unable to load feature hotels data.",
         },
         { status: response.status || 502 },
       );
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: "Unable to load feature places data.",
+        error: "Unable to load feature hotels data.",
       },
       { status: 502 },
     );

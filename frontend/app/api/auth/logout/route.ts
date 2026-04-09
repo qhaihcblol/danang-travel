@@ -1,13 +1,11 @@
-import { NextResponse } from "next/server";
-import { getAuthStore } from "../_utils";
+import { proxyAuthRequest } from '../_utils';
 
-export const runtime = "nodejs";
+export const runtime = 'nodejs';
 
-export async function POST() {
-  const store = await getAuthStore();
-
-  return NextResponse.json({
-    success: true,
-    message: store.messages.logoutSuccess,
+export async function POST(request: Request) {
+  return proxyAuthRequest(request, {
+    method: 'POST',
+    path: '/api/auth/logout',
+    forwardAuthorization: true,
   });
 }
