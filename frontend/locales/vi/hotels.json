@@ -52,6 +52,7 @@
     "maxGuestsLabel": "Sức chứa tối đa",
     "roomTypesLabel": "loại phòng",
     "petFriendlyLabel": "Cho thú cưng",
-    "petUnavailableLabel": "Không thú cưng"
+    "petUnavailableLabel": "Không thú cưng",
+    "detailsLabel": "Chi tiết"
   }
 }

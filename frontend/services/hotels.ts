@@ -12,6 +12,14 @@ type HotelsResponse = {
   error?: string;
 };
 
+type HotelDetailResponse = {
+  success: boolean;
+  data?: {
+    item?: Hotel;
+  };
+  error?: string;
+};
+
 function withBaseUrl(path: string) {
   if (!API_BASE_URL) return path;
   return `${API_BASE_URL}${path}`;
@@ -33,5 +41,32 @@ export async function getHotels(locale: AppLocale): Promise<Hotel[]> {
     return payload.data?.items ?? [];
   } catch {
     return [];
+  }
+}
+
+export async function getHotelById(
+  locale: AppLocale,
+  hotelId: string,
+): Promise<Hotel | null> {
+  try {
+    const searchParams = new URLSearchParams({ locale });
+    const response = await fetch(
+      withBaseUrl(`/api/hotels/${encodeURIComponent(hotelId)}?${searchParams}`),
+      {
+        method: "GET",
+        cache: "no-store",
+      },
+    );
+
+    const payload = (await response
+      .json()
+      .catch(() => ({}))) as HotelDetailResponse;
+    if (!response.ok || !payload.success || !payload.data?.item) {
+      return null;
+    }
+
+    return payload.data.item;
+  } catch {
+    return null;
   }
 }

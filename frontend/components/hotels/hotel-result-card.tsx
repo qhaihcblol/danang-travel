@@ -1,5 +1,6 @@
 import { type CSSProperties } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { BedDouble, MapPin, PawPrint, Sparkles, Star, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import type { Hotel } from '@/types/hotel';
@@ -30,6 +31,7 @@ interface HotelResultCardProps {
   roomTypesLabel: string;
   petFriendlyLabel: string;
   petUnavailableLabel: string;
+  detailsLabel: string;
   isPetFriendly: boolean;
 }
 
@@ -78,6 +80,7 @@ export function HotelResultCard({
   roomTypesLabel,
   petFriendlyLabel,
   petUnavailableLabel,
+  detailsLabel,
   isPetFriendly,
 }: HotelResultCardProps) {
   const reviewCountFormatter = new Intl.NumberFormat(locale);
@@ -170,20 +173,29 @@ export function HotelResultCard({
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between border-t border-border/70 pt-4">
+        <div className="mt-auto flex items-center justify-between gap-2 border-t border-border/70 pt-4">
           <p className="text-xs font-medium text-muted-foreground">
             {currencyFormatter.format(minimumPrice)} / {perNightLabel}
           </p>
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
-              isPetFriendly
-                ? 'bg-emerald-100 text-emerald-800'
-                : 'bg-slate-100 text-slate-700'
-            }`}
-          >
-            <PawPrint className="h-3.5 w-3.5" />
-            {isPetFriendly ? petFriendlyLabel : petUnavailableLabel}
-          </span>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
+                isPetFriendly
+                  ? 'bg-emerald-100 text-emerald-800'
+                  : 'bg-slate-100 text-slate-700'
+              }`}
+            >
+              <PawPrint className="h-3.5 w-3.5" />
+              {isPetFriendly ? petFriendlyLabel : petUnavailableLabel}
+            </span>
+
+            <Link
+              href={`/hotels/${hotel.id}`}
+              className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {detailsLabel}
+            </Link>
+          </div>
         </div>
       </CardContent>
     </Card>

@@ -1,0 +1,101 @@
+{
+  "notFound": {
+    "title": "Không tìm thấy khách sạn",
+    "description": "Khách sạn bạn đang xem có thể đã bị ẩn hoặc không còn tồn tại trong dữ liệu hiện tại.",
+    "backButton": "Quay lại danh sách khách sạn"
+  },
+  "hero": {
+    "backToHotels": "Về danh sách khách sạn",
+    "featuredLabel": "Chi tiết khách sạn",
+    "starSuffix": "sao",
+    "reviewsLabel": "đánh giá"
+  },
+  "overview": {
+    "title": "Tổng quan",
+    "subtitle": "Thông tin nổi bật và mô tả chi tiết về khách sạn"
+  },
+  "gallery": {
+    "title": "Thư viện ảnh",
+    "subtitle": "Không gian và tiện nghi thực tế của khách sạn"
+  },
+  "amenities": {
+    "title": "Tiện nghi khách sạn",
+    "subtitle": "Danh sách tiện ích chung đang được cung cấp"
+  },
+  "rooms": {
+    "title": "Hạng phòng",
+    "subtitle": "Thông tin chi tiết cho từng loại phòng hiện có",
+    "fromLabel": "Từ",
+    "perNightLabel": "đêm",
+    "maxGuestsLabel": "Sức chứa tối đa",
+    "bedTypeLabel": "Loại giường",
+    "areaLabel": "Diện tích",
+    "quantityLabel": "Số phòng",
+    "amenitiesLabel": "Tiện nghi trong phòng"
+  },
+  "policies": {
+    "title": "Chính sách lưu trú",
+    "subtitle": "Điều kiện nhận phòng, hủy phòng và các quy định áp dụng",
+    "checkInOut": {
+      "title": "Nhận - Trả phòng",
+      "checkInFrom": "Nhận phòng từ",
+      "checkOutBefore": "Trả phòng trước",
+      "earlyCheckIn": "Nhận sớm",
+      "lateCheckOut": "Trả muộn"
+    },
+    "children": {
+      "title": "Chính sách trẻ em",
+      "policy": "Quy định",
+      "freeStay": "Miễn phí",
+      "extraBed": "Giường phụ"
+    },
+    "cancellation": {
+      "title": "Hủy phòng",
+      "freeCancellationWindow": "Hủy miễn phí",
+      "lateCancellationFee": "Phí hủy muộn",
+      "noShowFee": "Không đến"
+    },
+    "smoking": {
+      "title": "Hút thuốc",
+      "inRoom": "Trong phòng",
+      "penalty": "Phụ thu",
+      "designatedArea": "Khu vực cho phép"
+    },
+    "pets": {
+      "title": "Thú cưng",
+      "allowed": "Quy định",
+      "fee": "Phụ phí",
+      "note": "Lưu ý",
+      "serviceAnimal": "Động vật hỗ trợ"
+    },
+    "payment": {
+      "title": "Thanh toán",
+      "acceptedMethods": "Phương thức",
+      "deposit": "Đặt cọc",
+      "vat": "VAT/Phí"
+    },
+    "other": {
+      "title": "Quy định khác"
+    }
+  },
+  "recently": {
+    "title": "Mục gần đây",
+    "subtitle": "Khu vực dành cho danh sách khách sạn gần vị trí hiện tại",
+    "empty": "Tạm thời để trống. Khu vực này cần tính toán khoảng cách theo lat/lng để hiển thị dữ liệu gần đây chính xác."
+  },
+  "sidebar": {
+    "summaryLabel": "Thông tin nhanh",
+    "priceRangeLabel": "Khoảng giá tham khảo",
+    "reviewsLabel": "đánh giá",
+    "petsFriendly": "Cho thú cưng",
+    "petsNotAllowed": "Không cho thú cưng",
+    "checkInOutTitle": "Giờ nhận - trả phòng",
+    "checkInFrom": "Nhận phòng",
+    "checkOutBefore": "Trả phòng",
+    "coordinatesTitle": "Tọa độ",
+    "coordinatesHint": "Có thể dùng tọa độ này để tính danh sách khách sạn gần đây theo khoảng cách.",
+    "metaTitle": "Dữ liệu hệ thống",
+    "createdAt": "Ngày tạo",
+    "updatedAt": "Cập nhật"
+  }
+}

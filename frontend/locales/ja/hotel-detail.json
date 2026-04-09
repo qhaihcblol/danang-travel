@@ -1,0 +1,101 @@
+{
+  "notFound": {
+    "title": "ホテルが見つかりません",
+    "description": "このホテルは非表示になっているか、現在のデータに存在しない可能性があります。",
+    "backButton": "ホテル一覧に戻る"
+  },
+  "hero": {
+    "backToHotels": "ホテル一覧へ戻る",
+    "featuredLabel": "ホテル詳細",
+    "starSuffix": "つ星",
+    "reviewsLabel": "件のレビュー"
+  },
+  "overview": {
+    "title": "概要",
+    "subtitle": "ホテルの特徴と詳細説明"
+  },
+  "gallery": {
+    "title": "ギャラリー",
+    "subtitle": "ホテルの空間と設備イメージ"
+  },
+  "amenities": {
+    "title": "ホテル設備",
+    "subtitle": "ホテル全体で利用できる主な設備"
+  },
+  "rooms": {
+    "title": "客室タイプ",
+    "subtitle": "各客室タイプの詳細情報",
+    "fromLabel": "最安",
+    "perNightLabel": "泊",
+    "maxGuestsLabel": "最大人数",
+    "bedTypeLabel": "ベッドタイプ",
+    "areaLabel": "面積",
+    "quantityLabel": "部屋数",
+    "amenitiesLabel": "客室設備"
+  },
+  "policies": {
+    "title": "宿泊ポリシー",
+    "subtitle": "チェックイン、キャンセル、各種規約の詳細",
+    "checkInOut": {
+      "title": "チェックイン・チェックアウト",
+      "checkInFrom": "チェックイン開始",
+      "checkOutBefore": "チェックアウト期限",
+      "earlyCheckIn": "アーリーチェックイン",
+      "lateCheckOut": "レイトチェックアウト"
+    },
+    "children": {
+      "title": "子どもポリシー",
+      "policy": "規定",
+      "freeStay": "無料条件",
+      "extraBed": "エキストラベッド"
+    },
+    "cancellation": {
+      "title": "キャンセル",
+      "freeCancellationWindow": "無料キャンセル期限",
+      "lateCancellationFee": "直前キャンセル料",
+      "noShowFee": "ノーショー"
+    },
+    "smoking": {
+      "title": "喫煙",
+      "inRoom": "客室内",
+      "penalty": "違反時",
+      "designatedArea": "喫煙エリア"
+    },
+    "pets": {
+      "title": "ペット",
+      "allowed": "規定",
+      "fee": "追加料金",
+      "note": "備考",
+      "serviceAnimal": "補助動物"
+    },
+    "payment": {
+      "title": "支払い",
+      "acceptedMethods": "支払い方法",
+      "deposit": "デポジット",
+      "vat": "VAT/手数料"
+    },
+    "other": {
+      "title": "その他の規約"
+    }
+  },
+  "recently": {
+    "title": "近隣ホテル",
+    "subtitle": "現在地付近のホテルを表示する予定エリア",
+    "empty": "このセクションは現在空です。近隣表示には lat/lng に基づく距離計算が必要なため、後続対応となります。"
+  },
+  "sidebar": {
+    "summaryLabel": "クイック情報",
+    "priceRangeLabel": "参考価格帯",
+    "reviewsLabel": "件のレビュー",
+    "petsFriendly": "ペット可",
+    "petsNotAllowed": "ペット不可",
+    "checkInOutTitle": "チェックイン・チェックアウト時間",
+    "checkInFrom": "チェックイン",
+    "checkOutBefore": "チェックアウト",
+    "coordinatesTitle": "座標",
+    "coordinatesHint": "この座標は、近隣ホテル表示の距離計算に利用できます。",
+    "metaTitle": "システム情報",
+    "createdAt": "作成日",
+    "updatedAt": "更新日"
+  }
+}

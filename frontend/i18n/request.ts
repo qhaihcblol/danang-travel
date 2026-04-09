@@ -10,15 +10,23 @@ export default getRequestConfig(async () => {
       ? localeFromCookie
       : defaultLocale;
 
-  const [header, home, hotels, authLogin, authRegister, authForgotPassword] =
-    await Promise.all([
-      import(`../locales/${locale}/header.json`),
-      import(`../locales/${locale}/home.json`),
-      import(`../locales/${locale}/hotels.json`),
-      import(`../locales/${locale}/auth/login.json`),
-      import(`../locales/${locale}/auth/register.json`),
-      import(`../locales/${locale}/auth/forgot-password.json`),
-    ]);
+  const [
+    header,
+    home,
+    hotels,
+    hotelDetail,
+    authLogin,
+    authRegister,
+    authForgotPassword,
+  ] = await Promise.all([
+    import(`../locales/${locale}/header.json`),
+    import(`../locales/${locale}/home.json`),
+    import(`../locales/${locale}/hotels.json`),
+    import(`../locales/${locale}/hotel-detail.json`),
+    import(`../locales/${locale}/auth/login.json`),
+    import(`../locales/${locale}/auth/register.json`),
+    import(`../locales/${locale}/auth/forgot-password.json`),
+  ]);
 
   return {
     locale,
@@ -26,6 +34,7 @@ export default getRequestConfig(async () => {
       header: header.default,
       home: home.default,
       hotels: hotels.default,
+      hotelDetail: hotelDetail.default,
       auth: {
         login: authLogin.default,
         register: authRegister.default,

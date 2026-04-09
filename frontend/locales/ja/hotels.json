@@ -52,6 +52,7 @@
     "maxGuestsLabel": "最大人数",
     "roomTypesLabel": "客室タイプ",
     "petFriendlyLabel": "ペット可",
-    "petUnavailableLabel": "ペット不可"
+    "petUnavailableLabel": "ペット不可",
+    "detailsLabel": "詳細"
   }
 }

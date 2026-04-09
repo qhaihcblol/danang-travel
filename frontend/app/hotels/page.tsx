@@ -490,6 +490,7 @@ export default function HotelsPage() {
                       roomTypesLabel={t('card.roomTypesLabel')}
                       petFriendlyLabel={t('card.petFriendlyLabel')}
                       petUnavailableLabel={t('card.petUnavailableLabel')}
+                      detailsLabel={t('card.detailsLabel')}
                       isPetFriendly={isHotelPetFriendly(hotel)}
                     />
                   ))}

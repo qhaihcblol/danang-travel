@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Literal
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
 
 router = APIRouter(prefix="/api", tags=["content"])
 
@@ -41,19 +41,7 @@ def _read_json_list(path: Path) -> list:
     return content if isinstance(content, list) else []
 
 
-@router.get("/feature-hotels")
-def get_feature_hotels(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
-    items = _read_json(FEATURE_HOTEL_PATHS[locale])
-    return {
-        "success": True,
-        "data": {
-            "items": items if isinstance(items, list) else [],
-        },
-    }
-
-
-@router.get("/hotels")
-def get_hotels(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
+def _build_hotels_items(locale: Literal["vi", "ja"]) -> list[dict]:
     hotels = _read_json_list(HOTEL_PATHS[locale])
     amenities = _read_json_list(HOTEL_AMENITIES_PATHS[locale])
     rooms = _read_json_list(HOTEL_ROOMS_PATHS[locale])
@@ -104,9 +92,45 @@ def get_hotels(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
         item["policies"] = policies_map.get(hotel_id, {})
         items.append(item)
 
+    return items
+
+
+@router.get("/feature-hotels")
+def get_feature_hotels(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
+    items = _read_json(FEATURE_HOTEL_PATHS[locale])
+    return {
+        "success": True,
+        "data": {
+            "items": items if isinstance(items, list) else [],
+        },
+    }
+
+
+@router.get("/hotels")
+def get_hotels(locale: Literal["vi", "ja"] = Query(default="vi")) -> dict:
+    items = _build_hotels_items(locale)
+
     return {
         "success": True,
         "data": {
             "items": items,
         },
     }
+
+
+@router.get("/hotels/{hotel_id}")
+def get_hotel_detail(
+    hotel_id: str,
+    locale: Literal["vi", "ja"] = Query(default="vi"),
+) -> dict:
+    items = _build_hotels_items(locale)
+    for item in items:
+        if item.get("id") == hotel_id:
+            return {
+                "success": True,
+                "data": {
+                    "item": item,
+                },
+            }
+
+    raise HTTPException(status_code=404, detail="Hotel not found")
