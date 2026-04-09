@@ -1,0 +1,189 @@
+[
+  {
+    "hotelId": "hotel_001",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "10:00以前は初泊料金の50%、10:00-14:00は30%の追加料金（空室状況による）",
+        "lateCheckOut": "12:00-14:00は30%、14:00以降は50%の追加料金"
+      },
+      "children": {
+        "policy": "全年齢の子ども宿泊可",
+        "freeStay": "6歳未満は添い寝で無料（1室につき1名まで）",
+        "extraBed": "6-11歳はエキストラベッドなしで180,000 VND/泊、エキストラベッドは350,000 VND/泊"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "チェックイン時刻の48時間前まで無料",
+        "lateCancellationFee": "48時間以内のキャンセルは初泊100%",
+        "noShowFee": "ノーショーは予約総額の100%"
+      },
+      "smoking": {
+        "inRoom": "客室内は禁煙",
+        "penalty": "違反時は清掃費1,500,000 VND",
+        "designatedArea": "1階に喫煙エリアあり"
+      },
+      "pets": {
+        "allowed": "ペット同伴不可",
+        "serviceAnimal": "医療補助動物は規定に従い対応"
+      },
+      "payment": {
+        "acceptedMethods": ["現金", "Visa", "Mastercard", "JCB"],
+        "deposit": "チェックイン時に1泊分のデポジットが必要",
+        "vat": "料金にはVATとサービス料を含む"
+      },
+      "other": ["22:00以降は静粛時間", "客室内でのパーティー禁止"]
+    }
+  },
+  {
+    "hotelId": "hotel_002",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "15:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "12:00以降のアーリーチェックインは40%追加（空室状況による）",
+        "lateCheckOut": "12:00-15:00は50%、15:00以降は100%追加"
+      },
+      "children": {
+        "policy": "全年齢の子ども宿泊可",
+        "freeStay": "6歳未満は添い寝で無料",
+        "extraBed": "エキストラベッドは450,000 VND/泊（要リクエスト・空室状況による）"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "チェックイン時刻の72時間前まで無料",
+        "lateCancellationFee": "72時間以内のキャンセルは初泊100%",
+        "noShowFee": "ノーショーは予約総額の100%"
+      },
+      "smoking": {
+        "inRoom": "客室内は禁煙",
+        "penalty": "違反時は清掃費2,000,000 VND",
+        "designatedArea": "共用バルコニーに喫煙エリアあり"
+      },
+      "pets": {
+        "allowed": "ペット同伴不可",
+        "serviceAnimal": "予約前に事前連絡が必要"
+      },
+      "payment": {
+        "acceptedMethods": ["現金", "Visa", "Mastercard", "JCB", "Amex"],
+        "deposit": "クレジットカード保証または1泊分のデポジットが必要",
+        "vat": "祝日・繁忙期の追加料金は別途"
+      },
+      "other": [
+        "12歳以上の3人目は300,000 VND/泊の追加料金",
+        "22:30以降は静粛時間"
+      ]
+    }
+  },
+  {
+    "hotelId": "hotel_003",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "11:30",
+        "earlyCheckIn": "11:00以前は30%追加、11:00-14:00は空室があれば無料",
+        "lateCheckOut": "11:30-13:30は20%、13:30以降は50%追加"
+      },
+      "children": {
+        "policy": "全年齢の子ども宿泊可",
+        "freeStay": "5歳未満は添い寝で無料",
+        "extraBed": "5-11歳は150,000 VND/泊、エキストラベッドは300,000 VND/泊"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "チェックイン時刻の24時間前まで無料",
+        "lateCancellationFee": "24時間以内のキャンセルは初泊100%",
+        "noShowFee": "ノーショーは予約総額の100%"
+      },
+      "smoking": {
+        "inRoom": "客室内は禁煙",
+        "penalty": "違反時は清掃費1,200,000 VND",
+        "designatedArea": "屋外喫煙エリアあり"
+      },
+      "pets": {
+        "allowed": "ペット同伴不可",
+        "serviceAnimal": "到着前の申請で対応"
+      },
+      "payment": {
+        "acceptedMethods": ["現金", "Visa", "Mastercard"],
+        "deposit": "フレキシブル料金は事前デポジット不要",
+        "vat": "料金はVAT込み、祝日追加料金は別途"
+      },
+      "other": ["週末は10%追加料金", "祝日・繁忙期は別途追加料金あり"]
+    }
+  },
+  {
+    "hotelId": "hotel_004",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "12:00-14:00は空室があれば無料",
+        "lateCheckOut": "12:00-15:00は30%、15:00以降は100%追加"
+      },
+      "children": {
+        "policy": "全年齢の子ども宿泊可",
+        "freeStay": "6歳未満は添い寝で無料",
+        "extraBed": "エキストラベッドは380,000 VND/泊（1室1台まで）"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "チェックイン時刻の48時間前まで無料",
+        "lateCancellationFee": "48時間以内のキャンセルは初泊100%",
+        "noShowFee": "ノーショーは予約総額の100%"
+      },
+      "smoking": {
+        "inRoom": "客室内は禁煙",
+        "penalty": "違反時は清掃費1,500,000 VND",
+        "designatedArea": "ルーフトップに喫煙エリアあり"
+      },
+      "pets": {
+        "allowed": "10kg未満のペット同伴可",
+        "fee": "ペット1匹につき250,000 VND/泊",
+        "note": "事前登録必須、客室内に単独で残すことは禁止"
+      },
+      "payment": {
+        "acceptedMethods": ["現金", "Visa", "Mastercard", "JCB"],
+        "deposit": "チェックイン時に500,000 VNDのデポジットが必要",
+        "vat": "料金はVAT込み、祝日追加料金は別途"
+      },
+      "other": ["客室内でのパーティー禁止", "22:00以降は静粛時間"]
+    }
+  },
+  {
+    "hotelId": "hotel_005",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "13:30",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "13:30以前のチェックインは空室があれば無料",
+        "lateCheckOut": "12:00-14:00は20%、14:00以降は50%追加"
+      },
+      "children": {
+        "policy": "全年齢の子ども宿泊可",
+        "freeStay": "6歳未満は添い寝で無料",
+        "extraBed": "エキストラベッドは300,000 VND/泊（要リクエスト）"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "チェックイン時刻の24時間前まで無料",
+        "lateCancellationFee": "24時間以内のキャンセルは初泊100%",
+        "noShowFee": "ノーショーは予約総額の100%"
+      },
+      "smoking": {
+        "inRoom": "客室内は禁煙",
+        "penalty": "違反時は清掃費1,000,000 VND",
+        "designatedArea": "エントランス前に喫煙エリアあり"
+      },
+      "pets": {
+        "allowed": "ペット同伴不可",
+        "serviceAnimal": "24時間前までの事前連絡が必要"
+      },
+      "payment": {
+        "acceptedMethods": ["現金", "Visa", "Mastercard"],
+        "deposit": "直接予約はデポジット不要",
+        "vat": "料金はVAT込み"
+      },
+      "other": [
+        "1室につき駐車1台無料",
+        "17:00以降のチェックアウトは1時間ごとに100,000 VND追加"
+      ]
+    }
+  }
+]

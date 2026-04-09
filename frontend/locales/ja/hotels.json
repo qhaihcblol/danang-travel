@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "badge": "ホテルカテゴリ",
+    "title": "希望に合うホテルを、すばやく検索",
+    "subtitle": "立地、人数、設備、料金帯で比較しながら、ダナン滞在に最適なホテルを見つけられます。",
+    "loading": "注目画像を読み込んでいます..."
+  },
+  "search": {
+    "namePlaceholder": "ホテル名または特徴で検索",
+    "locationPlaceholder": "エリア / 区",
+    "adultsLabel": "大人",
+    "childrenLabel": "子ども",
+    "searchButton": "検索",
+    "resetButton": "リセット"
+  },
+  "results": {
+    "label": "注目ホテル",
+    "title": "おすすめ一覧",
+    "description": "入力条件と左側フィルターに基づいて結果を表示しています。",
+    "foundSuffix": "件",
+    "activeFiltersSuffix": "フィルター",
+    "sortLabel": "並び替え",
+    "sort": {
+      "recommended": "おすすめ",
+      "priceAsc": "料金が安い順",
+      "ratingDesc": "評価が高い順",
+      "reviewDesc": "レビューが多い順"
+    },
+    "emptyTitle": "該当するホテルが見つかりません",
+    "emptyDescription": "フィルター条件を緩めるか、リセットして別の候補をご確認ください。"
+  },
+  "filters": {
+    "title": "スマートフィルター",
+    "description": "客室、設備、ポリシーの実データをもとにホテルを絞り込みます。",
+    "clearButton": "クリア",
+    "starsLabel": "星ランク",
+    "maxBudgetLabel": "1泊あたりの上限予算",
+    "minRatingLabel": "最低評価",
+    "amenitiesLabel": "主要設備",
+    "roomTypesLabel": "客室タイプ",
+    "petPolicyLabel": "ペットポリシー",
+    "petFriendlyOnlyLabel": "ペット同伴可のみ表示",
+    "emptyAmenities": "絞り込み可能な設備がありません。",
+    "emptyRoomTypes": "絞り込み可能な客室タイプがありません。"
+  },
+  "card": {
+    "featuredLabel": "おすすめ",
+    "reviewsLabel": "件のレビュー",
+    "starSuffix": "つ星",
+    "fromPriceLabel": "最安",
+    "perNightLabel": "泊",
+    "maxGuestsLabel": "最大人数",
+    "roomTypesLabel": "客室タイプ",
+    "petFriendlyLabel": "ペット可",
+    "petUnavailableLabel": "ペット不可"
+  }
+}

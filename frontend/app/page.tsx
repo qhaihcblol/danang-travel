@@ -2,6 +2,7 @@
 
 import { type RefObject, useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import {
   Activity,
   BriefcaseBusiness,
@@ -74,6 +75,7 @@ function EdgeScrollButton({
 
 export default function Home() {
   const t = useTranslations('home');
+  const router = useRouter();
   const rawLocale = useLocale();
   const locale: AppLocale = isAppLocale(rawLocale) ? rawLocale : defaultLocale;
   const [searchQuery, setSearchQuery] = useState('');
@@ -120,6 +122,11 @@ export default function Home() {
   ];
 
   const handleCategoryClick = (id: string) => {
+    if (id === 'hotels') {
+      router.push('/hotels');
+      return;
+    }
+
     setSelectedCategory((currentCategory) => (currentCategory === id ? null : id));
   };
 

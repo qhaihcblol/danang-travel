@@ -1,0 +1,189 @@
+[
+  {
+    "hotelId": "hotel_001",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "Trước 10:00 phụ thu 50% giá phòng đêm đầu, từ 10:00-14:00 phụ thu 30% (tùy tình trạng phòng)",
+        "lateCheckOut": "Sau 12:00-14:00 phụ thu 30%, sau 14:00 phụ thu 50%"
+      },
+      "children": {
+        "policy": "Chấp nhận trẻ em mọi độ tuổi",
+        "freeStay": "Trẻ dưới 6 tuổi miễn phí khi ở chung giường với bố mẹ (tối đa 1 trẻ/phòng)",
+        "extraBed": "Trẻ từ 6-11 tuổi phụ thu 180.000 VND/đêm nếu không dùng giường phụ; giường phụ 350.000 VND/đêm"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "Miễn phí hủy trước 48 giờ so với giờ nhận phòng",
+        "lateCancellationFee": "Hủy trong vòng 48 giờ tính 100% tiền đêm đầu",
+        "noShowFee": "Không đến nhận phòng tính 100% tổng giá trị đặt phòng"
+      },
+      "smoking": {
+        "inRoom": "Không hút thuốc trong phòng",
+        "penalty": "Phụ thu vệ sinh 1.500.000 VND nếu vi phạm",
+        "designatedArea": "Có khu vực hút thuốc riêng tại tầng trệt"
+      },
+      "pets": {
+        "allowed": "Không cho phép thú cưng",
+        "serviceAnimal": "Hỗ trợ theo quy định đối với động vật hỗ trợ y tế"
+      },
+      "payment": {
+        "acceptedMethods": ["Tiền mặt", "Visa", "Mastercard", "JCB"],
+        "deposit": "Yêu cầu đặt cọc 1 đêm khi nhận phòng",
+        "vat": "Giá đã bao gồm VAT và phí dịch vụ"
+      },
+      "other": ["Giữ yên tĩnh sau 22:00", "Không tổ chức tiệc trong phòng"]
+    }
+  },
+  {
+    "hotelId": "hotel_002",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "15:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "Nhận phòng sớm từ 12:00 phụ thu 40% nếu còn phòng",
+        "lateCheckOut": "Trả phòng sau 12:00-15:00 phụ thu 50%, sau 15:00 tính 100%"
+      },
+      "children": {
+        "policy": "Chấp nhận trẻ em mọi độ tuổi",
+        "freeStay": "Trẻ dưới 6 tuổi miễn phí khi ở chung giường với bố mẹ",
+        "extraBed": "Giường phụ 450.000 VND/đêm, áp dụng theo yêu cầu và tình trạng phòng"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "Miễn phí hủy trước 72 giờ so với giờ nhận phòng",
+        "lateCancellationFee": "Hủy trong vòng 72 giờ tính 100% tiền đêm đầu",
+        "noShowFee": "Không đến nhận phòng tính 100% tổng giá trị đặt phòng"
+      },
+      "smoking": {
+        "inRoom": "Không hút thuốc trong phòng",
+        "penalty": "Phụ thu vệ sinh 2.000.000 VND nếu vi phạm",
+        "designatedArea": "Có khu vực hút thuốc tại ban công chung"
+      },
+      "pets": {
+        "allowed": "Không cho phép thú cưng",
+        "serviceAnimal": "Vui lòng thông báo trước khi đặt phòng"
+      },
+      "payment": {
+        "acceptedMethods": ["Tiền mặt", "Visa", "Mastercard", "JCB", "Amex"],
+        "deposit": "Yêu cầu giữ chỗ bằng thẻ tín dụng hoặc đặt cọc 1 đêm",
+        "vat": "Giá chưa bao gồm phụ thu dịp lễ, tết"
+      },
+      "other": [
+        "Phụ thu người thứ 3 từ 12 tuổi: 300.000 VND/đêm",
+        "Giữ yên tĩnh sau 22:30"
+      ]
+    }
+  },
+  {
+    "hotelId": "hotel_003",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "11:30",
+        "earlyCheckIn": "Trước 11:00 phụ thu 30%, từ 11:00-14:00 miễn phí nếu còn phòng",
+        "lateCheckOut": "Sau 11:30-13:30 phụ thu 20%, sau 13:30 phụ thu 50%"
+      },
+      "children": {
+        "policy": "Chấp nhận trẻ em mọi độ tuổi",
+        "freeStay": "Trẻ dưới 5 tuổi miễn phí khi ngủ chung giường",
+        "extraBed": "Trẻ từ 5-11 tuổi phụ thu 150.000 VND/đêm; giường phụ 300.000 VND/đêm"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "Miễn phí hủy trước 24 giờ so với giờ nhận phòng",
+        "lateCancellationFee": "Hủy trong vòng 24 giờ tính 100% tiền đêm đầu",
+        "noShowFee": "Không đến nhận phòng tính 100% tổng giá trị đặt phòng"
+      },
+      "smoking": {
+        "inRoom": "Không hút thuốc trong phòng",
+        "penalty": "Phụ thu vệ sinh 1.200.000 VND nếu vi phạm",
+        "designatedArea": "Có khu vực hút thuốc ngoài trời"
+      },
+      "pets": {
+        "allowed": "Không cho phép thú cưng",
+        "serviceAnimal": "Hỗ trợ theo yêu cầu trước khi đến"
+      },
+      "payment": {
+        "acceptedMethods": ["Tiền mặt", "Visa", "Mastercard"],
+        "deposit": "Không bắt buộc đặt cọc trước đối với giá linh hoạt",
+        "vat": "Giá đã bao gồm VAT, chưa gồm phụ thu lễ"
+      },
+      "other": ["Phụ thu cuối tuần 10%", "Phụ thu dịp lễ, tết theo thông báo"]
+    }
+  },
+  {
+    "hotelId": "hotel_004",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "14:00",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "Từ 12:00-14:00 miễn phí nếu còn phòng",
+        "lateCheckOut": "Sau 12:00-15:00 phụ thu 30%, sau 15:00 tính 100%"
+      },
+      "children": {
+        "policy": "Chấp nhận trẻ em mọi độ tuổi",
+        "freeStay": "Trẻ dưới 6 tuổi miễn phí khi ở chung giường",
+        "extraBed": "Giường phụ 380.000 VND/đêm, tối đa 1 giường/phòng"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "Miễn phí hủy trước 48 giờ so với giờ nhận phòng",
+        "lateCancellationFee": "Hủy trong vòng 48 giờ tính 100% tiền đêm đầu",
+        "noShowFee": "Không đến nhận phòng tính 100% tổng giá trị đặt phòng"
+      },
+      "smoking": {
+        "inRoom": "Không hút thuốc trong phòng",
+        "penalty": "Phụ thu vệ sinh 1.500.000 VND nếu vi phạm",
+        "designatedArea": "Có khu vực hút thuốc tại sân thượng"
+      },
+      "pets": {
+        "allowed": "Cho phép thú cưng dưới 10kg",
+        "fee": "Phụ phí 250.000 VND/đêm/thú cưng",
+        "note": "Phải đăng ký trước, không để thú cưng một mình trong phòng"
+      },
+      "payment": {
+        "acceptedMethods": ["Tiền mặt", "Visa", "Mastercard", "JCB"],
+        "deposit": "Yêu cầu đặt cọc 500.000 VND khi nhận phòng",
+        "vat": "Giá đã gồm VAT, phụ thu lễ tính riêng"
+      },
+      "other": ["Không tổ chức tiệc trong phòng", "Giữ yên tĩnh sau 22:00"]
+    }
+  },
+  {
+    "hotelId": "hotel_005",
+    "policies": {
+      "checkInOut": {
+        "checkInFrom": "13:30",
+        "checkOutBefore": "12:00",
+        "earlyCheckIn": "Nhận sớm trước 13:30 miễn phí nếu còn phòng",
+        "lateCheckOut": "Sau 12:00-14:00 phụ thu 20%, sau 14:00 phụ thu 50%"
+      },
+      "children": {
+        "policy": "Chấp nhận trẻ em mọi độ tuổi",
+        "freeStay": "Trẻ dưới 6 tuổi miễn phí khi ở chung giường với bố mẹ",
+        "extraBed": "Giường phụ 300.000 VND/đêm theo yêu cầu"
+      },
+      "cancellation": {
+        "freeCancellationWindow": "Miễn phí hủy trước 24 giờ so với giờ nhận phòng",
+        "lateCancellationFee": "Hủy trong vòng 24 giờ tính 100% tiền đêm đầu",
+        "noShowFee": "Không đến nhận phòng tính 100% tổng giá trị đặt phòng"
+      },
+      "smoking": {
+        "inRoom": "Không hút thuốc trong phòng",
+        "penalty": "Phụ thu vệ sinh 1.000.000 VND nếu vi phạm",
+        "designatedArea": "Có khu vực hút thuốc trước sảnh"
+      },
+      "pets": {
+        "allowed": "Không cho phép thú cưng",
+        "serviceAnimal": "Vui lòng thông báo trước tối thiểu 24 giờ"
+      },
+      "payment": {
+        "acceptedMethods": ["Tiền mặt", "Visa", "Mastercard"],
+        "deposit": "Không yêu cầu đặt cọc với đơn đặt trực tiếp",
+        "vat": "Giá đã bao gồm VAT"
+      },
+      "other": [
+        "Miễn phí 1 chỗ đậu xe/phòng",
+        "Phụ thu thêm 100.000 VND/giờ nếu trả phòng quá 17:00"
+      ]
+    }
+  }
+]

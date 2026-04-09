@@ -3,8 +3,8 @@
     "hotelId": "hotel_001",
     "rooms": [
       {
-        "type": "Deluxe",
-        "description": "Phòng Deluxe rộng rãi với ban công nhìn ra biển, trang bị đầy đủ tiện nghi hiện đại.",
+        "type": "デラックス",
+        "description": "海を望むバルコニー付きの広々としたデラックスルーム。モダンな設備を完備しています。",
         "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
@@ -13,20 +13,20 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 1200000,
         "currency": "VND",
-        "bedType": "King",
+        "bedType": "キング",
         "quantity": 10,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar",
-          "Bồn tắm"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニバー",
+          "バスタブ"
         ]
       },
       {
-        "type": "Suite",
-        "description": "Phòng Suite sang trọng với phòng khách riêng, ban công rộng và view biển tuyệt đẹp.",
+        "type": "スイート",
+        "description": "独立したリビング、広いバルコニー、美しいオーシャンビューを備えたラグジュアリースイート。",
         "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
@@ -35,17 +35,17 @@
         "capacity": [{ "adults": 2, "children": 2 }],
         "price": 2200000,
         "currency": "VND",
-        "bedType": "King",
+        "bedType": "キング",
         "quantity": 5,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar",
-          "Bồn tắm",
-          "Phòng khách riêng",
-          "Ban công rộng"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニバー",
+          "バスタブ",
+          "独立したリビング",
+          "広いバルコニー"
         ]
       }
     ]
@@ -54,8 +54,8 @@
     "hotelId": "hotel_002",
     "rooms": [
       {
-        "type": "Superior",
-        "description": "Phòng Superior tiện nghi với cửa sổ nhìn ra thành phố.",
+        "type": "スーペリア",
+        "description": "シティビューの窓がある快適なスーペリアルーム。",
         "coverImage": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
@@ -64,20 +64,14 @@
         "capacity": [{ "adults": 2, "children": 0 }],
         "price": 900000,
         "currency": "VND",
-        "bedType": "Queen",
+        "bedType": "クイーン",
         "quantity": 8,
         "area": 35,
-        "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Mini fridge"
-        ]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン", "ミニ冷蔵庫"]
       },
       {
-        "type": "Deluxe",
-        "description": "Phòng Deluxe rộng rãi với giường King và view thành phố.",
-
+        "type": "デラックス",
+        "description": "キングベッドとシティビューを備えた広々としたデラックスルーム。",
         "coverImage": "https://images.pexels.com/photos/164596/pexels-photo-164596.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/164596/pexels-photo-164596.jpeg",
@@ -86,15 +80,15 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 1300000,
         "currency": "VND",
-        "bedType": "King",
+        "bedType": "キング",
         "quantity": 6,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Mini fridge",
-          "Bồn tắm"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニ冷蔵庫",
+          "バスタブ"
         ]
       }
     ]
@@ -103,8 +97,8 @@
     "hotelId": "hotel_003",
     "rooms": [
       {
-        "type": "Standard",
-        "description": "Phòng Standard ấm cúng, phù hợp cho chuyến công tác ngắn ngày.",
+        "type": "スタンダード",
+        "description": "短期出張にも適した、落ち着いたスタンダードルーム。",
         "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
@@ -113,15 +107,14 @@
         "capacity": [{ "adults": 2, "children": 0 }],
         "price": 700000,
         "currency": "VND",
-        "bedType": "Single x2",
+        "bedType": "シングルベッド2台",
         "quantity": 12,
         "area": 35,
-
-        "amenities": ["Wi-Fi miễn phí", "TV màn hình phẳng", "Điều hòa"]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン"]
       },
       {
-        "type": "Deluxe",
-        "description": "Phòng Deluxe rộng rãi, ban công nhìn ra sông.",
+        "type": "デラックス",
+        "description": "川を望むバルコニー付きの広々としたデラックスルーム。",
         "coverImage": "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg",
@@ -130,20 +123,14 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 1250000,
         "currency": "VND",
-        "bedType": "Queen",
+        "bedType": "クイーン",
         "quantity": 7,
         "area": 35,
-
-        "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar"
-        ]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン", "ミニバー"]
       },
       {
-        "type": "Suite",
-        "description": "Phòng Suite cao cấp với phòng khách riêng và bếp nhỏ.",
+        "type": "スイート",
+        "description": "独立したリビングとミニキッチンを備えた上質なスイートルーム。",
         "coverImage": "https://images.pexels.com/photos/261107/pexels-photo-261107.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261107/pexels-photo-261107.jpeg",
@@ -152,17 +139,17 @@
         "capacity": [{ "adults": 4, "children": 2 }],
         "price": 2500000,
         "currency": "VND",
-        "bedType": "King + Sofa Bed",
+        "bedType": "キングベッド + ソファベッド",
         "quantity": 3,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar",
-          "Bồn tắm",
-          "Phòng khách riêng",
-          "Bếp nhỏ"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニバー",
+          "バスタブ",
+          "独立したリビング",
+          "ミニキッチン"
         ]
       }
     ]
@@ -171,8 +158,8 @@
     "hotelId": "hotel_004",
     "rooms": [
       {
-        "type": "Superior",
-        "description": "Phòng Superior 2 giường đơn, phù hợp cho gia đình nhỏ.",
+        "type": "スーペリア",
+        "description": "シングルベッド2台を備えた、小さな家族向けのスーペリアルーム。",
         "coverImage": "https://images.pexels.com/photos/261109/pexels-photo-261109.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261109/pexels-photo-261109.jpeg",
@@ -181,19 +168,14 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 950000,
         "currency": "VND",
-        "bedType": "Single x2",
+        "bedType": "シングルベッド2台",
         "quantity": 8,
         "area": 35,
-        "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Bồn tắm"
-        ]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン", "バスタブ"]
       },
       {
-        "type": "Deluxe",
-        "description": "Phòng Deluxe sang trọng với giường King và ban công hướng thành phố.",
+        "type": "デラックス",
+        "description": "キングベッドとシティビューのバルコニーを備えた上質なデラックスルーム。",
         "coverImage": "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
@@ -202,15 +184,15 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 1400000,
         "currency": "VND",
-        "bedType": "King",
+        "bedType": "キング",
         "quantity": 5,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar",
-          "Bồn tắm"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニバー",
+          "バスタブ"
         ]
       }
     ]
@@ -219,8 +201,8 @@
     "hotelId": "hotel_005",
     "rooms": [
       {
-        "type": "Standard",
-        "description": "Phòng Standard đơn giản, đầy đủ tiện nghi cơ bản.",
+        "type": "スタンダード",
+        "description": "シンプルで基本設備がそろったスタンダードルーム。",
         "coverImage": "https://images.pexels.com/photos/261113/pexels-photo-261113.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261113/pexels-photo-261113.jpeg",
@@ -229,14 +211,14 @@
         "capacity": [{ "adults": 2, "children": 0 }],
         "price": 650000,
         "currency": "VND",
-        "bedType": "Single x2",
+        "bedType": "シングルベッド2台",
         "quantity": 15,
         "area": 35,
-        "amenities": ["Wi-Fi miễn phí", "TV màn hình phẳng", "Điều hòa"]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン"]
       },
       {
-        "type": "Deluxe",
-        "description": "Phòng Deluxe hiện đại với ban công và view thành phố.",
+        "type": "デラックス",
+        "description": "バルコニーとシティビューを備えたモダンなデラックスルーム。",
         "coverImage": "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
@@ -245,19 +227,14 @@
         "capacity": [{ "adults": 2, "children": 1 }],
         "price": 1250000,
         "currency": "VND",
-        "bedType": "Queen",
+        "bedType": "クイーン",
         "quantity": 7,
         "area": 35,
-        "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar"
-        ]
+        "amenities": ["無料Wi-Fi", "薄型テレビ", "エアコン", "ミニバー"]
       },
       {
-        "type": "Suite",
-        "description": "Phòng Suite cao cấp với phòng khách riêng, bếp nhỏ và ban công.",
+        "type": "スイート",
+        "description": "独立したリビング、ミニキッチン、バルコニーを備えた上質なスイートルーム。",
         "coverImage": "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg",
         "gallery": [
           "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg",
@@ -266,18 +243,18 @@
         "capacity": [{ "adults": 4, "children": 2 }],
         "price": 2400000,
         "currency": "VND",
-        "bedType": "King + Sofa Bed",
+        "bedType": "キングベッド + ソファベッド",
         "quantity": 4,
         "area": 35,
         "amenities": [
-          "Wi-Fi miễn phí",
-          "TV màn hình phẳng",
-          "Điều hòa",
-          "Minibar",
-          "Bồn tắm",
-          "Phòng khách riêng",
-          "Bếp nhỏ",
-          "Ban công"
+          "無料Wi-Fi",
+          "薄型テレビ",
+          "エアコン",
+          "ミニバー",
+          "バスタブ",
+          "独立したリビング",
+          "ミニキッチン",
+          "バルコニー"
         ]
       }
     ]

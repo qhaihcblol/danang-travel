@@ -1,0 +1,152 @@
+[
+  {
+    "id": "hotel_001",
+    "name": "Grand Sunrise Boutiqueホテル",
+    "address": "10 Lê Lộ通り, Bắc Mỹ Phú坊, Ngũ Hành Sơn区, Đà Nẵng市",
+    "highlights": ["高級", "海近く", "サービス良好"],
+    "coverImage": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg"
+    ],
+    "shortDescription": "海に近い豪華な4つ星ホテル。プロフェッショナルなサービスと充実した設備を提供します。",
+    "description": "Grand Sunrise Boutiqueホテルは、Đà Nẵng市 Ngũ Hành Sơn区 Bắc Mỹ Phú坊の好立地に位置しています。洗練されたモダンなデザインに加え、快適な客室、屋外プール、多彩な料理を楽しめるレストラン、リラックスできるスパサービスを備えています。Mỹ Khêビーチでの滞在やダナンの人気観光地巡りに最適なホテルです。",
+    "stars": 4,
+    "rating": 4.7,
+    "reviewCount": 1241,
+    "location": {
+      "lat": 16.035,
+      "lng": 108.253
+    },
+    "priceRange": {
+      "min": 750000,
+      "max": 2200000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_002",
+    "name": "Riverside Luxuryホテル",
+    "address": "12 Bạch Đằng通り, Hải Châu区, Đà Nẵng市",
+    "highlights": ["Hàn川ビュー", "市内中心", "高級スパ"],
+    "coverImage": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg"
+    ],
+    "shortDescription": "Hàn川の景色を望む5つ星ホテル。市内中心部に位置し、高級スパとレストランを完備しています。",
+    "description": "Riverside Luxuryホテルは、Đà Nẵng市中心部のHàn川沿いに位置するラグジュアリーホテルです。上質なデザインとハイレベルなサービスが特徴で、美しい眺望の客室、高級スパ、国際色豊かなレストラン、最新の設備を提供しています。川辺の落ち着いた空間で、上質な滞在を楽しみたい方に最適です。",
+    "stars": 5,
+    "rating": 4.9,
+    "reviewCount": 856,
+    "location": {
+      "lat": 16.067,
+      "lng": 108.222
+    },
+    "priceRange": {
+      "min": 1500000,
+      "max": 4000000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_003",
+    "name": "Ocean Viewホテル",
+    "address": "50 Võ Nguyên Giáp通り, Sơn Trà区, Đà Nẵng市",
+    "highlights": ["Mỹ Khêビーチ近く", "屋外プール", "シーフードレストラン"],
+    "coverImage": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+      "https://images.pexels.com/photos/261104/pexels-photo-261104.jpeg",
+      "https://images.pexels.com/photos/261105/pexels-photo-261105.jpeg"
+    ],
+    "shortDescription": "Mỹ Khêビーチ近くの4つ星ホテル。屋外プールと新鮮なシーフードレストランを備えています。",
+    "description": "Ocean ViewホテルはMỹ Khêビーチ近くの便利な立地にあり、海を望むモダンな客室を提供しています。屋外プール、新鮮な海鮮料理が楽しめるレストランに加え、ジムや空港送迎などの設備とサービスも利用できます。海辺でゆったり過ごしながらダナン観光を楽しみたい方におすすめです。",
+    "stars": 4,
+    "rating": 4.5,
+    "reviewCount": 942,
+    "location": {
+      "lat": 16.073,
+      "lng": 108.243
+    },
+    "priceRange": {
+      "min": 850000,
+      "max": 2500000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_004",
+    "name": "Sunset Boutiqueホテル",
+    "address": "25 Trường Sa通り, Ngũ Hành Sơn区, Đà Nẵng市",
+    "highlights": ["洗練デザイン", "海近く", "ルーフトップバー"],
+    "coverImage": "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261100/pexels-photo-261100.jpeg",
+      "https://images.pexels.com/photos/261111/pexels-photo-261111.jpeg",
+      "https://images.pexels.com/photos/261112/pexels-photo-261112.jpeg",
+      "https://images.pexels.com/photos/261110/pexels-photo-261110.jpeg"
+    ],
+    "shortDescription": "海の近くにあるラグジュアリーなブティックホテル。モダンデザインとルーフトップバーが魅力です。",
+    "description": "Sunset Boutiqueホテルは海の近くに位置する高級ブティックホテルで、モダンかつ上品な空間が特徴です。美しい景色を楽しめるルーフトップバー、快適な客室、スパサービス、多彩な料理を提供するレストランを備えています。贅沢で落ち着いたリゾート滞在を求める方にぴったりです。",
+    "stars": 4,
+    "rating": 4.6,
+    "reviewCount": 687,
+    "location": {
+      "lat": 16.038,
+      "lng": 108.255
+    },
+    "priceRange": {
+      "min": 1100000,
+      "max": 3000000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "hotel_005",
+    "name": "Central Danangホテル",
+    "address": "80 Nguyễn Văn Linh通り, Hải Châu区, Đà Nẵng市",
+    "highlights": ["中心部近く", "会議室完備", "手厚いサービス"],
+    "coverImage": "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+    "gallery": [
+      "https://images.pexels.com/photos/261103/pexels-photo-261103.jpeg",
+      "https://images.pexels.com/photos/261115/pexels-photo-261115.jpeg",
+      "https://images.pexels.com/photos/261116/pexels-photo-261116.jpeg",
+      "https://images.pexels.com/photos/261117/pexels-photo-261117.jpeg"
+    ],
+    "shortDescription": "中心部に近い快適な3つ星ホテル。会議室と丁寧なサービスを提供しています。",
+    "description": "Central Danangホテルは、Đà Nẵng市中心部に近い便利な立地の3つ星ホテルです。快適な客室、モダンな会議室、丁寧なサービスを備え、観光にもビジネスにも適しています。主要観光地へのアクセスを重視する旅行者におすすめのホテルです。",
+    "stars": 3,
+    "rating": 4.3,
+    "reviewCount": 412,
+    "location": {
+      "lat": 16.06,
+      "lng": 108.222
+    },
+    "priceRange": {
+      "min": 500000,
+      "max": 1200000,
+      "currency": "VND"
+    },
+    "isActive": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2026-01-15T10:00:00Z"
+  }
+]

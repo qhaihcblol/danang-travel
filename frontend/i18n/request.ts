@@ -10,10 +10,11 @@ export default getRequestConfig(async () => {
       ? localeFromCookie
       : defaultLocale;
 
-  const [header, home, authLogin, authRegister, authForgotPassword] =
+  const [header, home, hotels, authLogin, authRegister, authForgotPassword] =
     await Promise.all([
       import(`../locales/${locale}/header.json`),
       import(`../locales/${locale}/home.json`),
+      import(`../locales/${locale}/hotels.json`),
       import(`../locales/${locale}/auth/login.json`),
       import(`../locales/${locale}/auth/register.json`),
       import(`../locales/${locale}/auth/forgot-password.json`),
@@ -24,6 +25,7 @@ export default getRequestConfig(async () => {
     messages: {
       header: header.default,
       home: home.default,
+      hotels: hotels.default,
       auth: {
         login: authLogin.default,
         register: authRegister.default,

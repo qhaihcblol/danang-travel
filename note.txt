@@ -1,1 +1,8 @@
-Hãy triển khai chỉnh sửa UI cho trang home 
+Hãy thiết kế giao diện cho trang /hotels, là trang khi ta nhấn vào category Hotel, 
+Đầu tiên là ảnh carousel tương tự như trang home. và thanh tìm kiếm đồng bộ đẹp
+Thanh tìm kiếm theo Tên/Địa điểm/Số người (người lớn/trẻ em)
+
+Thiết kế giao diện đẹp, dễ nhìn, hài hòa, rõ ràng, đồng bộ với website hiện tại
+Phía dưới là các khách sạn nổi bật 
+Bênh cạnh là bộ lọc, hãy suy nghĩ phù hợp dựa vô nội dung các file json trong hotel
+Viết frontend rõ ràng, phân bố src code clean rõ ràng, type đàng hoàng

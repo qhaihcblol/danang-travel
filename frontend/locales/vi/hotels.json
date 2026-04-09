@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "badge": "Danh mục khách sạn",
+    "title": "Tìm khách sạn đúng gu, đúng nhu cầu",
+    "subtitle": "So sánh nhanh theo vị trí, số người, tiện nghi và mức giá để chọn nơi lưu trú phù hợp nhất cho hành trình tại Đà Nẵng.",
+    "loading": "Đang tải hình ảnh nổi bật..."
+  },
+  "search": {
+    "namePlaceholder": "Tên khách sạn hoặc điểm nhấn",
+    "locationPlaceholder": "Địa điểm / quận",
+    "adultsLabel": "Người lớn",
+    "childrenLabel": "Trẻ em",
+    "searchButton": "Tìm",
+    "resetButton": "Đặt lại"
+  },
+  "results": {
+    "label": "Khách sạn nổi bật",
+    "title": "Danh sách gợi ý",
+    "description": "Kết quả được lọc theo thông tin bạn nhập và bộ lọc bên trái.",
+    "foundSuffix": "khách sạn",
+    "activeFiltersSuffix": "bộ lọc",
+    "sortLabel": "Sắp xếp",
+    "sort": {
+      "recommended": "Đề xuất",
+      "priceAsc": "Giá thấp đến cao",
+      "ratingDesc": "Đánh giá cao",
+      "reviewDesc": "Nhiều đánh giá"
+    },
+    "emptyTitle": "Không có khách sạn phù hợp",
+    "emptyDescription": "Hãy nới lỏng điều kiện lọc hoặc đặt lại bộ lọc để xem thêm lựa chọn phù hợp với chuyến đi của bạn."
+  },
+  "filters": {
+    "title": "Bộ lọc thông minh",
+    "description": "Lọc theo dữ liệu phòng, tiện nghi và chính sách thực tế từ hệ thống khách sạn.",
+    "clearButton": "Xóa lọc",
+    "starsLabel": "Hạng sao",
+    "maxBudgetLabel": "Ngân sách tối đa / đêm",
+    "minRatingLabel": "Đánh giá tối thiểu",
+    "amenitiesLabel": "Tiện nghi nổi bật",
+    "roomTypesLabel": "Loại phòng",
+    "petPolicyLabel": "Chính sách thú cưng",
+    "petFriendlyOnlyLabel": "Chỉ hiện khách sạn cho phép thú cưng",
+    "emptyAmenities": "Chưa có tiện nghi để lọc.",
+    "emptyRoomTypes": "Chưa có loại phòng để lọc."
+  },
+  "card": {
+    "featuredLabel": "Được đề xuất",
+    "reviewsLabel": "đánh giá",
+    "starSuffix": " sao",
+    "fromPriceLabel": "Từ",
+    "perNightLabel": "đêm",
+    "maxGuestsLabel": "Sức chứa tối đa",
+    "roomTypesLabel": "loại phòng",
+    "petFriendlyLabel": "Cho thú cưng",
+    "petUnavailableLabel": "Không thú cưng"
+  }
+}
